@@ -1,12 +1,12 @@
-import project0 from "../assets/projects/project-0.PNG";
-import project1 from "../assets/projects/project-1.PNG";
-import project2 from "../assets/projects/project-2.PNG";
-import project3 from "../assets/projects/project-3.PNG";
-import project4 from "../assets/projects/project-4.PNG";
-import project5 from "../assets/projects/project-5.PNG";
-import project6 from "../assets/projects/project-6.PNG";
-import project7 from "../assets/projects/project-7.PNG";
-import project8 from "../assets/projects/project-8.PNG";
+import project0 from "../assets/projects/project-0.png";
+import project1 from "../assets/projects/project-1.png";
+import project2 from "../assets/projects/project-2.png";
+import project3 from "../assets/projects/project-3.png";
+import project4 from "../assets/projects/project-4.png";
+import project5 from "../assets/projects/project-5.png";
+import project6 from "../assets/projects/project-6.png";
+import project7 from "../assets/projects/project-7.png";
+import project8 from "../assets/projects/project-8.png";
 
 export const HERO_CONTENT = `Hi, I am Ahmed Khaled, a Freelancer Full-stack web developer using MERN-Stack in front-end I can use react,typescript and Nextjs and in back-end use MongoDB, Express, and Node. js. `;
 
