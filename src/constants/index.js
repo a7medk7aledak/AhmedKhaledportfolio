@@ -1,4 +1,4 @@
-import Gym from "../assets/projects/project0.PNG";
+import Gym from "../assets/projects/project0.png";
 import Customer from "../assets/projects/project1.PNG";
 import film from "../assets/projects/project-111.png";
 import Bindi from "../assets/projects/project-2.png";
