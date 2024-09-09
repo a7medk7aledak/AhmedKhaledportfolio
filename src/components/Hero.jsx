@@ -2,7 +2,7 @@ import { HERO_CONTENT } from "../constants";
 import profile from "../assets/AhmedKhaledProfile.png";
 import { motion } from "framer-motion";
 
-const cvLink = "https://drive.google.com/file/d/1BBJAAfX_csqHPWmTq64wA-tYCECXzI7R/view?usp=sharing";
+const cvLink = "https://drive.google.com/file/d/1E5qDXkt9LHcIzlC2o8da5xYQH-F90gOo/view?usp=sharing";
 
 const container = (delay) => ({
   hidden: { x: -100, opacity: 0 },
