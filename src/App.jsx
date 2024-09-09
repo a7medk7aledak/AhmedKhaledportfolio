@@ -5,7 +5,7 @@ import Technologies from "./components/Technologies";
 import Experience from "./components/Experience.jsx";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
-import ComputerALL from "./components/ComputerALL.jsx";
+// import ComputerALL from "./components/ComputerALL.jsx";
 
 const App = () => {
   
@@ -20,7 +20,7 @@ const App = () => {
        
           <Hero />
         <About />
-        <ComputerALL/>
+        {/* <ComputerALL/> */}
           <Technologies />
           <Experience />
           <Projects />
