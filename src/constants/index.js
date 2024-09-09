@@ -8,7 +8,7 @@ import project5 from "../assets/projects/project-5.png";
 import project6 from "../assets/projects/project-6.png";
 import project7 from "../assets/projects/project-7.png";
 import project8 from "../assets/projects/project-8.png";
-import blog from "../assets/projects/blog.png";
+import blog from "../assets/projects/blog.PNG";
 import bloggym from "../assets/projects/bloggym.PNG";
 
 export const HERO_CONTENT = `Hi, I am Ahmed Khaled, a Freelancer Full-stack web developer using MERN-Stack in front-end I can use react,typescript and Nextjs using many libraries like bootstrap and tailwindcss library and in back-end use MongoDB, Express, and Node. js.`;
