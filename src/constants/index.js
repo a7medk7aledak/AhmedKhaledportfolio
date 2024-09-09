@@ -1,15 +1,15 @@
-import Gym from "../assets/projects/project0.png";
+import Gym from "../assets/projects/project0.PNG";
 import Customer from "../assets/projects/project1.PNG";
 import film from "../assets/projects/project-111.png";
 import Bindi from "../assets/projects/project-2.png";
-import project3 from "../assets/projects/project-3.png";
+import project3 from "../assets/projects/project-3.PNG";
 import social from "../assets/projects/project-4.png";
 import project5 from "../assets/projects/project-5.png";
 import project6 from "../assets/projects/project-6.png";
 import project7 from "../assets/projects/project-7.png";
 import project8 from "../assets/projects/project-8.png";
 import blog from "../assets/projects/blog.png";
-import bloggym from "../assets/projects/bloggym.png";
+import bloggym from "../assets/projects/bloggym.PNG";
 
 export const HERO_CONTENT = `Hi, I am Ahmed Khaled, a Freelancer Full-stack web developer using MERN-Stack in front-end I can use react,typescript and Nextjs using many libraries like bootstrap and tailwindcss library and in back-end use MongoDB, Express, and Node. js.`;
 
