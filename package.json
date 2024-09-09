@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "postinstall": "git lfs pull"
+    "postinstall": "git lfs install && git lfs pull"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
