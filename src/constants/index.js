@@ -58,7 +58,7 @@ export const PROJECTS = [
     description:
       "A platform specialized in the fields of programming and technology. It also has a version specialized in sports, nutrition, and gym",
     technologies: ["Node.js", "MongoDB", "Express"],
-    link: "https://bak-blog-1.onrender.com/",
+    link: "https://capsule-blog.onrender.com/",
     github: "https://github.com/a7medk7aledak/bak-blog",
   },
   {
