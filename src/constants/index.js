@@ -24,7 +24,7 @@ export const EXPERIENCES = [
   {
     year: "2024 to 2025",
     role: "Full Stack Developer(MERN-Stack)",
-    company: "freelance",
+    company: "Upwork",
     description: `Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for data communication. Collaborated with cross-functional teams to deliver high-quality software products on schedule.`,
     technologies: [
       "react",
