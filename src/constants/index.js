@@ -11,6 +11,9 @@ import project8 from "../assets/projects/project-8.png";
 import blog from "../assets/projects/blog.PNG";
 import bloggym from "../assets/projects/bloggym.PNG";
 
+
+import upworkLogo from "../assets/experience/upwork.png";
+
 export const HERO_CONTENT = `Hi, I am Ahmed Khaled, a Freelancer Full-stack web developer using MERN-Stack in front-end I can use react,typescript and Nextjs using many libraries like bootstrap and tailwindcss library and in back-end use MongoDB, Express, and Node. js.`;
 
 export const ABOUT_TEXT = `I am Ahmed Khaled, a communications engineering student working as a Freelancer full-stack web developer, I am a dedicated and versatile full-stack developer with a passion for creating efficient and user-friendly web applications. I can use Machine learning and AI in my work, and I am a competitive Programmer in ECPC Competitions, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, Nextjs, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolvedI am Ahmed Khaled, Highly motivated Software Engineer and Full-Stack Web Developer. Proficient in modern web development technologies, including React, Next.js, Node.js, Express.js, and database solutions like MySQL and MongoDB.
@@ -18,13 +21,14 @@ Additionally, I bring expertise in Artificial Intelligence (AI) and Machine Lear
 
 As a competitive programmer, I have participated in ECPC competitions as part of a team, where we collaboratively tackled complex algorithmic problems under tight deadlines. These experiences honed my problem-solving skills, enhanced my ability to work effectively in team settings, and strengthened my collaborative mindset.
 
-I also manage a YouTube channel dedicated to teaching programming and web development. Through structured tutorials and crash courses, I empower learners to master topics like JavaScript, React, and backend development, fostering a deeper understanding of coding concepts. into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
+I also manage a YouTube channel dedicated to teaching programming and web development. Through structured tutorials and crash courses, I empower learners to master topics like JavaScript, React, and backend development, fostering a deeper understanding of coding concepts. into a career where I continuously strive to learn and adapt to new challenges. `;
 
 export const EXPERIENCES = [
   {
-    year: "2024 to 2025",
+    year: "Oct 2023 - Jun 2024",
     role: "Full Stack Developer(MERN-Stack)",
     company: "Upwork",
+    companyLogo: upworkLogo,
     description: `Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for data communication. Collaborated with cross-functional teams to deliver high-quality software products on schedule.`,
     technologies: [
       "react",
@@ -37,6 +41,7 @@ export const EXPERIENCES = [
       "Bootstrap",
     ],
   },
+  
 ];
 
 export const PROJECTS = [
