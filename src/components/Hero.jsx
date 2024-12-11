@@ -3,7 +3,7 @@ import profile from "../assets/AhmedKhaledProfile.png";
 import { motion } from "framer-motion";
 import { FiLinkedin, FiFileText } from "react-icons/fi";
 
-const cvLink = "chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://aietedu-my.sharepoint.com/personal/ahmed_khaled2116503_aiet_edu_eg/Documents/Ahmed_Khaled_cv.pdf?login_hint=ahmed.khaled2116503%40aiet.edu.eg";
+const cvLink = "https://www.canva.com/design/DAGWiqWXWo8/LQ-RkcFn5Xc8ez-EMsWJPg/edit?utm_content=DAGWiqWXWo8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton";
 
 const slideIn = (direction, delay) => ({
   hidden: {
