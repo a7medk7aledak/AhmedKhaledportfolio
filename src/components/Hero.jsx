@@ -3,7 +3,7 @@ import profile from "../assets/AhmedKhaledProfile.png";
 import { motion } from "framer-motion";
 import { FiLinkedin, FiFileText } from "react-icons/fi";
 
-const cvLink = "https://www.canva.com/design/DAGWiqWXWo8/LQ-RkcFn5Xc8ez-EMsWJPg/edit?utm_content=DAGWiqWXWo8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton";
+const cvLink = "https://www.canva.com/design/DAGZAU7NkDM/O3I0897bYs-ghmu2ZwKHWw/edit?utm_content=DAGZAU7NkDM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton";
 
 const slideIn = (direction, delay) => ({
   hidden: {
