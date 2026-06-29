@@ -22,7 +22,7 @@ const Hero = () => {
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="pb-8 text-6xl font-thin tracking-tight lg:text-8xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+              className="pb-8 text-6xl font-thin tracking-tight lg:text-8xl bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
             >
               {PERSONAL_INFO.name}
             </motion.h1>
@@ -46,7 +46,7 @@ const Hero = () => {
                 href={PERSONAL_INFO.resume}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg font-medium hover:from-purple-600 hover:to-pink-600 transition-all duration-300 flex items-center gap-2"
+                className="bg-linear-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg font-medium hover:from-purple-600 hover:to-pink-600 transition-all duration-300 flex items-center gap-2"
               >
                 Download CV
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

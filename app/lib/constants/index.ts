@@ -121,7 +121,7 @@ export const PROJECTS = [
   },
   {
     title: "Bindi Task Manager",
-    image: "/assets/projects/project-2.png",
+    image: "/project-2.png",
     description:
       "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking",
     technologies: ["HTML5", "CSS3", "Bootstrap", "JavaScript"],
@@ -139,7 +139,7 @@ export const PROJECTS = [
   },
   {
     title: "Social Media Platform",
-    image: "/assets/projects/project-4.png",
+    image: "/project-4.png",
     description:
       "A responsive social media platform with features like post creation/deletion, user authentication, and light/dark mode toggle",
     technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
@@ -148,7 +148,7 @@ export const PROJECTS = [
   },
   {
     title: "Personal Website",
-    image: "/assets/projects/project-7.png",
+    image: "/project-7.png",
     description:
       "A modern personal website built with SASS, featuring clean design and smooth animations",
     technologies: ["HTML5", "CSS3", "SASS", "JavaScript"],
@@ -175,7 +175,7 @@ export const PROJECTS = [
   },
   {
     title: "My Template 2",
-    image: "/assets/projects/project-8.png",
+    image: "/project-8.png",
     description:
       "An advanced website template with enhanced functionality and user experience features",
     technologies: ["HTML5", "CSS3", "JavaScript"],

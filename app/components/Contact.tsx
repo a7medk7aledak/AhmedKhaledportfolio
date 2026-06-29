@@ -191,7 +191,7 @@ const Contact = () => {
                             type="submit"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="bg-gradient-to-r from-purple-500 to-pink-500 py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="bg-linear-to-r from-purple-500 to-pink-500 py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                             disabled={loading}
                         >
                             {loading ? "Sending..." : "Send Message"}
@@ -221,8 +221,8 @@ const Contact = () => {
                     transition={{ duration: 1 }}
                     className="flex-1"
                 >
-                    <div className="bg-gradient-to-br from-neutral-900/80 to-neutral-800/50 rounded-2xl p-8 border border-neutral-700/50 backdrop-blur-sm shadow-2xl">
-                        <h3 className="text-3xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <div className="bg-linear-to-br from-neutral-900/80 to-neutral-800/50 rounded-2xl p-8 border border-neutral-700/50 backdrop-blur-sm shadow-2xl">
+                        <h3 className="text-3xl font-bold mb-8 bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                             Let's Connect
                         </h3>
                         <div className="space-y-8">
@@ -231,7 +231,7 @@ const Contact = () => {
                                 whileHover={{ scale: 1.02 }}
                                 className="group flex items-center gap-4 p-4 rounded-xl bg-neutral-800/30 hover:bg-neutral-700/30 transition-all duration-300"
                             >
-                                <div className="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
+                                <div className="w-14 h-14 bg-linear-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
                                     <FaMapMarkerAlt className="w-6 h-6 text-purple-400" />
                                 </div>
                                 <div className="flex-1">
@@ -245,7 +245,7 @@ const Contact = () => {
                                 whileHover={{ scale: 1.02 }}
                                 className="group flex items-center gap-4 p-4 rounded-xl bg-neutral-800/30 hover:bg-neutral-700/30 transition-all duration-300"
                             >
-                                <div className="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
+                                <div className="w-14 h-14 bg-linear-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
                                     <FaPhone className="w-6 h-6 text-purple-400" />
                                 </div>
                                 <div className="flex-1">
@@ -274,7 +274,7 @@ const Contact = () => {
                                 whileHover={{ scale: 1.02 }}
                                 className="group flex items-center gap-4 p-4 rounded-xl bg-neutral-800/30 hover:bg-neutral-700/30 transition-all duration-300"
                             >
-                                <div className="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
+                                <div className="w-14 h-14 bg-linear-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
                                     <FaEnvelope className="w-6 h-6 text-purple-400" />
                                 </div>
                                 <div className="flex-1">

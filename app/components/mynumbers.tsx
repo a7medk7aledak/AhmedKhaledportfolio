@@ -74,7 +74,7 @@ const NumberCard = ({ number, label, suffix = "", delay = 0 }: NumberCardProps) 
       <motion.div
         whileHover={{ scale: 1.08, y: -5 }}
         whileTap={{ scale: 0.95 }}
-        className="relative bg-gradient-to-br from-neutral-900/80 to-neutral-800/50 rounded-2xl p-8 border border-neutral-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 backdrop-blur-sm overflow-hidden"
+        className="relative bg-linear-to-br from-neutral-900/80 to-neutral-800/50 rounded-2xl p-8 border border-neutral-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 backdrop-blur-sm overflow-hidden"
       >
         {/* Background decoration */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -86,14 +86,14 @@ const NumberCard = ({ number, label, suffix = "", delay = 0 }: NumberCardProps) 
           transition={{ duration: 0.5, delay: delay + 0.3 }}
           className="relative z-10"
         >
-          <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-br ${gradientClass} rounded-2xl flex items-center justify-center shadow-lg`}>
+          <div className={`w-16 h-16 mx-auto mb-6 bg-linear-to-br ${gradientClass} rounded-2xl flex items-center justify-center shadow-lg`}>
             <IconComponent className="text-white text-2xl" />
           </div>
         </motion.div>
         
         {/* Number */}
         <motion.div
-          className={`relative z-10 text-5xl md:text-6xl font-bold bg-gradient-to-r ${gradientClass} bg-clip-text text-transparent mb-4`}
+          className={`relative z-10 text-5xl md:text-6xl font-bold bg-linear-to-r ${gradientClass} bg-clip-text text-transparent mb-4`}
         >
           {count}{suffix}
         </motion.div>

@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <nav className="mb-20 flex items-center justify-between py-6">
-      <div className="flex flex-shrink-0 items-center">
+      <div className="flex shrink-0 items-center">
         <h1 className="text-2xl font-bold text-white">
           {PERSONAL_INFO.name.split(' ').map(name => name[0]).join('')}
         </h1>
@@ -34,7 +34,7 @@ const Navbar = () => {
         ))}
         <a
           href="#contact"
-          className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-lg font-medium hover:from-purple-600 hover:to-pink-600 transition-all duration-300"
+          className="bg-linear-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-lg font-medium hover:from-purple-600 hover:to-pink-600 transition-all duration-300"
         >
           Hire Me
         </a>
