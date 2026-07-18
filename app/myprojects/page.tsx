@@ -57,43 +57,17 @@ const ProjectsPage = () => {
                 </div>
                 
                 <div className="lg:w-2/3 p-6">
-                  <div className="flex items-start justify-between mb-4">
+                  <div className="mb-4">
                     <h3 className="text-2xl font-bold text-white group-hover:text-purple-400 transition-colors">
                       {project.title}
                     </h3>
-                    <div className="flex gap-3 ml-4">
-                      <motion.a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="text-purple-400 hover:text-purple-300 transition-colors p-2 rounded-full hover:bg-purple-500/10"
-                        aria-label="View Live Project"
-                      >
-                        <FaExternalLinkAlt size={18} />
-                      </motion.a>
-                      {project.github && project.github !== '#' && (
-                        <motion.a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="text-purple-400 hover:text-purple-300 transition-colors p-2 rounded-full hover:bg-purple-500/10"
-                          aria-label="View Source Code"
-                        >
-                          <FaGithub size={18} />
-                        </motion.a>
-                      )}
-                    </div>
                   </div>
                   
                   <p className="mb-6 text-neutral-300 leading-relaxed">
                     {project.description}
                   </p>
                   
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech, techIndex) => (
                       <motion.span
                         key={techIndex}
@@ -103,6 +77,45 @@ const ProjectsPage = () => {
                         {tech}
                       </motion.span>
                     ))}
+                  </div>
+
+                  {/* Action Buttons Row */}
+                  <div className="flex flex-wrap gap-3 items-center">
+                    {project.slug && (
+                      <Link href={`/projects/${project.slug}`}>
+                        <motion.span
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md hover:shadow-purple-500/25 transition-all cursor-pointer"
+                        >
+                          Deep Dive Analysis
+                        </motion.span>
+                      </Link>
+                    )}
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 text-neutral-300 px-4 py-2.5 rounded-xl text-xs font-bold border border-neutral-700/30 transition-all"
+                    >
+                      <FaExternalLinkAlt size={12} />
+                      Live Demo
+                    </motion.a>
+                    {project.github && project.github !== '#' && (
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 text-neutral-300 px-4 py-2.5 rounded-xl text-xs font-bold border border-neutral-700/30 transition-all"
+                      >
+                        <FaGithub size={12} />
+                        GitHub
+                      </motion.a>
+                    )}
                   </div>
                 </div>
               </div>

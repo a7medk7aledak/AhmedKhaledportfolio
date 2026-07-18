@@ -46,7 +46,29 @@ export const EXPERIENCES = [
 
 export const PROJECTS = [
   {
+    title: "Roshd — Multi-Tenant B2B SaaS Platform",
+    slug: "roshd",
+    image: "/roshed.png",
+    description:
+      "Architected a multi-tenant educational SaaS where a single shared backend engine powers two structurally different products (an Academy and a Teacher platform) via Strategy Pattern. Enforced PostgreSQL schema-per-tenant isolation, dynamic search-path routing, Celery provisioning, and full support for tenant sub-domains (e.g., tenant.roshed.tech) and custom domain SSL mappings. Built a concurrency-safe wallet, custom RBAC, LiveKit streams, and a Next.js 14 monorepo.",
+    technologies: [
+      "Next.js 14",
+      "Django 5.2",
+      "PostgreSQL",
+      "Redis",
+      "Celery",
+      "LiveKit WebRTC",
+      "Turborepo",
+      "Docker"
+    ],
+    link: "https://roshed.tech/",
+    github: "#",
+    featured: true,
+    status: "Production Release, 2026"
+  },
+  {
     title: "Lisān Al-Ḥikma — Educational Platform",
+    slug: "lisan-al-hikma",
     image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763211336/%D8%AB23%D8%AB23%D8%AB3_kovjhc.png",
     description:
       "A comprehensive multi-mode learning platform supporting Recorded, Interactive, and Live learning experiences with real-time engagement via WebRTC and scalable microservices architecture. Features secure authentication, role-based access, and efficient video streaming with low latency.",
@@ -69,6 +91,7 @@ export const PROJECTS = [
   },
   {
     title: "Capsule Gym",
+    slug: "capsule-gym",
     image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132959/project0_ipufke.png",
     description:
       "A full stack fitness project with many features including chatbot, BMI calculator, exercises for bodybuilding and fitness, and healthy food recommendations",
@@ -86,6 +109,7 @@ export const PROJECTS = [
   },
   {
     title: "BAK-Blog",
+    slug: "bak-blog",
     image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132742/blog_nvgveg.png",
     description:
       "A comprehensive blogging platform specialized in programming and technology topics, with additional sections for sports, nutrition, and fitness",
@@ -95,6 +119,7 @@ export const PROJECTS = [
   },
   {
     title: "Customer Management System",
+    slug: "customer-management",
     image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132952/project1_fvvgni.png",
     description:
       "An advanced client management platform designed to streamline and enhance customer relationship management with modern UI/UX",
@@ -112,6 +137,7 @@ export const PROJECTS = [
   },
   {
     title: "Blog-Gym",
+    slug: "blog-gym",
     image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132845/bloggym_rzy5eu.png",
     description:
       "A specialized blogging platform focused on fitness, nutrition, and gym-related content with user-friendly interface",
@@ -121,6 +147,7 @@ export const PROJECTS = [
   },
   {
     title: "Bindi Task Manager",
+    slug: "bindi-task-manager",
     image: "/project-2.png",
     description:
       "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking",
@@ -130,6 +157,7 @@ export const PROJECTS = [
   },
   {
     title: "Portfolio Website",
+    slug: "portfolio-website",
     image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132953/project-3_wuutjz.png",
     description:
       "A personal portfolio website showcasing projects, skills, and contact information with modern design",
@@ -139,6 +167,7 @@ export const PROJECTS = [
   },
   {
     title: "Social Media Platform",
+    slug: "social-media",
     image: "/project-4.png",
     description:
       "A responsive social media platform with features like post creation/deletion, user authentication, and light/dark mode toggle",
@@ -148,6 +177,7 @@ export const PROJECTS = [
   },
   {
     title: "Personal Website",
+    slug: "personal-website",
     image: "/project-7.png",
     description:
       "A modern personal website built with SASS, featuring clean design and smooth animations",
@@ -157,6 +187,7 @@ export const PROJECTS = [
   },
   {
     title: "Template 2",
+    slug: "template-2",
     image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132965/project-6_snmh3d.png",
     description:
       "A responsive website template with modern design principles and clean code structure",
@@ -166,6 +197,7 @@ export const PROJECTS = [
   },
   {
     title: "My Template 1",
+    slug: "template-1",
     image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132951/project-5_zopc2l.png",
     description:
       "A custom website template featuring interactive elements and modern web development practices",
@@ -175,6 +207,7 @@ export const PROJECTS = [
   },
   {
     title: "My Template 2",
+    slug: "my-template-2",
     image: "/project-8.png",
     description:
       "An advanced website template with enhanced functionality and user experience features",

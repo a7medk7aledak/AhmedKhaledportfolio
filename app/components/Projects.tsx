@@ -118,31 +118,44 @@ const Projects = () => {
                 </div>
                 
                 {/* Action Buttons */}
-                <div className="flex gap-3 pt-3">
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-3 rounded-xl text-sm font-semibold hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-lg hover:shadow-purple-500/40"
-                  >
-                    <FaExternalLinkAlt size={14} />
-                    Live Demo
-                  </motion.a>
-                  
-                  {project.github && project.github !== '#' && (
+                <div className="flex flex-col gap-2.5 pt-3">
+                  {project.slug && (
+                    <Link href={`/projects/${project.slug}`} className="w-full">
+                      <motion.span
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 text-white px-4 py-3 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+                      >
+                        Deep Dive Analysis
+                      </motion.span>
+                    </Link>
+                  )}
+                  <div className="flex gap-2">
                     <motion.a
-                      href={project.github}
+                      href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center justify-center gap-2 bg-neutral-800/80 backdrop-blur-sm text-white px-4 py-3 rounded-xl text-sm font-semibold hover:bg-neutral-700/80 transition-all duration-300 border border-neutral-600/50 hover:border-purple-500/60 shadow-lg hover:shadow-neutral-900/40"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex-1 inline-flex items-center justify-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 backdrop-blur-sm text-white px-3 py-2 rounded-xl text-xs font-semibold border border-neutral-700/30 hover:border-purple-500/40 transition-all duration-300"
                     >
-                      <FaGithub size={14} />
+                      <FaExternalLinkAlt size={12} />
+                      Live Demo
                     </motion.a>
-                  )}
+                    {project.github && project.github !== '#' && (
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="flex-1 inline-flex items-center justify-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 backdrop-blur-sm text-white px-3 py-2 rounded-xl text-xs font-semibold border border-neutral-700/30 hover:border-purple-500/40 transition-all duration-300"
+                      >
+                        <FaGithub size={12} />
+                        GitHub
+                      </motion.a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
