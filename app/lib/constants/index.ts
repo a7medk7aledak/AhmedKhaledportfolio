@@ -42,6 +42,35 @@ export const EXPERIENCES = [
       "Bootstrap",
     ],
   },
+  {
+    year: "2024 - 2025 (6 Months)",
+    role: "Frontend Developer",
+    company: "QeemaTech",
+    companyLogo: "",
+    description: `Worked as a Frontend Developer on two separate platform projects for QeemaTech while still a student, building responsive, production-focused user interfaces with React.`,
+    technologies: [
+      "React",
+      "JavaScript",
+      "CSS3",
+    ],
+  },
+  {
+    year: "Nov 2025 - Present",
+    role: "Full-Stack Developer & Software Architect",
+    company: "Roshd Tech",
+    companyLogo: "/roshedTech.png",
+    description: `Joined Roshd Tech immediately after graduating and have been with the team ever since, working as a Full-Stack Developer and the platform's lead software architect.
+Roshd is a multi-tenant B2B SaaS platform serving educational academies and independent teachers. I've been responsible for architecting the platform end-to-end — from tenant management to the billing/wallet system, an admin control panel, role-based permissions, and live class streaming.
+Refactored the backend from Flask to Django early on to support the team's scaling needs, and led the frontend rebuild as a Next.js monorepo. Still working full-time on the platform today as one of the company's core products.`,
+    technologies: [
+      "Next.js",
+      "Django",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "LiveKit WebRTC",
+    ],
+  },
 ];
 
 export const PROJECTS = [
