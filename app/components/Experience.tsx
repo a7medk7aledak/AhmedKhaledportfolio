@@ -48,12 +48,12 @@ const Experience = () => {
 							{/* Content Card */}
 							<motion.div
 								whileHover={{ scale: 1.02, y: -5 }}
-								className={`w-full md:w-5/12 ml-16 md:ml-0 bg-gradient-to-br from-neutral-900/80 to-neutral-800/50 rounded-2xl p-8 border border-neutral-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 backdrop-blur-sm ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}
+								className={`w-[calc(100%-4rem)] md:w-[41.6667%] ml-16 md:ml-0 bg-gradient-to-br from-neutral-900/80 to-neutral-800/50 rounded-2xl p-8 border border-neutral-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 backdrop-blur-sm ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}
 							>
 								{/* Company Header */}
 								<div className="flex items-center gap-4 mb-6">
 									{experience.companyLogo ? (
-										<div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl p-2 flex items-center justify-center">
+										<div className="w-16 h-16 shrink-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl p-2 flex items-center justify-center">
 											<Image
 												src={experience.companyLogo}
 												alt={experience.company}
@@ -63,16 +63,16 @@ const Experience = () => {
 											/>
 										</div>
 									) : (
-										<div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
+										<div className="w-16 h-16 shrink-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
 											<FaBriefcase className="text-white text-2xl" />
 										</div>
 									)}
-									
-									<div className="flex-1">
+
+									<div className="flex-1 min-w-0">
 										<h3 className="text-2xl font-bold text-white mb-2">
 											{experience.role}
 										</h3>
-										<div className="flex items-center gap-4 text-sm text-neutral-400">
+										<div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-neutral-400">
 											<div className="flex items-center gap-2">
 												<FaBriefcase className="text-purple-400" />
 												<span className="text-purple-400 font-medium">{experience.company}</span>
