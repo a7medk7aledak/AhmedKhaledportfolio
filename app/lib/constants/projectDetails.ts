@@ -196,6 +196,260 @@ To ensure fast media loading times, I integrated Wasabi Cloud Storage (an S3-com
       { id: "db", label: "PostgreSQL Database", details: "Relational database storing user progress, courses, schedules, and billing history.", status: "db" }
     ]
   },
+  "sallam-physics": {
+    slug: "sallam-physics",
+    title: "Sallam Physics — Educational Platform",
+    subtitle: "An engaging physics learning platform featuring online video lectures, homework submissions, and real-time student performance tracking.",
+    overview: `Sallam Physics is a customized learning management system tailored for high school physics students. The platform was designed to transition traditional classroom learning into a modern digital experience, offering seamless access to recorded lectures, automated homework grading, and interactive quizzes.
+
+Built to handle high traffic during peak exam seasons, the platform utilizes Next.js for optimized client-side rendering and fast page load times. The backend manages student authentication, course subscriptions, dynamic exam evaluations, and detailed progress reports.`,
+    sketchImage: "",
+    videoUrl: "",
+    features: [
+      {
+        title: "Lectures & Courses Catalog",
+        description: "Organized physics modules and video lessons with progress tracking, allowing students to learn at their own pace.",
+        badge: "E-Learning"
+      },
+      {
+        title: "Automated Homework & Exams",
+        description: "Interactive quizzes and homework submissions with instant grading and detailed step-by-step solution breakdowns.",
+        badge: "Assessment"
+      },
+      {
+        title: "Student Performance Analytics",
+        description: "Detailed dashboards visualizing quiz scores, completion rates, and personalized study recommendations.",
+        badge: "Analytics"
+      },
+      {
+        title: "Parent Portal Access",
+        description: "Secured parent tracking dashboard to monitor attendance, quiz history, and overall study progress.",
+        badge: "Security"
+      }
+    ],
+    challenges: [
+      {
+        issue: "Managing high concurrent student loads during weekly exam windows.",
+        solution: "Optimized database queries with proper indexing, implemented server-side caching for course metadata, and deployed the API on scalable cloud functions."
+      },
+      {
+        issue: "Preventing unauthorized sharing of video content and lecture materials.",
+        solution: "Implemented secure signed URLs for video assets and blocked simultaneous logins from different devices under the same student account."
+      }
+    ],
+    timeline: [
+      {
+        phase: "Phase 1: Requirements & UI Design",
+        title: "UX/UI Prototyping",
+        description: "Designed a clean, modern, and engaging user interface focused on easy student navigation and clear learning progress visualization."
+      },
+      {
+        phase: "Phase 2: Database & Backend Services",
+        title: "Core Service Integration",
+        description: "Modeled MongoDB collections for students, courses, exams, and logs. Developed RESTful APIs for course content delivery and authentication."
+      },
+      {
+        phase: "Phase 3: Launch & Optimization",
+        title: "Performance Tuning & Launch",
+        description: "Conducted load testing, optimized asset delivery, and successfully launched the platform for active physics students."
+      }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "Next.js Student Web App", details: "Responsive student portal offering lecture access, quiz interfaces, and score tracking.", status: "client" },
+      { id: "api", label: "Node.js & Express API", details: "Handles authentication, exam grading logic, and serves student data.", status: "api" },
+      { id: "db", label: "MongoDB Database", details: "Stores courses catalog, student profiles, quiz responses, and payment records.", status: "db" },
+      { id: "cdn", label: "Vercel Edge Network", details: "Caches static pages and assets to deliver fast load times across different regions.", status: "external" }
+    ]
+  },
+  "afaq-academy": {
+    slug: "afaq-academy",
+    title: "Afaq Academy — Educational Platform",
+    subtitle: "A unified Arabic e-learning platform blending Islamic studies, language learning, and modern tech education in one modern, RTL-first experience.",
+    overview: `Afaq Academy (أكاديمية آفاق) was built to bring together subjects that are usually scattered across separate platforms — Quran and Tajweed, Arabic grammar and rhetoric, modern foreign languages, programming and technology, core academic subjects, and life skills — into a single, coherent learning experience for Arabic-speaking students of all ages.
+
+The platform is built on Next.js with a fully RTL-first interface, and organizes learning into three distinct modes: live 1-on-1 and small-group sessions (available now), pre-recorded courses, and interactive exercise-driven learning (both in active rollout). Beyond courses, the platform ships a dedicated student toolkit — a digital library, Hijri calendar, prayer times, Qibla direction finder, and an in-app Quran reader — designed to keep students engaged with their studies and their faith practice in one place.`,
+    sketchImage: "",
+    videoUrl: "",
+    features: [
+      {
+        title: "Multi-Track Curriculum Catalog",
+        description: "Structured learning paths spanning Islamic sciences, Arabic language, foreign languages (English, French, German, Turkish), programming & tech, and core academic subjects.",
+        badge: "E-Learning"
+      },
+      {
+        title: "Three Learning Modes",
+        description: "Live teaching with real-time teacher interaction is available today, with recorded (self-paced, lifetime access) and interactive (smart exercises & instant grading) modes rolling out.",
+        badge: "Product"
+      },
+      {
+        title: "RTL-First Responsive UI",
+        description: "A fully right-to-left interface built with Next.js and Bootstrap 5, designed for a native, comfortable Arabic reading and navigation experience across devices.",
+        badge: "Frontend"
+      },
+      {
+        title: "Student Companion Toolkit",
+        description: "Built-in digital library, Hijri calendar, prayer times, Qibla direction, and Quran reader to support students' daily routine alongside their coursework.",
+        badge: "Product"
+      }
+    ],
+    challenges: [
+      {
+        issue: "Presenting a large, varied catalog (Islamic studies, languages, tech, academics) without overwhelming or confusing new visitors.",
+        solution: "Grouped offerings into clearly labeled domains with a comparison table across learning modes (flexibility, interactivity, personalization, class size), letting students quickly match a mode and track to their goals."
+      },
+      {
+        issue: "Delivering a genuinely native experience for an Arabic-speaking audience rather than a translated afterthought.",
+        solution: "Designed the interface RTL-first from the layout system up, rather than mirroring an LTR design, ensuring typography, navigation, and component alignment feel natural in Arabic."
+      }
+    ],
+    timeline: [
+      {
+        phase: "Phase 1: Product & Curriculum Design",
+        title: "Structuring the Learning Domains",
+        description: "Defined the five core learning domains and mapped out the three learning-mode experience (live, recorded, interactive) to support a phased rollout."
+      },
+      {
+        phase: "Phase 2: Platform Build",
+        title: "Building the RTL Next.js Experience",
+        description: "Implemented the RTL-first Next.js frontend, course catalog browsing, and the student toolkit (prayer times, Qibla, Quran reader, Hijri calendar)."
+      },
+      {
+        phase: "Phase 3: Launch",
+        title: "Production Release",
+        description: "Deployed the live-teaching mode to production, with onboarding flows for students and teachers, ahead of the recorded and interactive modes."
+      }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "Next.js RTL Web App", details: "Server-rendered, RTL-first Arabic interface handling course discovery, booking, and the student toolkit.", status: "client" },
+      { id: "ui", label: "Bootstrap 5 UI Layer", details: "Component and layout styling system powering responsive pages across devices.", status: "client" },
+      { id: "api", label: "Application Backend", details: "Handles authentication, course/session data, and booking for live teaching sessions.", status: "api" }
+    ]
+  },
+  "vitapsyche": {
+    slug: "vitapsyche",
+    title: "VitaPsyche — AI-Powered Mental Health Platform",
+    subtitle: "A graduation project combining AI diagnosis, an empathetic virtual character, and real doctor consultations to close the gap in accessible mental health care.",
+    overview: `VitaPsyche is a graduation project built to address the gap in mental health services by integrating AI tools, virtual support characters, and online doctor consultations into a single platform for users seeking mental health support and education.
+
+The platform combines AI-powered emotional assessment models with an empathetic virtual character named Lina for emotional support, alongside real-time consultations with psychiatrists through booking, chat, and video. As team leader, I oversaw planning, execution, and coordination across the AI, backend, frontend, and mobile tracks, using Agile methodologies coordinated through Jira and Jira Align.`,
+    sketchImage: "",
+    videoUrl: "",
+    features: [
+      {
+        title: "AI-Powered Emotional Assessment",
+        description: "Built intelligent models using machine learning, NLP, and deep learning (Rasa, Hugging Face, TensorFlow) to help users assess their emotional well-being.",
+        badge: "AI"
+      },
+      {
+        title: "Virtual Support Character — Lina",
+        description: "Designed an empathetic AI persona that provides emotional relief and guidance to users during challenging moments.",
+        badge: "AI"
+      },
+      {
+        title: "Online Doctor Consultation",
+        description: "Enabled real-time communication with psychiatrists via appointment booking, chat, and video consultations.",
+        badge: "Healthcare"
+      },
+      {
+        title: "Educational Resources & Self-Assessment",
+        description: "Curated articles, FAQs, and psychological tests to help users build knowledge and self-awareness around mental health.",
+        badge: "Content"
+      }
+    ],
+    challenges: [
+      {
+        issue: "Coordinating a cross-functional team across AI, backend, frontend, and mobile tracks toward a single cohesive product.",
+        solution: "Led the team using Agile methodologies with sprint planning and tracking in Jira/Jira Align, and grounded the system design in a C4 Model architecture and UML diagrams so every track could work against a shared technical blueprint."
+      },
+      {
+        issue: "Designing an AI persona (Lina) that feels genuinely supportive rather than a generic chatbot.",
+        solution: "Combined NLP and deep learning models (Rasa, Hugging Face, TensorFlow) trained toward empathetic, context-aware responses, tuned specifically for emotionally sensitive conversations."
+      }
+    ],
+    timeline: [
+      {
+        phase: "Phase 1: Requirements & Planning",
+        title: "Defining the Problem Space",
+        description: "Led requirements analysis and mapped the project flow using Use Case Diagrams and Process Flow Diagrams (PFD)."
+      },
+      {
+        phase: "Phase 2: System & Architecture Design",
+        title: "Designing for Scale",
+        description: "Modeled the system with the C4 Model and UML diagrams, and designed the Django + MySQL backend for scalability and security."
+      },
+      {
+        phase: "Phase 3: AI Model Development",
+        title: "Building the Diagnosis Engine & Lina",
+        description: "Implemented ML/NLP/deep learning models with Rasa, Hugging Face, and TensorFlow for personalized mental health diagnosis and the Lina support character."
+      },
+      {
+        phase: "Phase 4: Frontend, Mobile & Integration",
+        title: "Bringing It Together",
+        description: "Built the web experience with React, Next.js, and TypeScript, and a companion Flutter mobile app, integrating booking, chat, and video consultation flows."
+      }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "Next.js / React Web App", details: "Web client for assessments, Lina interactions, doctor discovery, and booking.", status: "client" },
+      { id: "mobile", label: "Flutter Mobile App", details: "Companion mobile experience for on-the-go access to consultations and resources.", status: "client" },
+      { id: "api", label: "Django Backend", details: "Core API layer handling authentication, bookings, consultations, and business logic.", status: "api" },
+      { id: "ai", label: "AI Diagnosis & Lina Engine", details: "NLP/ML models (Rasa, Hugging Face, TensorFlow) powering emotional assessment and the virtual support character.", status: "external" },
+      { id: "db", label: "MySQL & MongoDB", details: "Relational storage for core transactional data alongside MongoDB for flexible content and chat data.", status: "db" }
+    ]
+  },
+  "al-awael-private-school": {
+    slug: "al-awael-private-school",
+    title: "Al-Awael Private School — Website",
+    subtitle: "A responsive, animated marketing site for a private school, covering admissions, academic stages, news, and parent testimonials.",
+    overview: `Al-Awael Private School's website was built to give the school a modern, welcoming online presence — covering its academic stages (kindergarten through secondary), admissions call-to-action, news and events, a video gallery, and parent testimonials.
+
+I worked on this project purely as the frontend developer, building the responsive layout, the animated hero slider, and scroll-triggered section animations. The PHP backend (content delivery, forms, and dynamic data) was handled by a teammate — my scope was entirely the client-facing experience.`,
+    sketchImage: "",
+    videoUrl: "",
+    features: [
+      {
+        title: "Animated Hero Slider",
+        description: "Built a multi-slide hero section using Swiper.js, rotating through the school's key messages and calls to action.",
+        badge: "Frontend"
+      },
+      {
+        title: "Academic Stages Overview",
+        description: "Structured sections presenting the school's stages — kindergarten, primary, preparatory, and secondary — with consistent visual hierarchy.",
+        badge: "Content"
+      },
+      {
+        title: "Scroll-Triggered Animations",
+        description: "Integrated AOS (Animate On Scroll) to bring sections, stats, and testimonials to life as visitors scroll through the page.",
+        badge: "UX"
+      },
+      {
+        title: "News & Video Gallery",
+        description: "Built layout components for the school's news feed and video gallery, keeping the site content fresh and engaging for parents.",
+        badge: "Frontend"
+      }
+    ],
+    challenges: [
+      {
+        issue: "Delivering a polished, animated frontend that still integrates cleanly with a separately-developed PHP backend.",
+        solution: "Structured markup and components around clear, predictable data hooks so the backend developer could wire in dynamic content (news, stats, testimonials) without reworking the frontend layout or animations."
+      }
+    ],
+    timeline: [
+      {
+        phase: "Phase 1: UI Design & Layout",
+        title: "Structuring the Page Sections",
+        description: "Built out the responsive layout using Tailwind CSS across the hero, about, academic stages, news, and testimonials sections."
+      },
+      {
+        phase: "Phase 2: Interactivity & Animation",
+        title: "Sliders & Scroll Effects",
+        description: "Implemented the Swiper.js hero slider and AOS scroll animations, then handed off integration points for the PHP backend."
+      }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "Tailwind CSS Frontend", details: "Responsive, animated marketing site built with Tailwind CSS, jQuery, Swiper.js, and AOS.", status: "client" },
+      { id: "backend", label: "PHP Backend", details: "Handled by a teammate — serves content, forms, and dynamic page data.", status: "api" }
+    ]
+  },
   "capsule-gym": {
     slug: "capsule-gym",
     title: "Capsule Gym",

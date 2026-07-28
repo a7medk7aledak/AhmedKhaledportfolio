@@ -84,9 +84,90 @@ export const PROJECTS = [
       "Render",
       "Vercel"
     ],
-    link: "https://lisanalhekma.com",
+    link: "https://lisan-alhekma-main.vercel.app",
     github: "#",
     featured: true,
+    status: "Production Release, 2025"
+  },
+  {
+    title: "Sallam Physics — Educational Platform",
+    slug: "sallam-physics",
+    image: "/mohamed-sallam.png",
+    description:
+      "An interactive educational platform designed for physics students, featuring online video lectures, homework submissions, instant exam grading, and detailed performance tracking dashboard.",
+    technologies: [
+      "Next.js",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Vercel"
+    ],
+    link: "https://mohamed-sallam.com",
+    github: "#",
+    featured: true,
+    status: "Production Release, 2025"
+  },
+  {
+    title: "Afaq Academy — Educational Platform",
+    slug: "afaq-academy",
+    image: "/afaq-academy.png",
+    description:
+      "A comprehensive Arabic (RTL) e-learning platform unifying Islamic studies (Quran, Tajweed, Fiqh), Arabic language, modern foreign languages, programming/tech, and academic subjects under one modern learning experience. Supports live 1-on-1 and small-group teaching sessions today, with recorded and interactive course modes in active development, alongside a student toolkit including a digital library, prayer times, Qibla direction, and a Quran reader.",
+    technologies: [
+      "Next.js",
+      "React",
+      "Bootstrap 5",
+      "RTL/Arabic UI",
+      "Responsive Design"
+    ],
+    link: "https://afaq-academy.online/",
+    github: "#",
+    featured: true,
+    status: "Production Release, 2026"
+  },
+  {
+    title: "VitaPsyche — AI-Powered Mental Health Platform",
+    slug: "vitapsyche",
+    image: "/Vitapsyche.png",
+    description:
+      "A graduation project addressing gaps in mental health care by combining AI-powered emotional assessment, an empathetic virtual support character (Lina), and real-time online consultations with psychiatrists via booking, chat, and video. Served as team leader, running the project with Agile/Jira, designing the system architecture with the C4 Model and UML, and building the Django + MySQL backend alongside the AI diagnosis models.",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Django",
+      "MySQL",
+      "MongoDB",
+      "Rasa",
+      "Hugging Face",
+      "TensorFlow",
+      "Flutter",
+      "Figma"
+    ],
+    link: "https://mind-med-graduation-project.vercel.app/en",
+    github: "#",
+    featured: true,
+    status: "Graduation Project, 2025"
+  },
+  {
+    title: "Al-Awael Private School — Website",
+    slug: "al-awael-private-school",
+    image: "/alawaelprivate.png",
+    description:
+      "A multi-section marketing and information website for a private school, covering admissions, academic stages (kindergarten through secondary), news, video gallery, and parent testimonials. Built the frontend end-to-end — responsive layout, animated hero sliders, and scroll-triggered animations — while a teammate handled the PHP backend.",
+    technologies: [
+      "Tailwind CSS",
+      "jQuery",
+      "Swiper.js",
+      "AOS (Animate On Scroll)",
+      "Font Awesome",
+      "Responsive Design"
+    ],
+    link: "https://alawaelprivate.com/",
+    github: "#",
+    featured: false,
     status: "Production Release, 2025"
   },
   {
