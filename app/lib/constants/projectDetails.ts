@@ -134,68 +134,6 @@ To enforce strict privacy and security for corporate clients, the platform adopt
       { id: "db", label: "PostgreSQL Engine", details: "Performs queries inside isolated schemas. Uses search_path middleware to direct SQL traffic.", status: "db" }
     ]
   },
-  "lisan-al-hikma": {
-    slug: "lisan-al-hikma",
-    title: "Lisān Al-Ḥikma — Educational Platform",
-    subtitle: "A multi-mode educational platform with Live WebRTC, low-latency Recorded playback, and scalable microservices.",
-    overview: `Lisān Al-Ḥikma is a comprehensive, low-latency learning management platform built to accommodate modern interactive learning. The system was designed around three main modules: Recorded Learning (with optimized video buffering pipelines), Interactive Classrooms (using WebRTC mesh connectivity for low-latency live feedback), and Live Broadcasts for large-scale viewing.
-
-To ensure fast media loading times, I integrated Wasabi Cloud Storage (an S3-compatible, ultra-low-cost storage API) backed by dynamic streaming compression. The backend is powered by Django microservices that handle authentication, user progress, live classroom orchestrations, and instant messaging notifications using Redis as a pub/sub message broker.`,
-    sketchImage: "/lisan_architecture.png",
-    videoUrl: "",
-    features: [
-      {
-        title: "Recorded learning with HLS",
-        description: "Implemented HTTP Live Streaming (HLS) with multi-bitrate options to ensure buffer-free learning in areas with poor internet connection.",
-        badge: "Media"
-      },
-      {
-        title: "Interactive WebRTC Classrooms",
-        description: "Integrated real-time WebRTC connections for video and audio, allowing teachers and students to interact with sub-second latency.",
-        badge: "Real-time"
-      },
-      {
-        title: "S3 Wasabi Storage API",
-        description: "Implemented low-cost, high-speed storage bucket endpoints for video content delivery, reducing infrastructure costs by 50%.",
-        badge: "Infrastructure"
-      },
-      {
-        title: "Microservices Architecture",
-        description: "Split authentication, class scheduling, and live chat into modular microservices running in Docker containers.",
-        badge: "DevOps"
-      }
-    ],
-    challenges: [
-      {
-        issue: "High bandwidth costs and buffering in video streaming.",
-        solution: "Configured an asynchronous video processing pipeline that automatically converts raw uploads to multi-resolution HLS format, and cached static files using a custom CDN layout."
-      }
-    ],
-    timeline: [
-      {
-        phase: "Phase 1: Conceptualization",
-        title: "Feature Requirements",
-        description: "Drafted project scopes for teacher tools and student dashboards. Settled on WebRTC for real-time video classrooms."
-      },
-      {
-        phase: "Phase 2: Video Streaming & WebRTC",
-        title: "Setting up Media Handlers",
-        description: "Configured media conversion tasks in background workers. Set up WebRTC signaling channels to run classrooms."
-      },
-      {
-        phase: "Phase 3: Launch",
-        title: "Deploying to Production",
-        description: "Deployed services in Docker containers, and optimized PostgreSQL query indexes for user progress tracking logs."
-      }
-    ],
-    architectureNodes: [
-      { id: "fe", label: "Next.js Web Client", details: "Responsive learning portal supporting interactive classrooms and HLS players.", status: "client" },
-      { id: "api", label: "Django Web Services", details: "API endpoints for user authentication, course catalog, tracking, and payments.", status: "api" },
-      { id: "webrtc", label: "LiveKit WebRTC Server", details: "Coordinates real-time audio, video, and screen sharing between users.", status: "external" },
-      { id: "redis", label: "Redis Pub/Sub & Cache", details: "Stores websocket session statuses and delivers real-time notifications.", status: "queue" },
-      { id: "db", label: "PostgreSQL Database", details: "Relational database storing user progress, courses, schedules, and billing history.", status: "db" }
-    ]
-  },
   "sallam-physics": {
     slug: "sallam-physics",
     title: "Sallam Physics — Educational Platform",

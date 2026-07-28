@@ -67,29 +67,6 @@ export const PROJECTS = [
     status: "Production Release, 2026"
   },
   {
-    title: "Lisān Al-Ḥikma — Educational Platform",
-    slug: "lisan-al-hikma",
-    image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763211336/%D8%AB23%D8%AB23%D8%AB3_kovjhc.png",
-    description:
-      "A comprehensive multi-mode learning platform supporting Recorded, Interactive, and Live learning experiences with real-time engagement via WebRTC and scalable microservices architecture. Features secure authentication, role-based access, and efficient video streaming with low latency.",
-    technologies: [
-      "Next.js",
-      "Django",
-      "WebRTC",
-      "Docker",
-      "PostgreSQL",
-      "Redis",
-      "Wasabi Storage",
-      "GitHub Actions",
-      "Render",
-      "Vercel"
-    ],
-    link: "https://lisan-alhekma-main.vercel.app",
-    github: "#",
-    featured: true,
-    status: "Production Release, 2025"
-  },
-  {
     title: "Sallam Physics — Educational Platform",
     slug: "sallam-physics",
     image: "/mohamed-sallam.png",
