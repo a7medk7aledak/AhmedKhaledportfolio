@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ahmed Khaled — Portfolio
+
+Personal portfolio website for Ahmed Khaled, a Full-Stack Software Engineer. Built with Next.js (App Router) and Tailwind CSS, it showcases my experience, technical skills, and a full case-study "Deep Dive" page for each project.
+
+**Live site:** [ahmed-khaled-portfolio.vercel.app](https://ahmed-khaled-portfolio.vercel.app)
+
+## Features
+
+- **Hero, About, Technologies & Experience sections** — animated with Framer Motion
+- **Projects showcase** — featured projects on the homepage, a full `/myprojects` grid, and a dedicated `/projects/[slug]` Deep Dive page per project (overview, features, challenges, timeline, architecture)
+- **Contact form** — powered by EmailJS, no backend required
+- **Cloudinary-backed images** via `next-cloudinary` for select project assets
+
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org) (App Router) + [React 19](https://react.dev)
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS 4](https://tailwindcss.com)
+- [Framer Motion](https://www.framer.com/motion) for animations
+- [EmailJS](https://www.emailjs.com) for the contact form
+- Deployed on [Vercel](https://vercel.com)
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and run the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/
+  components/       # Section components (Hero, About, Experience, Projects, Contact, ...)
+  lib/constants/     # Site content: personal info, experience, and project data
+  about/             # About page
+  myprojects/        # Full projects listing page
+  projects/[slug]/   # Per-project Deep Dive page
+public/               # Static images and assets
+```
 
-## Learn More
+Most content (personal info, experience, and project details) is centralized in [`app/lib/constants/index.ts`](app/lib/constants/index.ts) and [`app/lib/constants/projectDetails.ts`](app/lib/constants/projectDetails.ts).
 
-To learn more about Next.js, take a look at the following resources:
+## Contact Form Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The contact form's EmailJS service ID, template ID, and public key are set directly in [`app/components/Contact.tsx`](app/components/Contact.tsx). EmailJS public keys are designed to be used client-side, but if you fork this project, swap in your own EmailJS credentials and restrict allowed domains from your EmailJS dashboard.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+The site auto-deploys to [Vercel](https://vercel.com) on push to `main`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Email: ahmadkhaled20011@gmail.com
+- LinkedIn: [ahmed-khaled](https://www.linkedin.com/in/%E2%80%AAahmed-khaled-a3852b21a/)
+- GitHub: [@a7medk7aledak](https://github.com/a7medk7aledak)
