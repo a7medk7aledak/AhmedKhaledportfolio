@@ -204,9 +204,9 @@ const AboutPage = () => {
             </h3>
             <div className="space-y-3">
               <div>
-                <h4 className="font-semibold text-white">Communications Engineering</h4>
-                <p className="text-purple-400">Student</p>
-                <p className="text-neutral-400 text-sm">Currently pursuing my degree</p>
+                <h4 className="font-semibold text-white">Electronics and Communications Engineering</h4>
+                <p className="text-purple-400">Graduate</p>
+                <p className="text-neutral-400 text-sm">Grade: Very Good</p>
               </div>
             </div>
           </div>

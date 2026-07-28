@@ -351,24 +351,23 @@ export const NAV_ITEMS = [
 // Skills Data
 export const SKILLS = {
   technical: [
-    "JavaScript/TypeScript",
-    "React.js & Next.js",
-    "Node.js, Express & Django",
-    "System Design & Architecture",
-    "MongoDB & PostgreSQL",
-    "RESTful APIs",
+    "Full-Stack Development (MERN + Python/Django)",
+    "System Design & Software Architecture",
+    "Multi-Tenant SaaS & Scalable Backends",
+    "Next.js & React",
+    "PostgreSQL, MySQL & MongoDB",
+    "Docker & CI/CD",
+    "Real-Time Systems (WebRTC & WebSockets)",
     "AI Tooling & Orchestration",
-    "Git & Version Control",
-    "Responsive Design",
-    "Agile Development"
+    "RESTful API Design"
   ],
   soft: [
-    "Problem Solving",
-    "Team Collaboration",
-    "Communication",
-    "Time Management",
-    "Continuous Learning",
-    "Attention to Detail"
+    "Technical Leadership",
+    "Client Communication & Requirement Gathering",
+    "Agile Project Planning",
+    "Cross-Functional Team Collaboration",
+    "Problem Solving & Debugging",
+    "Adaptability & Continuous Learning"
   ]
 };
 
