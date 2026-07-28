@@ -19,7 +19,7 @@ I help startups, companies, and freelance clients turn their concepts into real,
 
 
 // About Section Content
-export const ABOUT_TEXT = `I am Ahmed Khaled, a Communications Engineering student and passionate Full-stack web developer. I specialize in the MERN stack and have experience with modern technologies including React, Next.js, TypeScript, Node.js, and MongoDB. I'm also skilled in Machine Learning, AI integration, and competitive programming (ECPC participant). My journey in web development is driven by curiosity and a commitment to creating efficient, user-friendly applications that solve real-world problems.`;
+export const ABOUT_TEXT = `I am Ahmed Khaled, a Full-Stack Software Engineer and Software Architect specializing in the MERN stack alongside Python/Django, with hands-on experience across React, Next.js, TypeScript, Node.js, PostgreSQL, and MongoDB. I put a strong emphasis on system design — planning out project architecture, drawing system diagrams, and thinking through trade-offs before writing a single line of code. I work comfortably with modern AI tooling and orchestration as part of my engineering workflow, and apply the same discipline to debugging and testing that I do to building features. My work is driven by curiosity and a commitment to building efficient, reliable, and user-friendly applications that solve real-world problems.`;
 
 export const EXPERIENCES = [
   {
@@ -134,6 +134,25 @@ export const PROJECTS = [
     status: "Production Release, 2026"
   },
   {
+    title: "Al-Awael Private School — Website",
+    slug: "al-awael-private-school",
+    image: "/alawaelprivate.png",
+    description:
+      "A multi-section marketing and information website for a private school, covering admissions, academic stages (kindergarten through secondary), news, video gallery, and parent testimonials. Built the frontend end-to-end — responsive layout, animated hero sliders, and scroll-triggered animations — while a teammate handled the PHP backend.",
+    technologies: [
+      "Tailwind CSS",
+      "jQuery",
+      "Swiper.js",
+      "AOS (Animate On Scroll)",
+      "Font Awesome",
+      "Responsive Design"
+    ],
+    link: "https://alawaelprivate.com/",
+    github: "#",
+    featured: false,
+    status: "Production Release, 2025"
+  },
+  {
     title: "VitaPsyche — AI-Powered Mental Health Platform",
     slug: "vitapsyche",
     image: "/Vitapsyche.png",
@@ -153,28 +172,9 @@ export const PROJECTS = [
       "Figma"
     ],
     link: "https://mind-med-graduation-project.vercel.app/en",
-    github: "#",
+    github: "https://github.com/a7medk7aledak/VitaPsyche-Graduation-Project",
     featured: true,
     status: "Graduation Project, 2025"
-  },
-  {
-    title: "Al-Awael Private School — Website",
-    slug: "al-awael-private-school",
-    image: "/alawaelprivate.png",
-    description:
-      "A multi-section marketing and information website for a private school, covering admissions, academic stages (kindergarten through secondary), news, video gallery, and parent testimonials. Built the frontend end-to-end — responsive layout, animated hero sliders, and scroll-triggered animations — while a teammate handled the PHP backend.",
-    technologies: [
-      "Tailwind CSS",
-      "jQuery",
-      "Swiper.js",
-      "AOS (Animate On Scroll)",
-      "Font Awesome",
-      "Responsive Design"
-    ],
-    link: "https://alawaelprivate.com/",
-    github: "#",
-    featured: false,
-    status: "Production Release, 2025"
   },
   {
     title: "Capsule Gym",
@@ -353,9 +353,11 @@ export const SKILLS = {
   technical: [
     "JavaScript/TypeScript",
     "React.js & Next.js",
-    "Node.js & Express",
+    "Node.js, Express & Django",
+    "System Design & Architecture",
     "MongoDB & PostgreSQL",
     "RESTful APIs",
+    "AI Tooling & Orchestration",
     "Git & Version Control",
     "Responsive Design",
     "Agile Development"
@@ -372,8 +374,8 @@ export const SKILLS = {
 
 // My Numbers Data
 export const MY_NUMBERS = [
-  { number: 2, label: "Years of Coding", suffix: "+" },
-  { number: 40, label: "Projects Completed", suffix: "+" },
+  { number: 1, label: "Years of Coding", suffix: "+" },
+  { number: 20, label: "Projects Completed", suffix: "+" },
   { number: 10, label: "Technologies Mastered", suffix: "+" },
   { number: 20, label: "Frameworks & Libraries Used", suffix: "+" },
 ];

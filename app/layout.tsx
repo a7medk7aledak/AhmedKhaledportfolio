@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Ahmed Khaled - Full Stack Developer | MERN Stack Portfolio",
-  description: "Ahmed Khaled - Professional Full Stack Developer specializing in MERN Stack (MongoDB, Express, React, Node.js). Communications Engineering student with expertise in web development, machine learning, and competitive programming.",
+  description: "Ahmed Khaled - Full-Stack Software Engineer & Software Architect specializing in the MERN stack and Python/Django. Focused on system design, scalable architecture, and building production-ready web platforms.",
   keywords: [
     "Ahmed Khaled",
     "Full Stack Developer",
