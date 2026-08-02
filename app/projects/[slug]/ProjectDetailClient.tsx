@@ -15,9 +15,10 @@ import {
   FaDatabase, 
   FaRoute, 
   FaRegLightbulb,
-  FaCogs, 
+  FaCogs,
   FaCalendarAlt,
-  FaCheckCircle
+  FaCheckCircle,
+  FaYoutube
 } from 'react-icons/fa'
 import Button from '../../components/buttom'
 
@@ -100,16 +101,18 @@ const ProjectDetailClient = ({ slug }: ProjectDetailClientProps) => {
             </span>
           </Link>
           <div className="flex gap-4">
-            <motion.a
-              href={projectSummary.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-md shadow-purple-500/20"
-            >
-              <FaExternalLinkAlt size={12} /> Live Site
-            </motion.a>
+            {projectSummary.link && projectSummary.link !== '#' && (
+              <motion.a
+                href={projectSummary.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-md shadow-purple-500/20"
+              >
+                <FaExternalLinkAlt size={12} /> Live Site
+              </motion.a>
+            )}
             {projectSummary.github && projectSummary.github !== '#' && (
               <motion.a
                 href={projectSummary.github}
@@ -120,6 +123,18 @@ const ProjectDetailClient = ({ slug }: ProjectDetailClientProps) => {
                 className="inline-flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all border border-neutral-700 hover:border-purple-500/40"
               >
                 <FaGithub size={12} /> Source Code
+              </motion.a>
+            )}
+            {projectSummary.video && (
+              <motion.a
+                href={projectSummary.video}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition-all border border-neutral-700 hover:border-purple-500/40"
+              >
+                <FaYoutube size={12} /> Watch Video
               </motion.a>
             )}
           </div>

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PROJECTS } from '../lib/constants/index'
-import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaArrowRight, FaYoutube } from 'react-icons/fa'
 
 const Projects = () => {
   // Show only first 4 projects on home page
@@ -130,18 +130,20 @@ const Projects = () => {
                       </motion.span>
                     </Link>
                   )}
-                  <div className="flex gap-2">
-                    <motion.a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="flex-1 inline-flex items-center justify-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 backdrop-blur-sm text-white px-3 py-2 rounded-xl text-xs font-semibold border border-neutral-700/30 hover:border-purple-500/40 transition-all duration-300"
-                    >
-                      <FaExternalLinkAlt size={12} />
-                      Live Demo
-                    </motion.a>
+                  <div className="flex flex-wrap gap-2">
+                    {project.link && project.link !== '#' && (
+                      <motion.a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="flex-1 inline-flex items-center justify-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 backdrop-blur-sm text-white px-3 py-2 rounded-xl text-xs font-semibold border border-neutral-700/30 hover:border-purple-500/40 transition-all duration-300"
+                      >
+                        <FaExternalLinkAlt size={12} />
+                        Live Demo
+                      </motion.a>
+                    )}
                     {project.github && project.github !== '#' && (
                       <motion.a
                         href={project.github}
@@ -153,6 +155,19 @@ const Projects = () => {
                       >
                         <FaGithub size={12} />
                         GitHub
+                      </motion.a>
+                    )}
+                    {project.video && (
+                      <motion.a
+                        href={project.video}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="flex-1 inline-flex items-center justify-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 backdrop-blur-sm text-white px-3 py-2 rounded-xl text-xs font-semibold border border-neutral-700/30 hover:border-purple-500/40 transition-all duration-300"
+                      >
+                        <FaYoutube size={12} />
+                        Video
                       </motion.a>
                     )}
                   </div>

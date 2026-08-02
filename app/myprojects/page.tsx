@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PROJECTS } from '../lib/constants/index'
-import { FaGithub, FaExternalLinkAlt, FaArrowLeft } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaArrowLeft, FaYoutube } from 'react-icons/fa'
 import Button from '../components/buttom'
 
 const ProjectsPage = () => {
@@ -92,17 +92,19 @@ const ProjectsPage = () => {
                         </motion.span>
                       </Link>
                     )}
-                    <motion.a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 text-neutral-300 px-4 py-2.5 rounded-xl text-xs font-bold border border-neutral-700/30 transition-all"
-                    >
-                      <FaExternalLinkAlt size={12} />
-                      Live Demo
-                    </motion.a>
+                    {project.link && project.link !== '#' && (
+                      <motion.a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 text-neutral-300 px-4 py-2.5 rounded-xl text-xs font-bold border border-neutral-700/30 transition-all"
+                      >
+                        <FaExternalLinkAlt size={12} />
+                        Live Demo
+                      </motion.a>
+                    )}
                     {project.github && project.github !== '#' && (
                       <motion.a
                         href={project.github}
@@ -114,6 +116,19 @@ const ProjectsPage = () => {
                       >
                         <FaGithub size={12} />
                         GitHub
+                      </motion.a>
+                    )}
+                    {project.video && (
+                      <motion.a
+                        href={project.video}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center gap-2 bg-neutral-800/80 hover:bg-neutral-700/80 text-neutral-300 px-4 py-2.5 rounded-xl text-xs font-bold border border-neutral-700/30 transition-all"
+                      >
+                        <FaYoutube size={12} />
+                        Video
                       </motion.a>
                     )}
                   </div>

@@ -73,7 +73,20 @@ Refactored the backend from Flask to Django early on to support the team's scali
   },
 ];
 
-export const PROJECTS = [
+export interface Project {
+  title: string;
+  slug: string;
+  image: string;
+  description: string;
+  technologies: string[];
+  link: string;
+  github: string;
+  video?: string;
+  featured?: boolean;
+  status?: string;
+}
+
+export const PROJECTS: Project[] = [
   {
     title: "Roshd — Multi-Tenant B2B SaaS Platform",
     slug: "roshd",
@@ -282,6 +295,17 @@ export const PROJECTS = [
     github: "https://github.com/a7medk7aledak/small-project-nextjs",
   },
   {
+    title: "HTML & CSS Course Template",
+    slug: "html-css-course-template",
+    image: "/templet-htmlcss-course.png",
+    description:
+      "A hands-on website template built as teaching material for an HTML & CSS course, covering layout, styling, and responsive design fundamentals for beginner students.",
+    technologies: ["HTML5", "CSS3", "Responsive Design"],
+    link: "https://templet-htmlcss-course.vercel.app/",
+    github: "https://github.com/a7medk7aledak/TempletHTMLCSSCourse",
+    video: "https://www.youtube.com/watch?v=4axzLb35tj8",
+  },
+  {
     title: "Social Media Platform",
     slug: "social-media",
     image: "/project-4.png",
@@ -319,7 +343,7 @@ export const PROJECTS = [
       "A responsive website template exploring modern layout and styling techniques, built during HTML/CSS/JS training practice.",
     technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     link: "https://templet1-elzero.vercel.app/",
-    github: "#",
+    github: "https://github.com/a7medk7aledak/templet1-elzero",
   },
   {
     title: "My Template 1",
@@ -342,14 +366,28 @@ export const PROJECTS = [
     github: "https://github.com/a7medk7aledak/MyTemple2",
   },
   {
-    title: "HTML & CSS Course Template",
-    slug: "html-css-course-template",
-    image: "/templet-htmlcss-course.png",
+    title: "Ecommerce Platform — Next.js & NestJS",
+    slug: "ecommerce-nextjs-nestjs",
+    image: "https://picsum.photos/seed/ecommerce-nextjs-nestjs/1200/675",
     description:
-      "A hands-on website template built as teaching material for an HTML & CSS course, covering layout, styling, and responsive design fundamentals for beginner students.",
-    technologies: ["HTML5", "CSS3", "Responsive Design"],
-    link: "https://templet-htmlcss-course.vercel.app/",
+      "An open-source e-commerce platform built with Next.js and NestJS. Still under active development — full feature and architecture details coming soon.",
+    technologies: ["Next.js", "NestJS", "TypeScript"],
+    link: "#",
+    github: "https://github.com/a7medk7aledak/Ecommerce-nextjs-nestjs",
+    featured: false,
+    status: "In Development"
+  },
+  {
+    title: "BAK Tech — Financial Manager",
+    slug: "bak-tech-financial-manager",
+    image: "https://picsum.photos/seed/bak-tech-financial-manager/1200/675",
+    description:
+      "A production financial management platform for tracking and organizing finances online.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    link: "https://bak-tech-financial-manager.vercel.app/",
     github: "#",
+    featured: false,
+    status: "Production Release, 2026"
   },
 ];
 
