@@ -2,7 +2,7 @@
 
 import { RiReactjsLine } from "react-icons/ri";
 import { TbBrandNextjs } from "react-icons/tb";
-import { SiMongodb, SiTypescript, SiTailwindcss, SiExpress, SiDjango, SiVercel, SiCloudinary, SiBootstrap, SiJavascript, SiHtml5, SiCss3, SiPython, SiNuxtdotjs, SiRender, SiGithubactions, SiSocketdotio, SiJsonwebtokens } from "react-icons/si";
+import { SiMongodb, SiTypescript, SiTailwindcss, SiExpress, SiDjango, SiVercel, SiCloudinary, SiBootstrap, SiJavascript, SiHtml5, SiCss3, SiPython, SiNestjs, SiRender, SiGithubactions, SiSocketdotio, SiJsonwebtokens } from "react-icons/si";
 import { DiRedis } from "react-icons/di";
 import { FaNodeJs, FaGitAlt, FaDocker, FaAws, FaDatabase, FaCode, FaTools, FaCloud } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
@@ -31,9 +31,8 @@ const Technologies = () => {
       icon: FaCode,
       color: "text-blue-400",
       technologies: [
-        { Icon: RiReactjsLine, color: "text-cyan-400", name: "React", duration: 2.5 },
         { Icon: TbBrandNextjs, color: "text-white", name: "Next.js", duration: 3 },
-        { Icon: SiNuxtdotjs, color: "text-green-400", name: "Nuxt.js", duration: 2.7 },
+        { Icon: RiReactjsLine, color: "text-cyan-400", name: "React", duration: 2.5 },
         { Icon: SiTypescript, color: "text-blue-400", name: "TypeScript", duration: 2.8 },
         { Icon: SiJavascript, color: "text-yellow-400", name: "JavaScript", duration: 3.2 },
         { Icon: SiTailwindcss, color: "text-cyan-500", name: "Tailwind CSS", duration: 2.2 },
@@ -47,6 +46,7 @@ const Technologies = () => {
       icon: FaDatabase,
       color: "text-green-400",
       technologies: [
+        { Icon: SiNestjs, color: "text-red-500", name: "NestJS", duration: 3.6 },
         { Icon: FaNodeJs, color: "text-green-500", name: "Node.js", duration: 6 },
         { Icon: SiExpress, color: "text-gray-400", name: "Express.js", duration: 3.5 },
         { Icon: SiDjango, color: "text-green-600", name: "Django", duration: 4.2 },

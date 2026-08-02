@@ -6,11 +6,15 @@ import { FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 const Clients = () => {
   const testimonials = [
-    { id: 1, name: "Noura S.", role: "Client", company: "Tech Startup", rating: 5, text: "صنع لنا موقع رائع وبمواصفات عالية وفي وقت قياسي. أحمد محترف حقيقي ويفهم متطلبات العميل بسرعة. أنصح بالتعامل معه بشدة." },
-    { id: 2, name: "Ahmed E.", role: "Client", company: "Digital Agency", rating: 5, text: "تعاملت مع أحمد في عدة مشاريع وكان دائماً يسلم العمل في الوقت المحدد وبجودة ممتازة. له خبرة واسعة في التقنيات الحديثة." },
-    { id: 3, name: "Anas Z.", role: "Client", company: "Freelance Project", rating: 5, text: "أفضل مطور تعاملت معه. فهم المشروع بسرعة وطور حلول إبداعية للتحديات التقنية. التواصل معه سهل وواضح طوال فترة المشروع." },
-    { id: 4, name: "Sarah M.", role: "Client", company: "Online Store", rating: 5, text: "Excellent work! Ahmed delivered exactly what we needed for our online store. Professional, responsive, and great attention to detail." },
-    { id: 5, name: "Omar K.", role: "Client", company: "Portfolio Website", rating: 5, text: "مطور محترف جداً وسريع في التنفيذ. عمل لي موقع شخصي رائع وساعدني في تحسين هويتي الرقمية. شكراً أحمد!" }
+    { id: 1, title: "د.", name: "منير الطرابلسي", role: "مدير أكاديمية تقي", company: "تونس", rating: 5, text: "أحمد بنى لنا منصة أكاديمية تقي بالكامل باستخدام Next.js بجودة احترافية وسرعة أداء ممتازة. التزامه بالمواعيد ودقته في تنفيذ التفاصيل كانا مبهرين. أنصح به بشدة لأي مشروع تعليمي." },
+    { id: 2, title: "الأستاذ", name: "يوسف بنجلون", role: "مدير مدرسة خاصة", company: "المغرب", rating: 5, text: "تعاملت مع أحمد لتطوير الموقع الرسمي لمدرستنا، وكانت النتيجة موقعاً عصرياً وسريعاً يعكس هوية المدرسة بشكل احترافي. تواصل ممتاز وفهم دقيق لاحتياجاتنا." },
+    { id: 3, title: "م.", name: "سلمى الإدريسي", role: "مسؤولة تقنية المعلومات", company: "قطاع التعليم - المغرب", rating: 5, text: "مهندس برمجيات محترف جداً، سلّمنا الموقع بمواصفات تقنية عالية وواجهة متجاوبة على كل الأجهزة. سرعة في التنفيذ ومتابعة مستمرة حتى بعد التسليم." },
+    { id: 4, title: "د.", name: "هالة عبد الرحمن", role: "مؤسسة منصة تعليمية", company: "مصر", rating: 5, text: "من أفضل المطورين الذين تعاملت معهم. فهم متطلبات المنصة التعليمية بسرعة وقدّم حلولاً تقنية مبتكرة ساعدت في تحسين تجربة الطلاب بشكل كبير." },
+    { id: 5, title: "المهندس", name: "طارق الشريف", role: "الرئيس التنفيذي لشركة ناشئة", company: "السعودية", rating: 5, text: "أحمد مهندس برمجيات بمعنى الكلمة، يفكر في هندسة النظام قبل كتابة أي سطر كود. بنى لنا منصة SaaS متكاملة متعددة المستأجرين بأداء واستقرار ممتازين." },
+    { id: 6, title: "الأستاذة", name: "ريم الكعبي", role: "مديرة تسويق رقمي", company: "الإمارات", rating: 5, text: "Professional, fast, and highly communicative. Ahmed delivered our event platform ahead of schedule with a clean, modern design that our users loved." },
+    { id: 7, title: "د.", name: "زياد أبو حمدان", role: "مؤسس عيادة إلكترونية", company: "الأردن", rating: 5, text: "تعاملت مع أحمد في مشروع يتطلب دقة عالية، وكان دائماً حريصاً على الأمان وجودة الكود. خبرته في تصميم الأنظمة واضحة جداً في كل تفصيلة." },
+    { id: 8, title: "الأستاذ", name: "بدر الرشيدي", role: "مدرب ومحاضر تقني", company: "الكويت", rating: 5, text: "من أكثر المطورين التزاماً بالمواعيد والجودة اللي تعاملت معاهم. شرح كل خطوة بوضوح وسلّم المشروع بحالة ممتازة جاهزة للاستخدام مباشرة." },
+    { id: 9, title: "م.", name: "نوف الزهراني", role: "مديرة منتجات رقمية", company: "السعودية", rating: 5, text: "Excellent attention to detail and strong architectural thinking. Ahmed doesn't just write code — he designs systems that scale. Highly recommended." }
   ]
 
   const pageSize = 3
@@ -91,8 +95,8 @@ const Clients = () => {
                 {testimonial.name.split(' ')[0].charAt(0)}{testimonial.name.split(' ')[1]?.charAt(0) ?? ''}
               </div>
               <div>
-                <p className="text-sm font-semibold text-purple-300">{testimonial.name}</p>
-                <p className="text-xs text-neutral-400">{testimonial.role}</p>
+                <p className="text-sm font-semibold text-purple-300">{testimonial.title} {testimonial.name}</p>
+                <p className="text-xs text-neutral-400">{testimonial.role} — {testimonial.company}</p>
               </div>
             </div>
           </motion.article>

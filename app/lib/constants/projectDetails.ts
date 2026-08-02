@@ -89,7 +89,7 @@ To enforce strict privacy and security for corporate clients, the platform adopt
       },
       {
         title: "Real-Time Systems & WebRTC",
-        description: "Integrated LiveKit WebRTC for live lectures and Server-Sent Events (SSE) for instant, lightweight client-side notifications and status alerts.",
+        description: "Integrated WebRTC for live lectures and Server-Sent Events (SSE) for instant, lightweight client-side notifications and status alerts.",
         badge: "Streaming"
       }
     ],
@@ -117,7 +117,7 @@ To enforce strict privacy and security for corporate clients, the platform adopt
       {
         phase: "Phase 3: Core SaaS Features & Wallet",
         title: "Developing Wallet and Billing",
-        description: "Built the double-entry accounting ledger, subscription cycles, CRM leads tracker, and RBAC matrix. Integrated LiveKit WebRTC for interactive class rooms."
+        description: "Built the double-entry accounting ledger, subscription cycles, CRM leads tracker, and RBAC matrix. Integrated WebRTC for interactive class rooms."
       },
       {
         phase: "Phase 4: Frontend Monorepo & Deployment",
@@ -132,71 +132,6 @@ To enforce strict privacy and security for corporate clients, the platform adopt
       { id: "celery", label: "Celery Task Queue", details: "Spins up tenant databases, manages subscription invoicing, and processes media files in background.", status: "queue" },
       { id: "redis", label: "Redis Broker & Cache", details: "Acts as a message broker for Celery, caching database queries and session data.", status: "queue" },
       { id: "db", label: "PostgreSQL Engine", details: "Performs queries inside isolated schemas. Uses search_path middleware to direct SQL traffic.", status: "db" }
-    ]
-  },
-  "sallam-physics": {
-    slug: "sallam-physics",
-    title: "Sallam Physics — Educational Platform",
-    subtitle: "An engaging physics learning platform featuring online video lectures, homework submissions, and real-time student performance tracking.",
-    overview: `Sallam Physics is a customized learning management system tailored for high school physics students. The platform was designed to transition traditional classroom learning into a modern digital experience, offering seamless access to recorded lectures, automated homework grading, and interactive quizzes.
-
-Built to handle high traffic during peak exam seasons, the platform utilizes Next.js for optimized client-side rendering and fast page load times. The backend manages student authentication, course subscriptions, dynamic exam evaluations, and detailed progress reports.`,
-    sketchImage: "",
-    videoUrl: "",
-    features: [
-      {
-        title: "Lectures & Courses Catalog",
-        description: "Organized physics modules and video lessons with progress tracking, allowing students to learn at their own pace.",
-        badge: "E-Learning"
-      },
-      {
-        title: "Automated Homework & Exams",
-        description: "Interactive quizzes and homework submissions with instant grading and detailed step-by-step solution breakdowns.",
-        badge: "Assessment"
-      },
-      {
-        title: "Student Performance Analytics",
-        description: "Detailed dashboards visualizing quiz scores, completion rates, and personalized study recommendations.",
-        badge: "Analytics"
-      },
-      {
-        title: "Parent Portal Access",
-        description: "Secured parent tracking dashboard to monitor attendance, quiz history, and overall study progress.",
-        badge: "Security"
-      }
-    ],
-    challenges: [
-      {
-        issue: "Managing high concurrent student loads during weekly exam windows.",
-        solution: "Optimized database queries with proper indexing, implemented server-side caching for course metadata, and deployed the API on scalable cloud functions."
-      },
-      {
-        issue: "Preventing unauthorized sharing of video content and lecture materials.",
-        solution: "Implemented secure signed URLs for video assets and blocked simultaneous logins from different devices under the same student account."
-      }
-    ],
-    timeline: [
-      {
-        phase: "Phase 1: Requirements & UI Design",
-        title: "UX/UI Prototyping",
-        description: "Designed a clean, modern, and engaging user interface focused on easy student navigation and clear learning progress visualization."
-      },
-      {
-        phase: "Phase 2: Database & Backend Services",
-        title: "Core Service Integration",
-        description: "Modeled MongoDB collections for students, courses, exams, and logs. Developed RESTful APIs for course content delivery and authentication."
-      },
-      {
-        phase: "Phase 3: Launch & Optimization",
-        title: "Performance Tuning & Launch",
-        description: "Conducted load testing, optimized asset delivery, and successfully launched the platform for active physics students."
-      }
-    ],
-    architectureNodes: [
-      { id: "fe", label: "Next.js Student Web App", details: "Responsive student portal offering lecture access, quiz interfaces, and score tracking.", status: "client" },
-      { id: "api", label: "Node.js & Express API", details: "Handles authentication, exam grading logic, and serves student data.", status: "api" },
-      { id: "db", label: "MongoDB Database", details: "Stores courses catalog, student profiles, quiz responses, and payment records.", status: "db" },
-      { id: "cdn", label: "Vercel Edge Network", details: "Caches static pages and assets to deliver fast load times across different regions.", status: "external" }
     ]
   },
   "afaq-academy": {
@@ -261,6 +196,189 @@ The platform is built on Next.js with a fully RTL-first interface, and organizes
       { id: "fe", label: "Next.js RTL Web App", details: "Server-rendered, RTL-first Arabic interface handling course discovery, booking, and the student toolkit.", status: "client" },
       { id: "ui", label: "Bootstrap 5 UI Layer", details: "Component and layout styling system powering responsive pages across devices.", status: "client" },
       { id: "api", label: "Application Backend", details: "Handles authentication, course/session data, and booking for live teaching sessions.", status: "api" }
+    ]
+  },
+  "taki-academy": {
+    slug: "taki-academy",
+    title: "Taki Academy — Educational Platform",
+    subtitle: "A Tunisian online learning academy with a fast, responsive Next.js frontend for course discovery and enrollment.",
+    overview: `Taki Academy is a Tunisian e-learning platform connecting students with instructors and structured course content. I was brought in to build the entire frontend, translating the platform's design into a fast, responsive, and RTL-friendly Next.js interface.
+
+The build focused on clean course browsing, a smooth enrollment flow, and consistent performance across devices, giving the academy a modern web presence to support its growing student base.`,
+    sketchImage: "",
+    videoUrl: "",
+    features: [
+      {
+        title: "Course Catalog & Discovery",
+        description: "Browsable course listings with clear categorization, helping students quickly find relevant classes.",
+        badge: "Frontend"
+      },
+      {
+        title: "RTL-First Responsive UI",
+        description: "A fully right-to-left interface built with Next.js, ensuring a natural reading and navigation experience in Arabic.",
+        badge: "Frontend"
+      },
+      {
+        title: "Enrollment Flow",
+        description: "Streamlined course enrollment screens designed to minimize friction from discovery to signup.",
+        badge: "UX"
+      }
+    ],
+    challenges: [
+      {
+        issue: "Delivering a fast, polished frontend on a tight timeline for a live academy launch.",
+        solution: "Built with Next.js's file-based routing and component reuse to move quickly from design to production without sacrificing performance or responsiveness."
+      }
+    ],
+    timeline: [
+      {
+        phase: "Phase 1: UI Implementation",
+        title: "Building the Next.js Frontend",
+        description: "Translated the platform design into responsive, RTL-first Next.js pages covering course discovery and enrollment."
+      },
+      {
+        phase: "Phase 2: Launch",
+        title: "Production Release",
+        description: "Deployed the platform to production for Tunisian students and instructors."
+      }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "Next.js RTL Web App", details: "Responsive, RTL-first frontend handling course discovery and enrollment.", status: "client" },
+      { id: "api", label: "Application Backend", details: "Handles authentication, course data, and enrollment records.", status: "api" }
+    ]
+  },
+  "garneau-school": {
+    slug: "garneau-school",
+    title: "Garneau School — Website",
+    subtitle: "A modern, responsive Next.js marketing website for a private school in Morocco.",
+    overview: `Garneau School needed a modern online presence to showcase its academic programs, admissions process, and school life to prospective families. I built the site end-to-end with Next.js, focused on fast load times, clean navigation, and full responsiveness across devices.`,
+    sketchImage: "",
+    videoUrl: "",
+    features: [
+      {
+        title: "Academic Programs Overview",
+        description: "Structured sections presenting the school's programs and academic stages with clear visual hierarchy.",
+        badge: "Content"
+      },
+      {
+        title: "Admissions & Contact Flow",
+        description: "Clear calls-to-action guiding prospective families through admissions information and contact.",
+        badge: "UX"
+      },
+      {
+        title: "Fully Responsive Layout",
+        description: "Built with Next.js and Tailwind CSS for a consistent experience across mobile, tablet, and desktop.",
+        badge: "Frontend"
+      }
+    ],
+    challenges: [
+      {
+        issue: "Presenting a school's identity and programs clearly for both desktop and mobile visitors.",
+        solution: "Designed a component-based Next.js layout with Tailwind CSS, keeping navigation and content hierarchy consistent across all breakpoints."
+      }
+    ],
+    timeline: [
+      {
+        phase: "Phase 1: Design & Build",
+        title: "Building the Next.js Site",
+        description: "Implemented the responsive layout, academic program pages, and admissions sections with Next.js and Tailwind CSS."
+      },
+      {
+        phase: "Phase 2: Launch",
+        title: "Production Release",
+        description: "Deployed the site to production for the school's public rollout."
+      }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "Next.js Frontend", details: "Responsive marketing site built with Next.js and Tailwind CSS.", status: "client" }
+    ]
+  },
+  "gspa-school": {
+    slug: "gspa-school",
+    title: "GSPA — Private School Website",
+    subtitle: "A responsive Next.js website for a Moroccan private school.",
+    overview: `GSPA is a private school in Morocco that needed a clean, modern website to present its academic offerings, admissions details, and school news. Built with Next.js and Tailwind CSS for fast performance and a fully responsive layout.`,
+    sketchImage: "",
+    videoUrl: "",
+    features: [
+      {
+        title: "Academic Programs & News",
+        description: "Organized sections for academic programs and school news, keeping the site content current for visiting families.",
+        badge: "Content"
+      },
+      {
+        title: "Admissions Information",
+        description: "Clear, accessible admissions details to guide prospective students and parents.",
+        badge: "UX"
+      },
+      {
+        title: "Responsive Design",
+        description: "A mobile-first responsive layout ensuring a consistent experience across devices.",
+        badge: "Frontend"
+      }
+    ],
+    challenges: [
+      {
+        issue: "Building a clean, professional presentation for a school audience across all device sizes.",
+        solution: "Used Next.js with Tailwind CSS's utility-first styling to keep the layout consistent and maintainable across breakpoints."
+      }
+    ],
+    timeline: [
+      {
+        phase: "Phase 1: Build",
+        title: "Building the Next.js Site",
+        description: "Implemented the responsive layout, program pages, and admissions sections."
+      },
+      {
+        phase: "Phase 2: Launch",
+        title: "Production Release",
+        description: "Deployed the site to production."
+      }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "Next.js Frontend", details: "Responsive school website built with Next.js and Tailwind CSS.", status: "client" }
+    ]
+  },
+  "spotlight-egypt": {
+    slug: "spotlight-egypt",
+    title: "Spotlight Egypt — Event Management Platform",
+    subtitle: "An event management and ticket booking platform for organizers to publish events and sell tickets online.",
+    overview: `Spotlight Egypt is an event management platform built to let organizers publish events and sell tickets online through a fast, modern web experience. The UI is currently being refreshed — this page will be expanded with full architecture and feature details once the redesign ships.`,
+    sketchImage: "",
+    videoUrl: "",
+    features: [
+      {
+        title: "Event Publishing",
+        description: "Lets organizers create and publish event listings for attendees to discover.",
+        badge: "Product"
+      },
+      {
+        title: "Online Ticket Booking",
+        description: "Enables attendees to browse events and purchase tickets directly through the platform.",
+        badge: "Product"
+      }
+    ],
+    challenges: [
+      {
+        issue: "Delivering a reliable ticket booking flow under real event traffic.",
+        solution: "Built the booking flow with a focus on performance and a straightforward, low-friction checkout path."
+      }
+    ],
+    timeline: [
+      {
+        phase: "Phase 1: Platform Build",
+        title: "Core Event & Booking Flows",
+        description: "Implemented event publishing and the ticket booking flow."
+      },
+      {
+        phase: "Phase 2: UI Refresh",
+        title: "In Progress",
+        description: "Currently updating the platform's UI and visual design."
+      }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "Web Frontend", details: "Client-facing interface for browsing events and booking tickets.", status: "client" },
+      { id: "api", label: "Application Backend", details: "Handles event data, bookings, and ticketing logic.", status: "api" }
     ]
   },
   "vitapsyche": {
@@ -332,60 +450,6 @@ The platform combines AI-powered emotional assessment models with an empathetic 
       { id: "api", label: "Django Backend", details: "Core API layer handling authentication, bookings, consultations, and business logic.", status: "api" },
       { id: "ai", label: "AI Diagnosis & Lina Engine", details: "NLP/ML models (Rasa, Hugging Face, TensorFlow) powering emotional assessment and the virtual support character.", status: "external" },
       { id: "db", label: "MySQL & MongoDB", details: "Relational storage for core transactional data alongside MongoDB for flexible content and chat data.", status: "db" }
-    ]
-  },
-  "al-awael-private-school": {
-    slug: "al-awael-private-school",
-    title: "Al-Awael Private School — Website",
-    subtitle: "A responsive, animated marketing site for a private school, covering admissions, academic stages, news, and parent testimonials.",
-    overview: `Al-Awael Private School's website was built to give the school a modern, welcoming online presence — covering its academic stages (kindergarten through secondary), admissions call-to-action, news and events, a video gallery, and parent testimonials.
-
-I worked on this project purely as the frontend developer, building the responsive layout, the animated hero slider, and scroll-triggered section animations. The PHP backend (content delivery, forms, and dynamic data) was handled by a teammate — my scope was entirely the client-facing experience.`,
-    sketchImage: "",
-    videoUrl: "",
-    features: [
-      {
-        title: "Animated Hero Slider",
-        description: "Built a multi-slide hero section using Swiper.js, rotating through the school's key messages and calls to action.",
-        badge: "Frontend"
-      },
-      {
-        title: "Academic Stages Overview",
-        description: "Structured sections presenting the school's stages — kindergarten, primary, preparatory, and secondary — with consistent visual hierarchy.",
-        badge: "Content"
-      },
-      {
-        title: "Scroll-Triggered Animations",
-        description: "Integrated AOS (Animate On Scroll) to bring sections, stats, and testimonials to life as visitors scroll through the page.",
-        badge: "UX"
-      },
-      {
-        title: "News & Video Gallery",
-        description: "Built layout components for the school's news feed and video gallery, keeping the site content fresh and engaging for parents.",
-        badge: "Frontend"
-      }
-    ],
-    challenges: [
-      {
-        issue: "Delivering a polished, animated frontend that still integrates cleanly with a separately-developed PHP backend.",
-        solution: "Structured markup and components around clear, predictable data hooks so the backend developer could wire in dynamic content (news, stats, testimonials) without reworking the frontend layout or animations."
-      }
-    ],
-    timeline: [
-      {
-        phase: "Phase 1: UI Design & Layout",
-        title: "Structuring the Page Sections",
-        description: "Built out the responsive layout using Tailwind CSS across the hero, about, academic stages, news, and testimonials sections."
-      },
-      {
-        phase: "Phase 2: Interactivity & Animation",
-        title: "Sliders & Scroll Effects",
-        description: "Implemented the Swiper.js hero slider and AOS scroll animations, then handed off integration points for the PHP backend."
-      }
-    ],
-    architectureNodes: [
-      { id: "fe", label: "Tailwind CSS Frontend", details: "Responsive, animated marketing site built with Tailwind CSS, jQuery, Swiper.js, and AOS.", status: "client" },
-      { id: "backend", label: "PHP Backend", details: "Handled by a teammate — serves content, forms, and dynamic page data.", status: "api" }
     ]
   },
   "capsule-gym": {
@@ -631,6 +695,46 @@ Built using Next.js and Tailwind CSS, the platform delivers fluid animations, in
     ],
     architectureNodes: [
       { id: "fe", label: "Animated UI Webpage", details: "Static webpage featuring filter scripts and CSS transitions.", status: "client" }
+    ]
+  },
+  "template-1-elzero": {
+    slug: "template-1-elzero",
+    title: "Template 1",
+    subtitle: "A responsive landing page template exploring modern layout and styling techniques.",
+    overview: `A standard responsive website template built during HTML/CSS/JS training practice, focused on clean layout structure, semantic markup, and modern styling conventions.`,
+    features: [
+      { title: "Responsive Layout", description: "Grid and flexbox-based sections that adapt cleanly across screen sizes." }
+    ],
+    challenges: [
+      { issue: "Keeping layout and spacing consistent across breakpoints.", solution: "Structured CSS with reusable utility classes and media queries for predictable responsive behavior." }
+    ],
+    timeline: [
+      { phase: "Phase 1", title: "Build", description: "Coded the layout structure, styling, and responsive breakpoints." }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "HTML & CSS Layout", details: "A static, responsive webpage styled with modern CSS layout techniques.", status: "client" }
+    ]
+  },
+  "html-css-course-template": {
+    slug: "html-css-course-template",
+    title: "HTML & CSS Course Template",
+    subtitle: "A teaching template used to walk students through HTML & CSS fundamentals from scratch.",
+    overview: `This template was built as course material for teaching students the fundamentals of HTML and CSS — page structure, semantic markup, box model, flexbox/grid layout, and responsive design practices. It walks through building a full page from an empty file up to a polished, responsive result.`,
+    videoUrl: "https://www.youtube.com/embed/4axzLb35tj8",
+    features: [
+      { title: "Semantic HTML Structure", description: "Demonstrates proper use of semantic elements for accessible, well-structured markup." },
+      { title: "Responsive Layout Techniques", description: "Covers flexbox and grid-based layouts that adapt across screen sizes." },
+      { title: "Step-by-Step Styling", description: "Builds up styling incrementally to help students understand each CSS concept in context." }
+    ],
+    challenges: [
+      { issue: "Explaining layout concepts in a way that's easy for beginners to follow and reproduce.", solution: "Broke the build into incremental steps, starting from plain HTML and progressively layering in CSS concepts one at a time." }
+    ],
+    timeline: [
+      { phase: "Phase 1", title: "Course Design", description: "Planned the lesson structure, moving from HTML basics to CSS layout and responsive design." },
+      { phase: "Phase 2", title: "Recording & Build", description: "Built the template live while recording the walkthrough for students." }
+    ],
+    architectureNodes: [
+      { id: "fe", label: "HTML & CSS Page", details: "A static teaching template covering semantic structure and responsive styling.", status: "client" }
     ]
   }
 };

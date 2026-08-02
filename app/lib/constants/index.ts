@@ -11,7 +11,7 @@ export const PERSONAL_INFO = {
 };
 
 // Hero Section Content
-export const HERO_CONTENT = `Hi, I am Ahmed Khaled, a Full-Stack Software Engineer specializing in building scalable, high-performance web platforms using modern JavaScript and Python ecosystems — including React, Next.js, Node.js, Django, Exprees, Nuxtjs, PostgreSQL, and MongoDB.
+export const HERO_CONTENT = `Hi, I am Ahmed Khaled, a Full-Stack Software Engineer specializing in building scalable, high-performance web platforms — currently focused on Next.js and NestJS, with hands-on experience across React, Node.js, Express, Django, PostgreSQL, and MongoDB.
 
 I transform ideas into fully functional, production-ready digital products through solid architectural planning, clean code, and a deep understanding of system design. I design and implement robust application architectures, including modular monoliths and microservices, ensuring maintainability, scalability, and smooth user experience from end to end.
 
@@ -19,7 +19,7 @@ I help startups, companies, and freelance clients turn their concepts into real,
 
 
 // About Section Content
-export const ABOUT_TEXT = `I am Ahmed Khaled, a Full-Stack Software Engineer and Software Architect specializing in the MERN stack alongside Python/Django, with hands-on experience across React, Next.js, TypeScript, Node.js, PostgreSQL, and MongoDB. I put a strong emphasis on system design — planning out project architecture, drawing system diagrams, and thinking through trade-offs before writing a single line of code. I work comfortably with modern AI tooling and orchestration as part of my engineering workflow, and apply the same discipline to debugging and testing that I do to building features. My work is driven by curiosity and a commitment to building efficient, reliable, and user-friendly applications that solve real-world problems.`;
+export const ABOUT_TEXT = `I am Ahmed Khaled, a Full-Stack Software Engineer and Software Architect currently focused on Next.js and NestJS, alongside hands-on experience across React, TypeScript, Node.js, Express, Django, PostgreSQL, and MongoDB. I put a strong emphasis on system design — planning out project architecture, drawing system diagrams, and thinking through trade-offs before writing a single line of code. I work comfortably with modern AI tooling and orchestration as part of my engineering workflow, and apply the same discipline to debugging and testing that I do to building features. My work is driven by curiosity and a commitment to building efficient, reliable, and user-friendly applications that solve real-world problems.`;
 
 export const EXPERIENCES = [
   {
@@ -68,7 +68,7 @@ Refactored the backend from Flask to Django early on to support the team's scali
       "PostgreSQL",
       "Redis",
       "Docker",
-      "LiveKit WebRTC",
+      "WebRTC",
     ],
   },
 ];
@@ -79,14 +79,14 @@ export const PROJECTS = [
     slug: "roshd",
     image: "/roshed.png",
     description:
-      "Architected a multi-tenant educational SaaS where a single shared backend engine powers two structurally different products (an Academy and a Teacher platform) via Strategy Pattern. Enforced PostgreSQL schema-per-tenant isolation, dynamic search-path routing, Celery provisioning, and full support for tenant sub-domains (e.g., tenant.roshed.tech) and custom domain SSL mappings. Built a concurrency-safe wallet, custom RBAC, LiveKit streams, and a Next.js 14 monorepo.",
+      "Architected a multi-tenant educational SaaS where a single shared backend engine powers two structurally different products (an Academy and a Teacher platform) via Strategy Pattern. Enforced PostgreSQL schema-per-tenant isolation, dynamic search-path routing, Celery provisioning, and full support for tenant sub-domains (e.g., tenant.roshed.tech) and custom domain SSL mappings. Built a concurrency-safe wallet, custom RBAC, WebRTC streams, and a Next.js 14 monorepo.",
     technologies: [
       "Next.js 14",
       "Django 5.2",
       "PostgreSQL",
       "Redis",
       "Celery",
-      "LiveKit WebRTC",
+      "WebRTC",
       "Turborepo",
       "Docker"
     ],
@@ -94,26 +94,6 @@ export const PROJECTS = [
     github: "#",
     featured: true,
     status: "Production Release, 2026"
-  },
-  {
-    title: "Sallam Physics — Educational Platform",
-    slug: "sallam-physics",
-    image: "/mohamed-sallam.png",
-    description:
-      "An interactive educational platform designed for physics students, featuring online video lectures, homework submissions, instant exam grading, and detailed performance tracking dashboard.",
-    technologies: [
-      "Next.js",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Vercel"
-    ],
-    link: "https://mohamed-sallam.com",
-    github: "#",
-    featured: true,
-    status: "Production Release, 2025"
   },
   {
     title: "Afaq Academy — Educational Platform",
@@ -134,23 +114,56 @@ export const PROJECTS = [
     status: "Production Release, 2026"
   },
   {
-    title: "Al-Awael Private School — Website",
-    slug: "al-awael-private-school",
-    image: "/alawaelprivate.png",
+    title: "Taki Academy — Educational Platform",
+    slug: "taki-academy",
+    image: "/takiac-ademy-tonas.png",
     description:
-      "A multi-section marketing and information website for a private school, covering admissions, academic stages (kindergarten through secondary), news, video gallery, and parent testimonials. Built the frontend end-to-end — responsive layout, animated hero sliders, and scroll-triggered animations — while a teammate handled the PHP backend.",
+      "A Tunisian online learning academy offering students structured access to courses and instructors through a fast, modern web experience. Built the entire frontend with Next.js — course browsing, enrollment flows, and a fully responsive, RTL-friendly interface.",
     technologies: [
+      "Next.js",
+      "React",
       "Tailwind CSS",
-      "jQuery",
-      "Swiper.js",
-      "AOS (Animate On Scroll)",
-      "Font Awesome",
+      "RTL/Arabic UI",
       "Responsive Design"
     ],
-    link: "https://alawaelprivate.com/",
+    link: "https://takiacademy.com/",
+    github: "#",
+    featured: true,
+    status: "Production Release, 2026"
+  },
+  {
+    title: "Garneau School — Website",
+    slug: "garneau-school",
+    image: "/garneauschool.png",
+    description:
+      "A modern marketing and information website for a private school in Morocco, covering admissions, academic programs, school life, and news. Built end-to-end with Next.js for a fast, fully responsive experience.",
+    technologies: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Responsive Design"
+    ],
+    link: "https://www.garneauschool.ma/",
+    github: "#",
+    featured: true,
+    status: "Production Release, 2026"
+  },
+  {
+    title: "GSPA — Private School Website",
+    slug: "gspa-school",
+    image: "/gspa.png",
+    description:
+      "A responsive Next.js website for a Moroccan private school, showcasing academic programs, admissions information, and school news with a clean, modern design.",
+    technologies: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Responsive Design"
+    ],
+    link: "https://gspa.ma/",
     github: "#",
     featured: false,
-    status: "Production Release, 2025"
+    status: "Production Release, 2026"
   },
   {
     title: "VitaPsyche — AI-Powered Mental Health Platform",
@@ -175,6 +188,22 @@ export const PROJECTS = [
     github: "https://github.com/a7medk7aledak/VitaPsyche-Graduation-Project",
     featured: true,
     status: "Graduation Project, 2025"
+  },
+  {
+    title: "Spotlight Egypt — Event Management Platform",
+    slug: "spotlight-egypt",
+    image: "https://picsum.photos/seed/spotlight-egypt/1200/675",
+    description:
+      "An event management and ticket booking platform built to help organizers publish events and sell tickets online through a fast, modern web experience.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    link: "https://spotlightegypt.online/",
+    github: "#",
+    featured: false,
+    status: "Production Release, 2026"
   },
   {
     title: "Capsule Gym",
@@ -239,7 +268,7 @@ export const PROJECTS = [
     description:
       "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking",
     technologies: ["HTML5", "CSS3", "Bootstrap", "JavaScript"],
-    link: "https://a7medk7aledak.github.io/Project-bootstrap/",
+    link: "https://project-bootstrap-lilac.vercel.app/",
     github: "https://github.com/a7medk7aledak/Project-bootstrap",
   },
   {
@@ -269,7 +298,7 @@ export const PROJECTS = [
     description:
       "A modern personal website built with SASS, featuring clean design and smooth animations",
     technologies: ["HTML5", "CSS3", "SASS", "JavaScript"],
-    link: "https://a7medk7aledak.github.io/SassProject-personalWebside/",
+    link: "https://sass-project-personal-webside.vercel.app/",
     github: "https://github.com/a7medk7aledak/SassProject-personalWebside",
   },
   {
@@ -279,8 +308,18 @@ export const PROJECTS = [
     description:
       "A responsive website template with modern design principles and clean code structure",
     technologies: ["HTML5", "CSS3", "Responsive Design"],
-    link: "https://belalwws.github.io/HTML_CSS_TEMP-2/",
+    link: "https://templet2-elzero.vercel.app/",
     github: "https://github.com/a7medk7aledak/templet2-elzero",
+  },
+  {
+    title: "Template 1",
+    slug: "template-1-elzero",
+    image: "/templet1-elzero.png",
+    description:
+      "A responsive website template exploring modern layout and styling techniques, built during HTML/CSS/JS training practice.",
+    technologies: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    link: "https://templet1-elzero.vercel.app/",
+    github: "#",
   },
   {
     title: "My Template 1",
@@ -289,7 +328,7 @@ export const PROJECTS = [
     description:
       "A custom website template featuring interactive elements and modern web development practices",
     technologies: ["HTML5", "CSS3", "JavaScript"],
-    link: "https://a7medk7aledak.github.io/MyTemple1/",
+    link: "https://my-temple1.vercel.app/",
     github: "https://github.com/a7medk7aledak/MyTemple1",
   },
   {
@@ -299,8 +338,18 @@ export const PROJECTS = [
     description:
       "An advanced website template with enhanced functionality and user experience features",
     technologies: ["HTML5", "CSS3", "JavaScript"],
-    link: "https://a7medk7aledak.github.io/MyTemple2/",
+    link: "https://my-temple2.vercel.app/",
     github: "https://github.com/a7medk7aledak/MyTemple2",
+  },
+  {
+    title: "HTML & CSS Course Template",
+    slug: "html-css-course-template",
+    image: "/templet-htmlcss-course.png",
+    description:
+      "A hands-on website template built as teaching material for an HTML & CSS course, covering layout, styling, and responsive design fundamentals for beginner students.",
+    technologies: ["HTML5", "CSS3", "Responsive Design"],
+    link: "https://templet-htmlcss-course.vercel.app/",
+    github: "#",
   },
 ];
 
@@ -351,10 +400,10 @@ export const NAV_ITEMS = [
 // Skills Data
 export const SKILLS = {
   technical: [
+    "Next.js & NestJS (Primary Stack)",
     "Full-Stack Development (MERN + Python/Django)",
     "System Design & Software Architecture",
     "Multi-Tenant SaaS & Scalable Backends",
-    "Next.js & React",
     "PostgreSQL, MySQL & MongoDB",
     "Docker & CI/CD",
     "Real-Time Systems (WebRTC & WebSockets)",
