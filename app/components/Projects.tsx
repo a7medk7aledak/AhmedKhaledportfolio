@@ -7,8 +7,8 @@ import { PROJECTS } from '../lib/constants/index'
 import { FaGithub, FaExternalLinkAlt, FaArrowRight, FaYoutube } from 'react-icons/fa'
 
 const Projects = () => {
-  // Show only first 4 projects on home page
-  const featuredProjects = PROJECTS.slice(0, 4);
+  // Show only first 6 projects on home page
+  const featuredProjects = PROJECTS.slice(0, 6);
 
   return (
     <div id="projects" className="border-b border-neutral-900 pb-4">
