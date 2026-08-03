@@ -377,18 +377,6 @@ export const PROJECTS: Project[] = [
     featured: false,
     status: "In Development"
   },
-  {
-    title: "BAK Tech — Financial Manager",
-    slug: "bak-tech-financial-manager",
-    image: "https://picsum.photos/seed/bak-tech-financial-manager/1200/675",
-    description:
-      "A production financial management platform for tracking and organizing finances online.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    link: "https://bak-tech-financial-manager.vercel.app/",
-    github: "#",
-    featured: false,
-    status: "Production Release, 2026"
-  },
 ];
 
 export const CONTACT = {
