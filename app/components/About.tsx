@@ -66,7 +66,7 @@ const About = () => {
                   width={450}
                   height={500}
                   className="rounded-3xl object-cover object-top w-full h-full"
-                  priority
+                  loading="lazy"
                 />
               </div>
               
@@ -74,15 +74,15 @@ const About = () => {
               <motion.div
                 animate={{ y: [-10, 10, -10] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg"
+                className="hidden sm:flex absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl items-center justify-center shadow-lg"
               >
                 <FaCode className="text-white text-xl" />
               </motion.div>
-              
+
               <motion.div
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-4 -left-4 w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg"
+                className="hidden sm:flex absolute -bottom-4 -left-4 w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl items-center justify-center shadow-lg"
               >
                 <FaRocket className="text-white text-lg" />
               </motion.div>

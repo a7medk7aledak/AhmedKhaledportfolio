@@ -52,3 +52,20 @@ body {
   background: rgba(139, 92, 246, 0.3);
   color: #ffffff;
 }
+
+/* Lightweight CSS-driven decorative animations (cheaper than JS-driven loops on low-end/mobile devices) */
+@keyframes float-y {
+  0%, 100% { transform: translateY(10px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float-y {
+  animation: float-y 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-y,
+  .animate-spin {
+    animation: none !important;
+  }
+}

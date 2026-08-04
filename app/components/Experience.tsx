@@ -30,30 +30,30 @@ const Experience = () => {
 
 			{/* Timeline Container */}
 			<div className="relative">
-				{/* Timeline Line */}
-				<div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-purple-500 via-pink-500 to-transparent"></div>
-				
-				<div className="space-y-12">
+				{/* Timeline Line (desktop/tablet only — a side line reads as clutter on narrow mobile screens) */}
+				<div className="hidden md:block absolute md:left-1/2 md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-purple-500 via-pink-500 to-transparent"></div>
+
+				<div className="space-y-6 md:space-y-12">
 					{EXPERIENCES.map((experience, index) => (
-						<motion.div 
-							key={index} 
+						<motion.div
+							key={index}
 							whileInView={{ opacity: 1, y: 0 }}
 							initial={{ opacity: 0, y: 50 }}
 							transition={{ duration: 0.8, delay: index * 0.2 }}
 							className={`relative flex flex-col md:flex-row items-start gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
 						>
-							{/* Timeline Node */}
-							<div className="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-neutral-900 z-10"></div>
-							
+							{/* Timeline Node (desktop/tablet only) */}
+							<div className="hidden md:block absolute md:left-1/2 md:-translate-x-1/2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full border-4 border-neutral-900 z-10"></div>
+
 							{/* Content Card */}
 							<motion.div
 								whileHover={{ scale: 1.02, y: -5 }}
-								className={`w-[calc(100%-4rem)] md:w-[41.6667%] ml-16 md:ml-0 bg-gradient-to-br from-neutral-900/80 to-neutral-800/50 rounded-2xl p-8 border border-neutral-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 backdrop-blur-sm ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}
+								className={`w-full md:w-[41.6667%] bg-gradient-to-br from-neutral-900/80 to-neutral-800/50 rounded-2xl p-5 sm:p-6 md:p-8 border border-neutral-700/50 hover:border-purple-500/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 backdrop-blur-sm ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}
 							>
 								{/* Company Header */}
-								<div className="flex items-center gap-4 mb-6">
+								<div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
 									{experience.companyLogo ? (
-										<div className="w-16 h-16 shrink-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl p-2 flex items-center justify-center">
+										<div className="w-12 h-12 sm:w-16 sm:h-16 shrink-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl p-2 flex items-center justify-center">
 											<Image
 												src={experience.companyLogo}
 												alt={experience.company}
@@ -63,16 +63,16 @@ const Experience = () => {
 											/>
 										</div>
 									) : (
-										<div className="w-16 h-16 shrink-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
-											<FaBriefcase className="text-white text-2xl" />
+										<div className="w-12 h-12 sm:w-16 sm:h-16 shrink-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
+											<FaBriefcase className="text-white text-xl sm:text-2xl" />
 										</div>
 									)}
 
 									<div className="flex-1 min-w-0">
-										<h3 className="text-2xl font-bold text-white mb-2">
+										<h3 className="text-lg sm:text-2xl font-bold text-white mb-1 sm:mb-2">
 											{experience.role}
 										</h3>
-										<div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-neutral-400">
+										<div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs sm:text-sm text-neutral-400">
 											<div className="flex items-center gap-2">
 												<FaBriefcase className="text-purple-400" />
 												<span className="text-purple-400 font-medium">{experience.company}</span>
@@ -86,22 +86,22 @@ const Experience = () => {
 								</div>
 
 								{/* Description */}
-								<div className="mb-6">
-									<p className="text-neutral-300 leading-relaxed text-lg whitespace-pre-line">
+								<div className="mb-4 sm:mb-6">
+									<p className="text-neutral-300 leading-relaxed text-sm sm:text-lg whitespace-pre-line">
 										{experience.description}
 									</p>
 								</div>
 
 								{/* Technologies */}
 								<div>
-									<h4 className="text-sm font-semibold text-neutral-400 mb-3 uppercase tracking-wider">Technologies Used</h4>
-									<div className="flex flex-wrap gap-3">
+									<h4 className="text-xs sm:text-sm font-semibold text-neutral-400 mb-3 uppercase tracking-wider">Technologies Used</h4>
+									<div className="flex flex-wrap gap-2 sm:gap-3">
 										{experience.technologies.map((tech, techIndex) => (
 											<motion.span
 												key={techIndex}
 												whileHover={{ scale: 1.1, y: -2 }}
 												whileTap={{ scale: 0.95 }}
-												className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 px-4 py-2 rounded-full text-sm font-medium border border-purple-500/30 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 cursor-default"
+												className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium border border-purple-500/30 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 cursor-default"
 											>
 												{tech}
 											</motion.span>

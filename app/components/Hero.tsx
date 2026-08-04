@@ -16,13 +16,13 @@ const Hero = () => {
   return (
     <div id="home" className="border-b border-neutral-900 pb-4 lg:mb-35">
       <div className="flex flex-wrap">
-        <div className="w-full lg:w-1/2">
+        <div className="order-2 w-full lg:order-1 lg:w-1/2">
           <div className="flex flex-col items-center lg:items-start">
             <motion.h1
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="pb-8 text-6xl font-thin tracking-tight lg:text-8xl bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+              className="pb-4 text-4xl whitespace-nowrap font-thin tracking-tight sm:pb-8 sm:text-5xl md:text-6xl lg:text-8xl bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
             >
               {PERSONAL_INFO.name}
             </motion.h1>
@@ -69,7 +69,7 @@ const Hero = () => {
             </motion.div>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 lg:p-8">
+        <div className="order-1 w-full lg:order-2 lg:w-1/2 lg:p-8">
           <div className="flex justify-center">
             <motion.div
               initial={{ x: 100, opacity: 0 }}
@@ -78,76 +78,74 @@ const Hero = () => {
               className="relative"
             >
               {/* Animated Spinner */}
-              <div className="absolute inset-0 w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] xl:w-[550px] xl:h-[550px]">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 rounded-full"
+              <div className="absolute inset-0 w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] lg:w-[500px] lg:h-[500px] xl:w-[550px] xl:h-[550px]">
+                <div
+                  className="absolute inset-0 rounded-full animate-spin [animation-duration:20s]"
                   style={{
                     background: 'conic-gradient(from 0deg, transparent 0deg, #a855f7 90deg, transparent 180deg, #a855f7 270deg, transparent 360deg)',
                     padding: '4px'
                   }}
                 >
                   <div className="w-full h-full rounded-full bg-gray-900"></div>
-                </motion.div>
-                
-                {/* Random floating elements */}
+                </div>
+
+                {/* Random floating elements (desktop/tablet only — skipped on mobile for performance) */}
                 <motion.div
-                  animate={{ 
+                  animate={{
                     rotate: [0, 360],
                     scale: [1, 1.1, 1]
                   }}
-                  transition={{ 
-                    duration: 15, 
-                    repeat: Infinity, 
+                  transition={{
+                    duration: 15,
+                    repeat: Infinity,
                     ease: "linear",
                     scale: { duration: 3, repeat: Infinity, repeatType: "reverse" }
                   }}
-                  className="absolute -top-2 -right-2 w-4 h-4 bg-purple-400 rounded-full"
+                  className="hidden sm:block absolute -top-2 -right-2 w-4 h-4 bg-purple-400 rounded-full"
                 />
                 <motion.div
-                  animate={{ 
+                  animate={{
                     rotate: [360, 0],
                     x: [0, 10, 0],
                     y: [0, -10, 0]
                   }}
-                  transition={{ 
-                    duration: 12, 
-                    repeat: Infinity, 
+                  transition={{
+                    duration: 12,
+                    repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="absolute -bottom-3 -left-3 w-6 h-6 border-2 border-purple-400 rounded-full"
+                  className="hidden sm:block absolute -bottom-3 -left-3 w-6 h-6 border-2 border-purple-400 rounded-full"
                 />
                 <motion.div
-                  animate={{ 
+                  animate={{
                     rotate: [0, -360],
                     scale: [1, 1.2, 1]
                   }}
-                  transition={{ 
-                    duration: 18, 
-                    repeat: Infinity, 
+                  transition={{
+                    duration: 18,
+                    repeat: Infinity,
                     ease: "linear",
                     scale: { duration: 4, repeat: Infinity, repeatType: "reverse" }
                   }}
-                  className="absolute top-1/4 -left-4 w-3 h-8 bg-purple-500 rounded-full transform rotate-45"
+                  className="hidden sm:block absolute top-1/4 -left-4 w-3 h-8 bg-purple-500 rounded-full transform rotate-45"
                 />
                 <motion.div
-                  animate={{ 
+                  animate={{
                     rotate: [0, 360],
                     x: [0, -15, 0],
                     y: [0, 15, 0]
                   }}
-                  transition={{ 
-                    duration: 14, 
-                    repeat: Infinity, 
+                  transition={{
+                    duration: 14,
+                    repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="absolute top-1/3 -right-6 w-5 h-5 border-2 border-purple-500 transform rotate-45"
+                  className="hidden sm:block absolute top-1/3 -right-6 w-5 h-5 border-2 border-purple-500 transform rotate-45"
                 />
               </div>
-              
+
               {/* Profile Image */}
-              <div className="relative w-[350px] h-[350px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] xl:w-[550px] xl:h-[550px] z-10">
+              <div className="relative w-[220px] h-[220px] sm:w-[300px] sm:h-[300px] lg:w-[500px] lg:h-[500px] xl:w-[550px] xl:h-[550px] z-10">
                 <div className="absolute inset-4 rounded-full overflow-hidden">
                   <Image
                     src="https://res.cloudinary.com/dapho0f5c/image/upload/f_auto,q_auto/AhmedKhaledProfile_tqjfyd"

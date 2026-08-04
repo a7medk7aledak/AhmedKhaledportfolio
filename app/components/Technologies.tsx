@@ -9,19 +9,6 @@ import { BiLogoPostgresql } from "react-icons/bi";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const iconVariants = (duration: number) => ({
-  initial: { y: -10 },
-  animate: {
-    y: [10, -10],
-    transition: {
-      duration: duration,
-      ease: "linear",
-      repeat: Infinity,
-      repeatType: "reverse" as const,
-    },
-  },
-});
-
 const Technologies = () => {
   const [activeCategory, setActiveCategory] = useState('all');
 
@@ -162,20 +149,20 @@ const Technologies = () => {
         transition={{ duration: 0.5 }}
         className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6"
       >
-        {getFilteredTechnologies().map(({ Icon, color, name, duration }, index) => (
+        {getFilteredTechnologies().map(({ Icon, color, name, duration }) => (
           <motion.div
             key={`${activeCategory}-${name}`}
-            variants={iconVariants(duration)}
-            initial="initial"
-            animate="animate"
             whileHover={{ scale: 1.1, y: -5 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
+            transition={{ duration: 0.3 }}
             className="group relative bg-gradient-to-br from-neutral-900/80 to-neutral-800/50 rounded-2xl border border-neutral-700/50 p-6 hover:border-purple-500/50 transition-all duration-300 cursor-pointer backdrop-blur-sm hover:shadow-2xl hover:shadow-purple-500/20"
           >
             {/* Background glow effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            
-            <div className="relative z-10 flex flex-col items-center">
+
+            <div
+              className="animate-float-y relative z-10 flex flex-col items-center"
+              style={{ animationDuration: `${duration}s` }}
+            >
               <Icon className={`text-5xl md:text-6xl ${color} group-hover:scale-110 transition-transform duration-300 mb-3`} />
               <span className="text-neutral-300 group-hover:text-white text-sm font-medium text-center transition-colors duration-300">
                 {name}

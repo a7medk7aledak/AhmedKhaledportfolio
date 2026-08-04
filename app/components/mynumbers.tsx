@@ -156,13 +156,9 @@ const MyNumbers = () => {
         className="mt-16 text-center"
       >
         <div className="inline-flex items-center gap-4 bg-gradient-to-r from-neutral-900/50 to-neutral-800/30 rounded-full px-8 py-4 border border-neutral-700/50">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center"
-          >
+          <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center animate-spin [animation-duration:20s]">
             <FaStar className="text-white text-sm" />
-          </motion.div>
+          </div>
           <span className="text-neutral-300 font-medium">Continuously Growing & Learning</span>
         </div>
       </motion.div>
