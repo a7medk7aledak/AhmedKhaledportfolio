@@ -503,11 +503,11 @@ Built using Next.js and Tailwind CSS, the platform delivers fluid animations, in
       { id: "db", label: "MongoDB Database", details: "Flexible schema database for user tracking logs, exercises, and chat histories.", status: "db" }
     ]
   },
-  "bak-blog": {
-    slug: "bak-blog",
-    title: "BAK-Blog",
-    subtitle: "A comprehensive blogging platform focused on programming, fitness, and lifestyle topics.",
-    overview: `BAK-Blog is a full-featured Content Management System (CMS) designed for writers and readers. Built using Node.js, Express, EJS, and MongoDB, the site facilitates content drafting, image hosting, and user commenting. Key features include categories for programming, health, sports, and nutrition, making it a comprehensive lifestyle and tech blog.`,
+  "blog-app": {
+    slug: "blog-app",
+    title: "Blog App",
+    subtitle: "A full-stack MERN blogging platform covering programming, fitness, and lifestyle topics.",
+    overview: `Blog App is a full-stack blogging platform built with a React (Vite) frontend and an Express/MongoDB backend — a complete MERN stack project. It facilitates content drafting, image hosting, and user commenting. Key features include categories for programming, health, sports, and nutrition, making it a comprehensive lifestyle and tech blog.`,
     features: [
       { title: "Categorized CMS Engine", description: "Enables creating posts across custom sections (programming, sports, diet)." },
       { title: "Dynamic Commenting System", description: "Interactive comment threads allowing reader-author interactions." }
@@ -516,10 +516,10 @@ Built using Next.js and Tailwind CSS, the platform delivers fluid animations, in
       { issue: "Slowing database lookups during traffic spikes.", solution: "Optimized indexing of post categories and author references in MongoDB database configurations." }
     ],
     timeline: [
-      { phase: "Phase 1", title: "Setup", description: "Configured Express routes, EJS template layouts, and user authentication modules." }
+      { phase: "Phase 1", title: "Setup", description: "Configured the Express API routes, React (Vite) frontend, and user authentication modules." }
     ],
     architectureNodes: [
-      { id: "fe", label: "EJS Templates", details: "Server-side rendered HTML templates with Tailwind and Bootstrap styling.", status: "client" },
+      { id: "fe", label: "React (Vite) Frontend", details: "Client-side single-page app handling browsing, post creation, and comments.", status: "client" },
       { id: "api", label: "Express Server", details: "Handles routing, post creation, comments, and file uploads.", status: "api" },
       { id: "db", label: "MongoDB", details: "Stores article content, comments, and user account metadata.", status: "db" }
     ]
@@ -543,27 +543,6 @@ Built using Next.js and Tailwind CSS, the platform delivers fluid animations, in
       { id: "fe", label: "Bootstrap Dashboard", details: "Admin frontend panel with dynamic query filters and export utilities.", status: "client" },
       { id: "api", label: "Express API Engine", details: "Performs client CRUD operations and export logic.", status: "api" },
       { id: "db", label: "MongoDB Store", details: "Database containing customer details, communication histories, and lead stages.", status: "db" }
-    ]
-  },
-  "blog-gym": {
-    slug: "blog-gym",
-    title: "Blog-Gym",
-    subtitle: "A specialized blogging portal focused on fitness and gym training methodologies.",
-    overview: `Blog-Gym is a community-centered publishing system. It enables fitness trainers to post tutorials, dietary recommendations, and exercise forms. Readers can browse content by target muscle groups and submit reviews. Powered by Node.js, Express, and MongoDB.`,
-    features: [
-      { title: "Diet and Exercise Categorization", description: "Articles are indexed by specific workout plans and dietary categories." },
-      { title: "Trainer Publishing Dashboard", description: "Simplified text editor for registered coaches to publish media-rich blogs." }
-    ],
-    challenges: [
-      { issue: "Structuring clean navigation for overlapping diet and workout tags.", solution: "Implemented a tagging database schema to dynamically fetch related articles." }
-    ],
-    timeline: [
-      { phase: "Phase 1", title: "Development", description: "Coded standard CRUD endpoints, and connected Bootstrap templating layouts." }
-    ],
-    architectureNodes: [
-      { id: "fe", label: "SSR Frontend", details: "EJS templates rendering responsive blog layouts and comment records.", status: "client" },
-      { id: "api", label: "NodeJS Server", details: "Performs routing, session authentication, and category queries.", status: "api" },
-      { id: "db", label: "MongoDB", details: "Maintains fitness logs, publisher bios, and comment records.", status: "db" }
     ]
   },
   "bindi-task-manager": {

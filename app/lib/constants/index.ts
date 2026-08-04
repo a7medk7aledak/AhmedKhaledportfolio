@@ -237,14 +237,14 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/a7medk7aledak/capsulegym-V1",
   },
   {
-    title: "BAK-Blog",
-    slug: "bak-blog",
+    title: "Blog App",
+    slug: "blog-app",
     image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132742/blog_nvgveg.png",
     description:
-      "A comprehensive blogging platform specialized in programming and technology topics, with additional sections for sports, nutrition, and fitness",
-    technologies: ["Node.js", "MongoDB", "Express", "EJS", "Bootstrap"],
-    link: "https://capsule-blog.onrender.com/",
-    github: "https://github.com/a7medk7aledak/bak-blog",
+      "A full-stack MERN blogging platform with a React (Vite) frontend and an Express/MongoDB backend, covering programming and technology topics alongside sports, nutrition, and fitness content.",
+    technologies: ["React", "Vite", "Node.js", "Express", "MongoDB"],
+    link: "https://full-stack-blog-app-nine-amber.vercel.app/",
+    github: "https://github.com/a7medk7aledak/Full-Stack-BlogApp",
   },
   {
     title: "Customer Management System",
@@ -263,16 +263,6 @@ export const PROJECTS: Project[] = [
     ],
     link: "https://cilent-list-nodejs-project.onrender.com/",
     github: "https://github.com/a7medk7aledak/cilent-list-nodejs-project",
-  },
-  {
-    title: "Blog-Gym",
-    slug: "blog-gym",
-    image: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132845/bloggym_rzy5eu.png",
-    description:
-      "A specialized blogging platform focused on fitness, nutrition, and gym-related content with user-friendly interface",
-    technologies: ["Node.js", "MongoDB", "Express", "EJS", "Bootstrap"],
-    link: "https://bak-blog-1.onrender.com/",
-    github: "https://github.com/belalwws/capsule-blog",
   },
   {
     title: "Bindi Task Manager",
@@ -364,18 +354,6 @@ export const PROJECTS: Project[] = [
     technologies: ["HTML5", "CSS3", "JavaScript"],
     link: "https://my-temple2.vercel.app/",
     github: "https://github.com/a7medk7aledak/MyTemple2",
-  },
-  {
-    title: "Ecommerce Platform — Next.js & NestJS",
-    slug: "ecommerce-nextjs-nestjs",
-    image: "https://picsum.photos/seed/ecommerce-nextjs-nestjs/1200/675",
-    description:
-      "An open-source e-commerce platform built with Next.js and NestJS. Still under active development — full feature and architecture details coming soon.",
-    technologies: ["Next.js", "NestJS", "TypeScript"],
-    link: "#",
-    github: "https://github.com/a7medk7aledak/Ecommerce-nextjs-nestjs",
-    featured: false,
-    status: "In Development"
   },
 ];
 
