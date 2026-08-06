@@ -343,10 +343,15 @@ The build focused on clean course browsing, a smooth enrollment flow, and consis
     slug: "spotlight-egypt",
     title: "Spotlight Egypt — Event Management Platform",
     subtitle: "An event management and ticket booking platform for organizers to publish events and sell tickets online.",
-    overview: `Spotlight Egypt is an event management platform built to let organizers publish events and sell tickets online through a fast, modern web experience. The UI is currently being refreshed — this page will be expanded with full architecture and feature details once the redesign ships.`,
+    overview: `Spotlight Egypt is an event management platform built solo, end-to-end, to let organizers publish events and sell tickets online through a fast, modern web experience. The frontend is built with Next.js, backed by a NestJS API organized as a modular monolith, with PostgreSQL as the primary database and Redis for caching. The UI is currently being refreshed — this page will be expanded with full architecture and feature details once the redesign ships.`,
     sketchImage: "",
     videoUrl: "",
     features: [
+      {
+        title: "Modular Monolith API",
+        description: "A NestJS backend organized into self-contained feature modules (events, bookings, ticketing) — easier to maintain and reason about than a tangle of loose routes, without the operational overhead of microservices.",
+        badge: "Architecture"
+      },
       {
         title: "Event Publishing",
         description: "Lets organizers create and publish event listings for attendees to discover.",
@@ -377,8 +382,10 @@ The build focused on clean course browsing, a smooth enrollment flow, and consis
       }
     ],
     architectureNodes: [
-      { id: "fe", label: "Web Frontend", details: "Client-facing interface for browsing events and booking tickets.", status: "client" },
-      { id: "api", label: "Application Backend", details: "Handles event data, bookings, and ticketing logic.", status: "api" }
+      { id: "fe", label: "Next.js Frontend", details: "Client-facing interface for browsing events and booking tickets.", status: "client" },
+      { id: "api", label: "NestJS API (Modular Monolith)", details: "Handles event data, bookings, and ticketing logic, organized into self-contained feature modules.", status: "api" },
+      { id: "redis", label: "Redis Cache", details: "Caches frequently-read data to keep event browsing and booking fast under load.", status: "queue" },
+      { id: "db", label: "PostgreSQL", details: "Primary database storing events, bookings, and ticket records.", status: "db" }
     ]
   },
   "vitapsyche": {

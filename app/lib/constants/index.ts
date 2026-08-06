@@ -82,7 +82,9 @@ Refactored the backend from Flask to Django early on to support the team's scali
       "PostgreSQL",
       "Redis",
       "Docker",
+      "CI/CD",
       "WebRTC",
+      "LiveKit",
     ],
   },
 ];
@@ -114,8 +116,10 @@ export const PROJECTS: Project[] = [
       "Redis",
       "Celery",
       "WebRTC",
+      "LiveKit",
       "Turborepo",
-      "Docker"
+      "Docker",
+      "CI/CD"
     ],
     link: "https://roshed.tech/",
     github: "#",
@@ -221,11 +225,16 @@ export const PROJECTS: Project[] = [
     slug: "spotlight-egypt",
     image: "https://picsum.photos/seed/spotlight-egypt/1200/675",
     description:
-      "An event management and ticket booking platform built to help organizers publish events and sell tickets online through a fast, modern web experience.",
+      "An event management and ticket booking platform built solo end-to-end — a Next.js frontend backed by a modular-monolith NestJS API with PostgreSQL and Redis, handling event publishing and online ticket sales through a fast, modern web experience.",
     technologies: [
       "Next.js",
       "TypeScript",
-      "Tailwind CSS"
+      "NestJS",
+      "PostgreSQL",
+      "Redis",
+      "Tailwind CSS",
+      "Docker",
+      "CI/CD"
     ],
     link: "https://spotlightegypt.online/",
     github: "#",
