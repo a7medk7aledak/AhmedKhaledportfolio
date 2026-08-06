@@ -127,6 +127,27 @@ export const PROJECTS: Project[] = [
     status: "Production Release, 2026"
   },
   {
+    title: "Spotlight Egypt — Event Management Platform",
+    slug: "spotlight-egypt",
+    image: "/spotlightegypt.png",
+    description:
+      "A ticketing and event-operations platform for an Egyptian concert/event promoter, architected and built solo end-to-end — a Next.js frontend and a modular-monolith NestJS API (PostgreSQL, Redis/BullMQ) designed to survive high-demand ticket on-sales without overselling. The bilingual (EN/AR) marketing site is live in production; the ticketing engine is in active development.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "NestJS",
+      "PostgreSQL",
+      "Redis",
+      "Tailwind CSS",
+      "Docker",
+      "CI/CD"
+    ],
+    link: "https://spotlightegypt.online/",
+    github: "#",
+    featured: true,
+    status: "In Development, 2026"
+  },
+  {
     title: "Afaq Academy — Educational Platform",
     slug: "afaq-academy",
     image: "/afaq-academy.png",
@@ -219,27 +240,6 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/a7medk7aledak/VitaPsyche-Graduation-Project",
     featured: true,
     status: "Graduation Project, 2025"
-  },
-  {
-    title: "Spotlight Egypt — Event Management Platform",
-    slug: "spotlight-egypt",
-    image: "/spotlightegypt.png",
-    description:
-      "A ticketing and event-operations platform for an Egyptian concert/event promoter, architected and built solo end-to-end — a Next.js frontend and a modular-monolith NestJS API (PostgreSQL, Redis/BullMQ) designed to survive high-demand ticket on-sales without overselling. The bilingual (EN/AR) marketing site is live in production; the ticketing engine is in active development.",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "NestJS",
-      "PostgreSQL",
-      "Redis",
-      "Tailwind CSS",
-      "Docker",
-      "CI/CD"
-    ],
-    link: "https://spotlightegypt.online/",
-    github: "#",
-    featured: false,
-    status: "In Development, 2026"
   },
   {
     title: "Capsule Gym",
