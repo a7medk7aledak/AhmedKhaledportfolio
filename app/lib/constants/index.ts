@@ -23,8 +23,8 @@ export const ABOUT_TEXT = `I am Ahmed Khaled, a Full-Stack Software Engineer and
 
 export const EXPERIENCES = [
   {
-    year: "Oct 2023 - Jun 2024",
-    role: "Full Stack Developer(MERN-Stack)",
+    year: "Oct 2023 - Jan 2024",
+    role: "Freelance Front-End Web Developer",
     company: "Upwork",
     companyLogo: "https://res.cloudinary.com/dapho0f5c/image/upload/v1763132967/upwork_nqbiij.png",
     description: `Developed and deployed modern, responsive web applications using React.js, Next.js, and Tailwind CSS, ensuring high performance and scalability.
@@ -43,7 +43,21 @@ export const EXPERIENCES = [
     ],
   },
   {
-    year: "2024 - 2025 (6 Months)",
+    year: "Jan 2024 - Sep 2024",
+    role: "Full Stack Engineer",
+    company: "Mostaql.com | مستقل",
+    companyLogo: "",
+    description: `Delivered full-stack web applications for freelance clients through Mostaql, the Arab world's leading freelance marketplace, handling both frontend and backend development from planning through deployment.`,
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JavaScript",
+    ],
+  },
+  {
+    year: "Oct 2024 - Mar 2025",
     role: "Frontend Developer",
     company: "QeemaTech",
     companyLogo: "",
