@@ -223,9 +223,9 @@ export const PROJECTS: Project[] = [
   {
     title: "Spotlight Egypt — Event Management Platform",
     slug: "spotlight-egypt",
-    image: "https://picsum.photos/seed/spotlight-egypt/1200/675",
+    image: "/spotlightegypt.png",
     description:
-      "An event management and ticket booking platform built solo end-to-end — a Next.js frontend backed by a modular-monolith NestJS API with PostgreSQL and Redis, handling event publishing and online ticket sales through a fast, modern web experience.",
+      "A ticketing and event-operations platform for an Egyptian concert/event promoter, architected and built solo end-to-end — a Next.js frontend and a modular-monolith NestJS API (PostgreSQL, Redis/BullMQ) designed to survive high-demand ticket on-sales without overselling. The bilingual (EN/AR) marketing site is live in production; the ticketing engine is in active development.",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -239,7 +239,7 @@ export const PROJECTS: Project[] = [
     link: "https://spotlightegypt.online/",
     github: "#",
     featured: false,
-    status: "Production Release, 2026"
+    status: "In Development, 2026"
   },
   {
     title: "Capsule Gym",

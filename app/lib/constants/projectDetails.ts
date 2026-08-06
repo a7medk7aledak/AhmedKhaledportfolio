@@ -342,50 +342,88 @@ The build focused on clean course browsing, a smooth enrollment flow, and consis
   "spotlight-egypt": {
     slug: "spotlight-egypt",
     title: "Spotlight Egypt — Event Management Platform",
-    subtitle: "An event management and ticket booking platform for organizers to publish events and sell tickets online.",
-    overview: `Spotlight Egypt is an event management platform built solo, end-to-end, to let organizers publish events and sell tickets online through a fast, modern web experience. The frontend is built with Next.js, backed by a NestJS API organized as a modular monolith, with PostgreSQL as the primary database and Redis for caching. The UI is currently being refreshed — this page will be expanded with full architecture and feature details once the redesign ships.`,
+    subtitle: "A ticketing and event-operations platform for an Egyptian concert/event promoter, engineered to survive flash-sale traffic without overselling a single ticket.",
+    overview: `Spotlight Egypt is an event organizer/promoter — producing concerts, festivals, stand-up comedy, and theatre shows — that needed its own ticketing platform instead of depending on a third-party marketplace, to keep full control over pricing, refund policy, buyer communication, and branding.
+
+I'm architecting and building the platform solo, end-to-end: a Next.js marketing site and future ticketing storefront, backed by a NestJS API organized as a modular monolith, PostgreSQL (Neon) as the database, and Redis/BullMQ for background work. The bilingual (EN/AR, RTL-aware) marketing site is live in production today. The ticketing engine — events, tickets, orders, Paymob payments, refunds, QR check-in, live analytics — is fully architected and in active development, built domain by domain rather than all at once, so the schema and business logic never drift ahead of what's actually implemented.
+
+The core engineering problem the whole system is designed around: a ticket on-sale for a popular artist is the platform's real load test, and an outage or overselling incident during that spike is a direct financial and reputational hit, not just a bug.`,
     sketchImage: "",
     videoUrl: "",
     features: [
       {
-        title: "Modular Monolith API",
-        description: "A NestJS backend organized into self-contained feature modules (events, bookings, ticketing) — easier to maintain and reason about than a tangle of loose routes, without the operational overhead of microservices.",
+        title: "Modular Monolith Backend",
+        description: "A NestJS API organized into self-contained domain modules — Events, Tickets, Orders, Payments, Refunds, Checkins, Notifications, Analytics, Marketing — as one deployable service with clear boundaries, without the operational overhead of microservices.",
         badge: "Architecture"
       },
       {
-        title: "Event Publishing",
-        description: "Lets organizers create and publish event listings for attendees to discover.",
+        title: "Flash-Sale Protection, No Waiting Room",
+        description: "Evaluated a customer-facing virtual waiting room (queue position, admission tokens) and deliberately rejected it. Instead, selecting a ticket places a 10-minute Redis-TTL hold, backed by atomic overselling-prevention operations — a buyer either gets the ticket or immediately sees it's unavailable.",
+        badge: "System Design"
+      },
+      {
+        title: "Dual Ticket Allocation Strategies",
+        description: "Each event picks capacity-based tiers (VIP / Regular / ...) or a seat map of individually numbered seats — the same Events domain supports both without forking the data model.",
         badge: "Product"
       },
       {
-        title: "Online Ticket Booking",
-        description: "Enables attendees to browse events and purchase tickets directly through the platform.",
-        badge: "Product"
+        title: "Paymob Payments, Ticket-Level Refunds",
+        description: "Paymob handles all payment collection; the platform never stores raw card data, only transaction references and idempotently-processed webhook state. Refunds are requested at the individual ticket level, so partial refunds within a multi-ticket order are supported.",
+        badge: "Payments"
+      },
+      {
+        title: "QR Check-In From Any Phone",
+        description: "Gate Staff validate tickets with a mobile browser camera scanner — no dedicated hardware. The QR payload is only a ticket ID, validated server-side on every scan, and a checked-in ticket can't be scanned valid again even from a second device.",
+        badge: "Operations"
+      },
+      {
+        title: "Bilingual by Design",
+        description: "next-intl drives EN/AR routing with full RTL layout, not just translated strings. Organizer-authored content (events, artists, venues) is machine-translated once at write time via the DeepSeek API, so publishing an event never blocks on a translation call.",
+        badge: "Localization"
       }
     ],
     challenges: [
       {
-        issue: "Delivering a reliable ticket booking flow under real event traffic.",
-        solution: "Built the booking flow with a focus on performance and a straightforward, low-friction checkout path."
+        issue: "Protecting a flash ticket sale from overselling without punishing buyers with an artificial queue.",
+        solution: "Considered a virtual waiting room with queue positions and admission tokens, then explicitly rejected it after discovery — a 10-minute Redis-TTL hold per selection plus atomic inventory operations were confirmed as sufficient protection, keeping checkout honest: a buyer either gets the ticket or sees it's gone, no fake waiting state."
+      },
+      {
+        issue: "Keeping checkout fast under release-day load while still sending confirmation emails, generating QR codes, and updating analytics.",
+        solution: "Anything not required to confirm the purchase to the buyer runs asynchronously on a Redis + BullMQ queue, split into one queue per job category (notifications, ticket generation, analytics rollups) so retry and backoff policies can differ per job type instead of one catch-all queue slowing everything down together."
+      },
+      {
+        issue: "Designing a single-organization platform after an early draft explored a multi-organizer model.",
+        solution: "Ran a follow-up discovery session that corrected course: Spotlight Egypt runs its own events only, so the data model dropped tenant scoping entirely — Organizer and Admin merged into one internal role, and every entity belongs to the one organization instead of a speculative tenant hierarchy that didn't reflect the real business."
       }
     ],
     timeline: [
       {
-        phase: "Phase 1: Platform Build",
-        title: "Core Event & Booking Flows",
-        description: "Implemented event publishing and the ticket booking flow."
+        phase: "Phase 1: Foundation",
+        title: "Monorepo, Design System & Marketing Site",
+        description: "Scaffolded the Turborepo monorepo, derived a design system from the brand logo, and shipped the bilingual (EN/AR, RTL-aware) marketing site — Home, About, Contact, Events, Terms, Privacy — now live in production, alongside a NestJS backend skeleton (health check, Swagger docs, Prisma wired to PostgreSQL)."
       },
       {
-        phase: "Phase 2: UI Refresh",
-        title: "In Progress",
-        description: "Currently updating the platform's UI and visual design."
+        phase: "Phase 2: Domain Architecture (complete)",
+        title: "Designing the Event & Ticketing Domain",
+        description: "Ran a full product and architecture discovery pass before writing domain code — confirmed the single-organization model, the three user roles, status-enum-driven Event/Order/Ticket lifecycles, the Paymob payment flow, and rejected a virtual-waiting-room design in favor of holds + atomic operations."
+      },
+      {
+        phase: "Phase 3-4 (in progress)",
+        title: "Auth, Catalog & Transactions",
+        description: "Building Auth (OTP for customers, email + password + MFA for the internal team), the Artists/Venues/Events catalog, ticket holds with overselling-safe inventory, and the Paymob-backed order/payment/refund flow."
+      },
+      {
+        phase: "Phase 5-6 (planned)",
+        title: "Fulfillment, Check-In & Live Analytics",
+        description: "Wiring the Redis/BullMQ background queue for notifications and mass-refund bursts, QR-based Gate Staff check-in, and an Organizer/Admin live sales dashboard over WebSockets."
       }
     ],
     architectureNodes: [
-      { id: "fe", label: "Next.js Frontend", details: "Client-facing interface for browsing events and booking tickets.", status: "client" },
-      { id: "api", label: "NestJS API (Modular Monolith)", details: "Handles event data, bookings, and ticketing logic, organized into self-contained feature modules.", status: "api" },
-      { id: "redis", label: "Redis Cache", details: "Caches frequently-read data to keep event browsing and booking fast under load.", status: "queue" },
-      { id: "db", label: "PostgreSQL", details: "Primary database storing events, bookings, and ticket records.", status: "db" }
+      { id: "fe", label: "Next.js Marketing Site", details: "App Router, TypeScript, Tailwind v4, next-intl for EN/AR routing — live in production today; will grow into the full ticketing storefront.", status: "client" },
+      { id: "api", label: "NestJS API (Modular Monolith)", details: "One deployable service with clear domain boundaries — Events, Tickets, Orders, Payments, Refunds, Checkins, Notifications, Analytics, Marketing.", status: "api" },
+      { id: "db", label: "PostgreSQL (Neon)", details: "Prisma ORM; schema is added alongside each domain module as it's implemented, so it never drifts ahead of real business logic.", status: "db" },
+      { id: "queue", label: "Redis + BullMQ", details: "Confirmed from day one for background jobs — notification dispatch, QR generation, analytics rollups, and mass-refund bursts — kept off the latency-sensitive checkout path.", status: "queue" },
+      { id: "payments", label: "Paymob", details: "Handles all payment collection and refunds; the platform never stores raw card data, only transaction references and idempotently-processed webhook state.", status: "external" }
     ]
   },
   "vitapsyche": {

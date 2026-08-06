@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# LaTeX build artifacts (resume/) -- PDFs are generated output, not source
+resume/**/*.aux
+resume/**/*.log
+resume/**/*.out
+resume/**/*.fls
+resume/**/*.fdb_latexmk
+resume/**/*.synctex.gz

@@ -1,0 +1,144 @@
+%!TEX program = pdflatex
+% =====================================================================
+%  Ahmed Khaled -- BACKEND ENGINEER resume (1 page, ATS-friendly)
+%  Emphasis: backend architecture, APIs, databases, PostgreSQL, Redis,
+%  Django, NestJS, performance, distributed-systems concepts.
+% =====================================================================
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.6in, top=0.45in, bottom=0.45in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+
+\definecolor{linkblue}{RGB}{0,0,0}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkblue,
+    urlcolor=linkblue,
+    pdftitle={Ahmed Khaled - Backend Engineer Resume},
+    pdfauthor={Ahmed Khaled}
+}
+\urlstyle{same}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedbottom
+\raggedright
+
+\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}[\vspace{1pt}\titlerule\vspace{-4pt}]
+\titlespacing{\section}{0pt}{7pt}{3pt}
+
+\setlist[itemize]{leftmargin=14pt, itemsep=0pt, parsep=0pt, topsep=1pt, partopsep=0pt}
+
+\newcommand{\entryHeading}[4]{%
+  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
+  \textit{\footnotesize #3} \hfill \textit{\footnotesize #4}\\[1pt]
+}
+\newcommand{\lineHeading}[2]{%
+  \textbf{#1} \hfill {\footnotesize #2}\\[1pt]
+}
+\newcommand{\shortEntry}[4]{%
+  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
+  \textit{\footnotesize #3}\\
+  {\footnotesize #4}\\[2pt]
+}
+
+\begin{document}
+
+% =========================== HEADER ====================================
+\begin{center}
+    {\Large \textbf{\scshape Ahmed Khaled}}\\[2pt]
+    {\footnotesize
+      Alexandria, Egypt \; $|$ \; +20\,100\,570\,1983 \; $|$ \;
+      \href{mailto:ahmadkhaled20011@gmail.com}{ahmadkhaled20011@gmail.com} \; $|$ \;
+      \href{https://www.linkedin.com/in/ahmed-khaled-a3852b21a/}{linkedin.com/in/ahmed-khaled-a3852b21a} \; $|$ \;
+      \href{https://github.com/a7medk7aledak}{github.com/a7medk7aledak} \; $|$ \;
+      \href{https://a7medk7aled.me}{a7medk7aled.me}
+    }
+\end{center}
+\vspace{-5pt}
+
+% =========================== SUMMARY ====================================
+\section*{Professional Summary}
+{\small
+Backend-leaning full-stack software engineer with production experience designing multi-tenant data
+architectures, concurrency-safe financial systems, and asynchronous processing pipelines. Currently the
+technical architect for a live B2B SaaS backend (Django, PostgreSQL, Redis, Celery) serving multiple tenant
+organizations through strict schema isolation. Recent Computer Software Engineering graduate.
+}
+
+% =========================== SKILLS ====================================
+\section*{Technical Skills}
+{\small
+\begin{itemize}
+    \item \textbf{Languages:} Python, JavaScript / TypeScript, SQL
+    \item \textbf{Backend Frameworks:} Django, Django REST Framework, NestJS, Node.js / Express, Flask
+    \item \textbf{Data \& Caching:} PostgreSQL (schema-per-tenant multi-tenancy), Redis, MongoDB, MySQL
+    \item \textbf{Distributed \& Async Systems:} Celery task queues, WebRTC \& real-time streaming, Socket.io,
+    concurrency control (row-level locking, idempotency keys), RBAC design
+    \item \textbf{Infra \& DevOps:} Docker, Docker Compose, Nginx reverse proxying \& SSL provisioning, GitHub
+    Actions (CI/CD), Git
+\end{itemize}
+}
+
+% =========================== EXPERIENCE ====================================
+\section*{Professional Experience}
+
+\entryHeading{Software Engineer}{Nov 2025 -- Present}{Roshd Tech}{Alexandria, Egypt (Remote)}
+{\small
+\begin{itemize}
+    \item Joined as a founding engineer and architect the backend for Roshd, a multi-tenant B2B SaaS platform
+    serving educational academies and independent teachers.
+    \item Designed schema-per-tenant PostgreSQL isolation with dynamic search-path routing middleware, supporting
+    wildcard subdomains and custom-domain SSL provisioning via an Nginx/Cloudflare reverse proxy.
+    \item Designed a Strategy Pattern product registry that lets one Django backend serve two structurally
+    different products without duplicating code or database schemas.
+    \item Built a concurrency-safe, double-entry ledger wallet using row-level locking (\texttt{SELECT FOR UPDATE})
+    and idempotency keys to eliminate race conditions and duplicate charges under concurrent billing load.
+    \item Built an asynchronous Celery/Redis pipeline that provisions a new tenant schema, runs migrations, and
+    configures default RBAC rules in under 30 seconds; wrote a custom migration wrapper to roll out schema
+    changes across hundreds of tenant schemas without downtime.
+    \item Led the migration of the backend from Flask to Django to support the platform's long-term scalability.
+\end{itemize}
+}
+
+\shortEntry{Full Stack Engineer}{Jan 2024 -- Sep 2024}{Mostaql.com (Arabic Freelance Marketplace)}{Delivered full-stack web applications (Node.js/Express/MongoDB backends) for freelance clients, owning API design and data modeling from planning through deployment.}
+
+\shortEntry{Frontend Developer}{Oct 2024 -- Mar 2025}{Qeema Tech}{Built responsive React interfaces across two platform projects while completing final-year studies.}
+
+\shortEntry{Freelance Front-End Web Developer}{Oct 2023 -- Jan 2024}{Upwork}{Built and deployed responsive React/Next.js applications for international clients; implemented a reusable component architecture that cut development time by 30\% across projects.}
+
+% =========================== PROJECTS ====================================
+\section*{Projects}
+
+\lineHeading{VitaPsyche -- AI-Powered Mental Health Platform}{Backend Engineer \& Team Lead, Graduation Project, 2025}
+{\small
+\begin{itemize}
+    \item Designed the Django + MySQL backend architecture, grounding the system in a C4 Model and UML diagrams
+    before development began, and integrated AI/NLP models (Rasa, Hugging Face, TensorFlow) powering the
+    platform's emotional-assessment engine.
+\end{itemize}
+}
+
+\lineHeading{Blog App \& Customer Management System}{Node.js, Express, MongoDB}
+{\small
+\begin{itemize}
+    \item Built two production MERN-stack backends; optimized MongoDB indexing on post categories and author
+    references to keep lookups fast under traffic spikes, and implemented dynamic query filters with pagination
+    for admin usability.
+\end{itemize}
+}
+
+% =========================== EDUCATION ====================================
+\section*{Education}
+\entryHeading{B.Sc. in Computer Software Engineering}{Oct 2020 -- Jun 2025}{Alexandria Higher Institute of Engineering \& Technology (AIET)}{Alexandria, Egypt}
+{\small Grade: Very Good \quad $|$ \quad Egyptian Collegiate Programming Contest (ECPC) -- Participant}
+
+\end{document}

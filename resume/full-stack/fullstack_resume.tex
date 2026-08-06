@@ -1,0 +1,152 @@
+%!TEX program = pdflatex
+% =====================================================================
+%  Ahmed Khaled -- FULL-STACK ENGINEER resume (1 page, ATS-friendly)
+%  Emphasis: Next.js, React, TypeScript, NestJS, Django, REST APIs,
+%  end-to-end product development.
+% =====================================================================
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.6in, top=0.45in, bottom=0.45in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+
+\definecolor{linkblue}{RGB}{0,0,0}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkblue,
+    urlcolor=linkblue,
+    pdftitle={Ahmed Khaled - Full-Stack Engineer Resume},
+    pdfauthor={Ahmed Khaled}
+}
+\urlstyle{same}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedbottom
+\raggedright
+
+\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}[\vspace{1pt}\titlerule\vspace{-4pt}]
+\titlespacing{\section}{0pt}{7pt}{3pt}
+
+\setlist[itemize]{leftmargin=14pt, itemsep=0pt, parsep=0pt, topsep=1pt, partopsep=0pt}
+
+\newcommand{\entryHeading}[4]{%
+  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
+  \textit{\footnotesize #3} \hfill \textit{\footnotesize #4}\\[1pt]
+}
+\newcommand{\lineHeading}[2]{%
+  \textbf{#1} \hfill {\footnotesize #2}\\[1pt]
+}
+\newcommand{\shortEntry}[4]{%
+  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
+  \textit{\footnotesize #3}\\
+  {\footnotesize #4}\\[2pt]
+}
+
+\begin{document}
+
+% =========================== HEADER ====================================
+\begin{center}
+    {\Large \textbf{\scshape Ahmed Khaled}}\\[2pt]
+    {\footnotesize
+      Alexandria, Egypt \; $|$ \; +20\,100\,570\,1983 \; $|$ \;
+      \href{mailto:ahmadkhaled20011@gmail.com}{ahmadkhaled20011@gmail.com} \; $|$ \;
+      \href{https://www.linkedin.com/in/ahmed-khaled-a3852b21a/}{linkedin.com/in/ahmed-khaled-a3852b21a} \; $|$ \;
+      \href{https://github.com/a7medk7aledak}{github.com/a7medk7aledak} \; $|$ \;
+      \href{https://a7medk7aled.me}{a7medk7aled.me}
+    }
+\end{center}
+\vspace{-5pt}
+
+% =========================== SUMMARY ====================================
+\section*{Professional Summary}
+{\small
+Full-stack software engineer specializing in Next.js and NestJS, with production experience shipping complete
+features across React/TypeScript frontends and Django/Node.js backends. Has taken products from architecture
+through deployment for a live B2B SaaS platform and freelance clients across seven countries, maintaining a
+5.0/5.0 client satisfaction record. Recent Computer Software Engineering graduate.
+}
+
+% =========================== SKILLS ====================================
+\section*{Technical Skills}
+{\small
+\begin{itemize}
+    \item \textbf{Frontend:} React, Next.js (14 \& 16), TypeScript, Tailwind CSS, Bootstrap 5, Framer Motion,
+    Responsive \& RTL/Arabic UI
+    \item \textbf{Backend:} Node.js, Express.js, NestJS, Django, Django REST Framework, RESTful API design
+    \item \textbf{Data:} PostgreSQL, MongoDB, MySQL, Redis
+    \item \textbf{Tooling \& Deployment:} Docker, Git, GitHub Actions (CI/CD), Vercel, AI-assisted development
+\end{itemize}
+}
+
+% =========================== EXPERIENCE ====================================
+\section*{Professional Experience}
+
+\entryHeading{Software Engineer}{Nov 2025 -- Present}{Roshd Tech}{Alexandria, Egypt (Remote)}
+{\small
+\begin{itemize}
+    \item Own full-stack technical direction for Roshd, a multi-tenant B2B SaaS platform, across tenant
+    management, billing, the admin control panel, and role-based access control.
+    \item Rebuilt the frontend as a Next.js 14 Turborepo monorepo spanning 4 client applications with shared
+    authentication and UI packages.
+    \item Led the backend migration from Flask to Django and designed schema-per-tenant PostgreSQL isolation with
+    dynamic subdomain and custom-domain routing.
+    \item Built a concurrency-safe wallet system end-to-end and integrated WebRTC for live class streaming.
+\end{itemize}
+}
+
+\shortEntry{Frontend Developer}{Oct 2024 -- Mar 2025}{Qeema Tech}{Built responsive, production-focused React interfaces across two platform projects while completing final-year studies.}
+
+\shortEntry{Full Stack Engineer}{Jan 2024 -- Sep 2024}{Mostaql.com (Arabic Freelance Marketplace)}{Delivered full-stack web applications for freelance clients, owning frontend and backend development from planning through deployment.}
+
+\entryHeading{Freelance Front-End Web Developer}{Oct 2023 -- Jan 2024}{Upwork}{Remote}
+{\small
+\begin{itemize}
+    \item Delivered responsive React / Next.js / Tailwind CSS applications for international clients end-to-end,
+    from design handoff to deployment; implemented a reusable component architecture that cut development time
+    by 30\% and helped lift client satisfaction by 40\%.
+\end{itemize}
+}
+
+% =========================== FREELANCE PROJECTS ====================================
+\section*{Freelance \& Independent Client Projects}
+{\footnotesize \textit{5.0/5.0 average client rating across 9 engagements in Tunisia, Morocco, Egypt, Saudi
+Arabia, the UAE, Jordan, and Kuwait.}}
+{\small
+\begin{itemize}
+    \item \textbf{Afaq Academy} (afaq-academy.online) -- Next.js/Bootstrap 5 RTL e-learning frontend with a
+    student toolkit (Quran reader, prayer times, Qibla finder).
+    \item \textbf{Taki Academy} (takiacademy.com) -- Full Next.js frontend for a Tunisian e-learning academy,
+    covering course discovery through enrollment.
+    \item \textbf{Garneau School \& GSPA} (garneauschool.ma, gspa.ma) -- Two end-to-end Next.js/Tailwind CSS
+    marketing sites for private schools in Morocco.
+    \item \textbf{Spotlight Egypt} (spotlightegypt.online) -- Next.js/TypeScript event management and
+    ticket-booking platform.
+\end{itemize}
+}
+
+% =========================== PROJECTS ====================================
+\section*{Projects}
+\lineHeading{VitaPsyche -- AI-Powered Mental Health Platform}{Team Lead, Graduation Project, 2025}
+{\small
+\begin{itemize}
+    \item Delivered a React/Next.js web client and a companion Flutter mobile app on a Django + MySQL backend,
+    supporting real-time doctor consultations via booking, chat, and video.
+\end{itemize}
+}
+{\footnotesize \textit{Additional projects -- Capsule Gym (AI chatbot fitness platform), Blog App (MERN blogging
+platform), Customer Management System (Node/Express CRM) -- at a7medk7aled.me}}
+
+% =========================== EDUCATION ====================================
+\section*{Education}
+\entryHeading{B.Sc. in Computer Software Engineering}{Oct 2020 -- Jun 2025}{Alexandria Higher Institute of Engineering \& Technology (AIET)}{Alexandria, Egypt}
+{\small Grade: Very Good \quad $|$ \quad Egyptian Collegiate Programming Contest (ECPC) -- Participant}
+
+\end{document}

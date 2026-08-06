@@ -1,0 +1,218 @@
+%!TEX program = pdflatex
+% =====================================================================
+%  Ahmed Khaled -- MASTER RESUME (internal reference document)
+%  Not intended for direct submission to employers/ATS -- this is the
+%  comprehensive source document every targeted 1-page resume in this
+%  repository is trimmed down from. See ../README.md.
+% =====================================================================
+\documentclass[10.5pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=0.65in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+
+% ---------- colors (single restrained accent, safe in B/W print) ------
+\definecolor{rulegray}{RGB}{90,90,90}
+\definecolor{linkblue}{RGB}{0,0,0}
+
+% ---------- hyperlinks (plain black text, underlying link only) -------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkblue,
+    urlcolor=linkblue,
+    pdftitle={Ahmed Khaled - Master Resume},
+    pdfauthor={Ahmed Khaled}
+}
+\urlstyle{same}
+
+% ---------- page setup -------------------------------------------------
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedbottom
+\raggedright
+
+% ---------- section formatting -----------------------------------------
+\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}[\vspace{1pt}\titlerule\vspace{-4pt}]
+\titlespacing{\section}{0pt}{9pt}{4pt}
+
+% ---------- list formatting ---------------------------------------------
+\setlist[itemize]{leftmargin=14pt, itemsep=0pt, parsep=0pt, topsep=1pt, partopsep=0pt}
+
+% ---------- custom commands ---------------------------------------------
+% Two-line entry heading with NO tables -- plain text + \hfill.
+% #1 Role/Title   #2 Dates   #3 Org/Subtitle   #4 Location
+\newcommand{\entryHeading}[4]{%
+  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
+  \textit{\footnotesize #3} \hfill \textit{\footnotesize #4}\\[2pt]
+}
+% Single-line project/entry heading. #1 Title  #2 Right-aligned meta
+\newcommand{\lineHeading}[2]{%
+  \textbf{#1} \hfill {\footnotesize #2}\\[2pt]
+}
+
+\newcommand{\sectionNote}[1]{{\footnotesize\itshape #1}\\[3pt]}
+
+\begin{document}
+
+% =========================== HEADER ====================================
+\begin{center}
+    {\Large \textbf{\scshape Ahmed Khaled}}\\[3pt]
+    {\small
+      Alexandria, Egypt \; $|$ \; +20\,100\,570\,1983 \; $|$ \;
+      \href{mailto:ahmadkhaled20011@gmail.com}{ahmadkhaled20011@gmail.com} \; $|$ \;
+      \href{https://www.linkedin.com/in/ahmed-khaled-a3852b21a/}{linkedin.com/in/ahmed-khaled-a3852b21a} \; $|$ \;
+      \href{https://github.com/a7medk7aledak}{github.com/a7medk7aledak} \; $|$ \;
+      \href{https://a7medk7aled.me}{a7medk7aled.me}
+    }
+\end{center}
+\vspace{-6pt}
+
+% =========================== SUMMARY ====================================
+\section*{Professional Summary}
+Full-stack software engineer with 2.5+ years of production experience across freelance, startup, and B2B SaaS
+environments, currently a founding engineer and de facto technical architect at Roshd Tech, a multi-tenant
+education SaaS platform. Primary stack: Next.js, NestJS, React, TypeScript, Django, PostgreSQL, and MongoDB.
+Designs systems around explicit architectural trade-offs -- multi-tenant data isolation, concurrency-safe
+financial ledgers, asynchronous processing pipelines -- before writing implementation code, and treats AI
+tooling as a standard part of the engineering workflow rather than a novelty. Delivered production software
+for freelance clients across seven countries with a 5.0/5.0 client satisfaction record. Recent graduate
+(B.Sc. Computer Software Engineering, 2025) operating with engineering ownership beyond typical entry-level scope.
+
+% =========================== SKILLS ====================================
+\section*{Technical Skills}
+\begin{itemize}
+    \item \textbf{Languages:} JavaScript, TypeScript, Python, SQL
+    \item \textbf{Frontend:} React, Next.js (14 \& 16), Tailwind CSS, Bootstrap 5, Framer Motion, Responsive \& RTL/Arabic UI
+    \item \textbf{Backend:} Node.js, Express.js, NestJS, Django, Django REST Framework, Flask, RESTful API design
+    \item \textbf{Data \& Caching:} PostgreSQL (schema-per-tenant multi-tenancy), MySQL, MongoDB, Redis
+    \item \textbf{Architecture \& Systems:} Multi-tenant SaaS design, Strategy Pattern / product registries, RBAC design,
+    concurrency control (row-level locking, idempotency keys), asynchronous task pipelines (Celery + Redis),
+    WebRTC \& real-time streaming, Socket.io, monorepo architecture (Turborepo)
+    \item \textbf{DevOps \& Infrastructure:} Docker, Docker Compose, GitHub Actions (CI/CD), Nginx reverse proxying,
+    SSL/domain provisioning, Git, Vercel, Render
+    \item \textbf{AI/ML \& Tooling:} AI-assisted development workflows, prompt engineering for developers, Hugging Face,
+    TensorFlow, Rasa (NLP), OpenAI API integration, ML fundamentals (Coursera Machine Learning Specialization --
+    DeepLearning.AI / Stanford)
+\end{itemize}
+
+% =========================== EXPERIENCE ====================================
+\section*{Professional Experience}
+
+\entryHeading{Software Engineer}{Nov 2025 -- Present}{Roshd Tech}{Alexandria, Egypt (Remote)}
+\begin{itemize}
+    \item Joined as a founding engineer on Roshd, a multi-tenant B2B SaaS platform for educational academies and
+    independent teachers, and own the platform's technical architecture and engineering direction.
+    \item Architected a multi-tenant system on PostgreSQL using schema-per-tenant isolation with dynamic search-path
+    routing, enforcing strict data separation while supporting wildcard subdomains and custom white-labeled domains
+    with automated Let's Encrypt SSL provisioning.
+    \item Designed a Strategy Pattern-based product registry that lets a single Django backend serve two structurally
+    different products (a hierarchical Academy platform and an autonomous Teacher platform) without duplicating code
+    or database schemas.
+    \item Built a concurrency-safe, double-entry ledger wallet system, guarding balance mutations with row-level
+    locking (\texttt{SELECT FOR UPDATE}) and client-generated idempotency keys to eliminate race conditions and
+    duplicate charges under concurrent billing load.
+    \item Implemented an asynchronous Celery/Redis provisioning pipeline that creates a new tenant schema, runs
+    migrations, and configures default RBAC rules in under 30 seconds.
+    \item Led the migration of the platform's backend from Flask to Django to support long-term scalability, and
+    rebuilt the frontend as a Next.js 14 Turborepo monorepo spanning 4 client applications with shared authentication
+    and UI packages.
+    \item Integrated WebRTC for live class streaming and Server-Sent Events for real-time, low-overhead client
+    notifications.
+    \item Designed a custom RBAC system and admin control panel governing tenant provisioning, subscription plans,
+    and platform-wide configuration.
+\end{itemize}
+
+\entryHeading{Frontend Developer}{Oct 2024 -- Mar 2025}{Qeema Tech}{Egypt}
+\begin{itemize}
+    \item Built responsive, production-focused user interfaces in React across two separate platform projects while
+    completing final-year studies.
+\end{itemize}
+
+\entryHeading{Full Stack Engineer}{Jan 2024 -- Sep 2024}{Mostaql.com (Arabic Freelance Marketplace)}{Remote}
+\begin{itemize}
+    \item Delivered full-stack web applications for clients sourced through Mostaql, the Arab world's leading
+    freelance marketplace, owning both frontend and backend development from planning through deployment.
+\end{itemize}
+
+\entryHeading{Freelance Front-End Web Developer}{Oct 2023 -- Jan 2024}{Upwork}{Remote}
+\begin{itemize}
+    \item Developed and deployed responsive React / Next.js / Tailwind CSS applications for international clients,
+    translating design concepts into fully functional interfaces with optimized UX flows.
+    \item Implemented a reusable component architecture that cut development time by 30\% across multiple client
+    projects, and maintained a 5-star feedback record that improved repeat-client satisfaction by 40\%.
+\end{itemize}
+
+% =========================== FREELANCE PROJECTS ====================================
+\section*{Freelance \& Independent Client Projects}
+\sectionNote{Delivered outside of full-time employment, direct-to-client, largely in parallel with the roles above.}
+\begin{itemize}
+    \item \textbf{Afaq Academy} (afaq-academy.online) -- Built the Next.js/Bootstrap 5 frontend for an Arabic
+    RTL e-learning platform unifying Islamic studies, language learning, and tech education, including a student
+    toolkit (Quran reader, prayer times, Qibla finder).
+    \item \textbf{Taki Academy} (takiacademy.com) -- Built the complete Next.js frontend for a Tunisian e-learning
+    academy covering course discovery and enrollment.
+    \item \textbf{Garneau School \& GSPA} (garneauschool.ma, gspa.ma) -- Delivered two Next.js/Tailwind CSS marketing
+    and admissions websites end-to-end for private schools in Morocco.
+    \item \textbf{Spotlight Egypt} (spotlightegypt.online) -- Built a Next.js/TypeScript event management and
+    ticket-booking platform for organizers to publish events and sell tickets online.
+    \item Delivered all client engagements with a \textbf{5.0/5.0 average rating across 9 documented testimonials}
+    from clients in Tunisia, Morocco, Egypt, Saudi Arabia, the UAE, Jordan, and Kuwait.
+\end{itemize}
+
+% =========================== PROJECTS ====================================
+\section*{Major Projects}
+
+\lineHeading{VitaPsyche -- AI-Powered Mental Health Platform}{Team Lead \& Backend Engineer, Graduation Project, 2025}
+\begin{itemize}
+    \item Led a cross-functional team (AI, backend, frontend, mobile) using Agile/Jira, grounding the system design
+    in a C4 Model and UML diagrams before development began.
+    \item Built the Django + MySQL backend and integrated AI/NLP emotional-assessment models (Rasa, Hugging Face,
+    TensorFlow) alongside an empathetic virtual support character.
+    \item Delivered a React/Next.js web client and a companion Flutter mobile app supporting real-time doctor
+    consultations via booking, chat, and video.
+\end{itemize}
+
+\lineHeading{Capsule Gym}{Next.js, Node.js/Express, MongoDB, OpenAI API}
+\begin{itemize}
+    \item Built a full-stack fitness platform with an AI chatbot generating personalized workout and nutrition
+    plans from user biometrics, plus an interactive BMI-tracking dashboard.
+\end{itemize}
+
+\lineHeading{Blog App}{React (Vite), Express, MongoDB}
+\begin{itemize}
+    \item Built a full-stack MERN blogging platform with categorized content and a commenting system; optimized
+    MongoDB indexing on post categories and author references to keep lookups fast under traffic spikes.
+\end{itemize}
+
+\lineHeading{Customer Management System}{Node.js, Express, MongoDB}
+\begin{itemize}
+    \item Built a CRM-style platform for tracking leads, client history, and sales pipelines, with dynamic query
+    filters and pagination for admin usability.
+\end{itemize}
+
+% =========================== EDUCATION ====================================
+\section*{Education}
+\entryHeading{B.Sc. in Computer Software Engineering}{Oct 2020 -- Jun 2025}{Alexandria Higher Institute of Engineering \& Technology (AIET)}{Alexandria, Egypt}
+\begin{itemize}
+    \item Grade: Very Good
+    \item Egyptian Collegiate Programming Contest (ECPC) -- Participant
+\end{itemize}
+
+% =========================== CERTIFICATIONS ====================================
+\section*{Certifications}
+\begin{itemize}
+    \item Machine Learning Specialization coursework (DeepLearning.AI / Stanford, via Coursera): \textit{Supervised
+    Machine Learning: Regression and Classification}; \textit{Advanced Learning Algorithms}
+\end{itemize}
+
+% =========================== LANGUAGES ====================================
+\section*{Languages}
+Arabic (Native) \quad $|$ \quad English (Professional Working Proficiency)
+
+\end{document}
