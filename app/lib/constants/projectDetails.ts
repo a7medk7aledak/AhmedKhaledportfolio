@@ -137,65 +137,83 @@ To enforce strict privacy and security for corporate clients, the platform adopt
   "afaq-academy": {
     slug: "afaq-academy",
     title: "Afaq Academy — Educational Platform",
-    subtitle: "A unified Arabic e-learning platform blending Islamic studies, language learning, and modern tech education in one modern, RTL-first experience.",
-    overview: `Afaq Academy (أكاديمية آفاق) was built to bring together subjects that are usually scattered across separate platforms — Quran and Tajweed, Arabic grammar and rhetoric, modern foreign languages, programming and technology, core academic subjects, and life skills — into a single, coherent learning experience for Arabic-speaking students of all ages.
+    subtitle: "A full-stack, live-only teaching platform for Gulf students, with a self-hosted LiveKit video backbone and a dedicated dashboard for every role in the business.",
+    overview: `Afaq Academy is a live-only online teaching platform built for students across the Gulf: real one-on-one and small-group classes with a real teacher, across Arabic language, foreign languages, programming/tech, academic subjects, and life skills — deliberately no recorded or self-paced content — sold through simple monthly session packages (8/12/16 sessions) instead of a per-course catalog.
 
-The platform is built on Next.js with a fully RTL-first interface, and organizes learning into three distinct modes: live 1-on-1 and small-group sessions (available now), pre-recorded courses, and interactive exercise-driven learning (both in active rollout). Beyond courses, the platform ships a dedicated student toolkit — a digital library, Hijri calendar, prayer times, Qibla direction finder, and an in-app Quran reader — designed to keep students engaged with their studies and their faith practice in one place.`,
+I built the platform full-stack, end to end: a Next.js/TypeScript frontend with dedicated dashboards for every role (Admin, Teacher, Student, Academic Supervisor), backed by a Django REST Framework API (PostgreSQL, Redis, Celery, Channels) handling auth, course and session scheduling, assignments and grading, enrollments, and a finance module that calculates and distributes teacher earnings automatically. Live video runs on a self-hosted LiveKit SFU — Dockerized and Redis-backed for distributed room routing — rather than a third-party video SaaS, which gives full control over recording, screen sharing, noise suppression, and per-session participant limits. The backend deploys to Render, the frontend to Vercel, with Docker, Nginx, and GitHub Actions tying the pipeline together.
+
+The platform wasn't built this way from day one. It started as Lisan Al-Hekma, a broader platform mixing Islamic studies (Quran, Tajweed, Fiqh) with live, recorded, and interactive course modes. That version wasn't finding traction, so it was deliberately rebranded and re-scoped to Afaq Academy: live-only sessions, a broader (not just religious) subject catalog, and simple monthly packages — legacy pages and framing removed outright rather than left half-migrated.`,
     sketchImage: "",
     videoUrl: "",
     features: [
       {
-        title: "Multi-Track Curriculum Catalog",
-        description: "Structured learning paths spanning Islamic sciences, Arabic language, foreign languages (English, French, German, Turkish), programming & tech, and core academic subjects.",
+        title: "Full-Stack, Solo",
+        description: "A Next.js/TypeScript frontend and a Django REST Framework backend, both designed, built, and deployed end to end — not just the UI layer.",
+        badge: "Scope"
+      },
+      {
+        title: "Self-Hosted LiveKit SFU",
+        description: "Runs its own Dockerized, Redis-backed LiveKit media server for live classes instead of depending on a third-party video platform — full control over recording, screen sharing, Krisp-based noise suppression, and participant limits.",
+        badge: "Infrastructure"
+      },
+      {
+        title: "A Dashboard for Every Role",
+        description: "Distinct Admin, Teacher, Student, and Academic Supervisor dashboards, each scoped to what that role actually needs — from platform-wide oversight down to a single student's own sessions and assignments.",
+        badge: "Product"
+      },
+      {
+        title: "Automated Teacher Payouts",
+        description: "A dedicated finance module calculates and distributes teacher earnings from completed sessions automatically, instead of a manual reconciliation process.",
+        badge: "FinTech"
+      },
+      {
+        title: "Assignments & Grading Tied to Live Sessions",
+        description: "Teachers create and grade assignments linked to specific sessions; students track progress and completion from their own dashboard.",
         badge: "E-Learning"
       },
       {
-        title: "Three Learning Modes",
-        description: "Live teaching with real-time teacher interaction is available today, with recorded (self-paced, lifetime access) and interactive (smart exercises & instant grading) modes rolling out.",
-        badge: "Product"
-      },
-      {
-        title: "RTL-First Responsive UI",
-        description: "A fully right-to-left interface built with Next.js and Bootstrap 5, designed for a native, comfortable Arabic reading and navigation experience across devices.",
-        badge: "Frontend"
-      },
-      {
-        title: "Student Companion Toolkit",
-        description: "Built-in digital library, Hijri calendar, prayer times, Qibla direction, and Quran reader to support students' daily routine alongside their coursework.",
-        badge: "Product"
+        title: "A Deliberate Product Pivot",
+        description: "Rebranded and re-scoped from an earlier Islamic-studies/recorded-content concept (Lisan Al-Hekma) to a focused live-only model for a broader Gulf audience — a scope cut made on purpose, not a missing feature.",
+        badge: "Product Strategy"
       }
     ],
     challenges: [
       {
-        issue: "Presenting a large, varied catalog (Islamic studies, languages, tech, academics) without overwhelming or confusing new visitors.",
-        solution: "Grouped offerings into clearly labeled domains with a comparison table across learning modes (flexibility, interactivity, personalization, class size), letting students quickly match a mode and track to their goals."
+        issue: "Running a real-time video platform without being at the mercy of a third-party video SaaS's pricing and limits.",
+        solution: "Self-hosted a LiveKit SFU (Dockerized, Redis-backed for distributed room routing) instead of a managed video API — more operational responsibility, in exchange for full control over recording, screen sharing, per-session participant limits, and Krisp-based background noise suppression."
       },
       {
-        issue: "Delivering a genuinely native experience for an Arabic-speaking audience rather than a translated afterthought.",
-        solution: "Designed the interface RTL-first from the layout system up, rather than mirroring an LTR design, ensuring typography, navigation, and component alignment feel natural in Arabic."
+        issue: "Serving four structurally different roles (Admin, Teacher, Student, Academic Supervisor) without the UI or API turning into a tangle of ad hoc role checks.",
+        solution: "Gave each role its own dashboard route and scoped API surface, backed by a dedicated Django permissions app, so authorization logic lives in one place instead of being re-implemented per view."
+      },
+      {
+        issue: "The product started as a broad Islamic-studies-plus-recorded-courses platform (Lisan Al-Hekma) that wasn't gaining traction.",
+        solution: "Rebranded to Afaq Academy and cut scope deliberately — live-only sessions, a broader subject catalog, and simple monthly packages instead of a per-course catalog — removing the legacy pages and framing outright instead of leaving the product half-migrated between two identities."
       }
     ],
     timeline: [
       {
-        phase: "Phase 1: Product & Curriculum Design",
-        title: "Structuring the Learning Domains",
-        description: "Defined the five core learning domains and mapped out the three learning-mode experience (live, recorded, interactive) to support a phased rollout."
+        phase: "Phase 1: Lisan Al-Hekma",
+        title: "Broad Islamic-Studies, Multi-Mode Platform",
+        description: "Initial build: Next.js frontend, Django backend, and three learning modes (live, recorded, interactive) around an Islamic-studies-heavy catalog alongside languages and tech."
       },
       {
-        phase: "Phase 2: Platform Build",
-        title: "Building the RTL Next.js Experience",
-        description: "Implemented the RTL-first Next.js frontend, course catalog browsing, and the student toolkit (prayer times, Qibla, Quran reader, Hijri calendar)."
+        phase: "Phase 2: Rebrand & Live-Only Pivot",
+        title: "Becoming Afaq Academy",
+        description: "Rebranded to Afaq Academy, removed the legacy Islamic-studies feature pages and the recorded/interactive course modes, and rebuilt live-teaching around a broader-appeal subject catalog and monthly session packages."
       },
       {
-        phase: "Phase 3: Launch",
-        title: "Production Release",
-        description: "Deployed the live-teaching mode to production, with onboarding flows for students and teachers, ahead of the recorded and interactive modes."
+        phase: "Phase 3: Production Hardening",
+        title: "Fixing the Build & Matching the New Brand",
+        description: "Fixed a site-wide build failure and a global stylesheet bug that had left buttons and inputs unstyled across the whole site, redesigned the login/register/course pages to match the new brand, and cleaned up dead code left over from the pivot."
       }
     ],
     architectureNodes: [
-      { id: "fe", label: "Next.js RTL Web App", details: "Server-rendered, RTL-first Arabic interface handling course discovery, booking, and the student toolkit.", status: "client" },
-      { id: "ui", label: "Bootstrap 5 UI Layer", details: "Component and layout styling system powering responsive pages across devices.", status: "client" },
-      { id: "api", label: "Application Backend", details: "Handles authentication, course/session data, and booking for live teaching sessions.", status: "api" }
+      { id: "fe", label: "Next.js Client", details: "Role-aware routing for Admin/Teacher/Student/Supervisor dashboards, Redux Toolkit for state, Radix UI + Tailwind CSS for components.", status: "client" },
+      { id: "api", label: "Django REST API", details: "JWT-authenticated DRF backend — auth, courses/sessions, assignments, enrollments, finance, notifications, community — organized into focused Django apps.", status: "api" },
+      { id: "livekit", label: "Self-Hosted LiveKit SFU", details: "Dockerized real-time media server handling live class video/audio, screen sharing, and recording — not a third-party video SaaS.", status: "api" },
+      { id: "db", label: "PostgreSQL", details: "Primary relational store for users, courses, sessions, assignments, and finance records.", status: "db" },
+      { id: "queue", label: "Redis + Celery", details: "Background jobs, caching, and distributed room-state coordination for LiveKit.", status: "queue" }
     ]
   },
   "taki-academy": {
@@ -342,88 +360,108 @@ The build focused on clean course browsing, a smooth enrollment flow, and consis
   "spotlight-egypt": {
     slug: "spotlight-egypt",
     title: "Spotlight Egypt — Event Management Platform",
-    subtitle: "A ticketing and event-operations platform for an Egyptian concert/event promoter, engineered to survive flash-sale traffic without overselling a single ticket.",
+    subtitle: "A ticketing and event-operations platform for an Egyptian concert/event promoter — an empty NestJS skeleton became a near-complete backend platform in about three weeks.",
     overview: `Spotlight Egypt is an event organizer/promoter — producing concerts, festivals, stand-up comedy, and theatre shows — that needed its own ticketing platform instead of depending on a third-party marketplace, to keep full control over pricing, refund policy, buyer communication, and branding.
 
-I'm architecting and building the platform solo, end-to-end: a Next.js marketing site and future ticketing storefront, backed by a NestJS API organized as a modular monolith, PostgreSQL (Neon) as the database, and Redis/BullMQ for background work. The bilingual (EN/AR, RTL-aware) marketing site is live in production today. The ticketing engine — events, tickets, orders, Paymob payments, refunds, QR check-in, live analytics — is fully architected and in active development, built domain by domain rather than all at once, so the schema and business logic never drift ahead of what's actually implemented.
+I'm architecting and building the platform solo, end-to-end, and after weeks of deliberate product/architecture discovery, execution moved fast: in a run from mid- to late-August, the backend went from a bare NestJS skeleton to Auth (Google/Facebook OAuth and email OTP for customers, email + password + TOTP MFA for the internal team, Redis-backed sessions, server-side RBAC down to per-event ownership), a full Events/Artists/Venues/Tickets catalog supporting both capacity-tier and seat-map allocation, Orders and Paymob payments with a checkout queue and idempotent webhook handling, ticket-level refunds, coupons and presale access codes, a BullMQ/Brevo notification pipeline, QR check-in, and a live WebSocket analytics dashboard — deployed on Render via Docker.
 
-The core engineering problem the whole system is designed around: a ticket on-sale for a popular artist is the platform's real load test, and an outage or overselling incident during that spike is a direct financial and reputational hit, not just a bug.`,
+The core engineering problem the whole system is designed around: a ticket on-sale for a popular artist is the platform's real load test, and an outage or overselling incident during that spike is a direct financial and reputational hit, not just a bug. With the backend now essentially feature-complete, current work is wiring the customer-facing storefront (browse, hold, checkout) up to it.`,
     sketchImage: "",
     videoUrl: "",
     features: [
       {
-        title: "Modular Monolith Backend",
-        description: "A NestJS API organized into self-contained domain modules — Events, Tickets, Orders, Payments, Refunds, Checkins, Notifications, Analytics, Marketing — as one deployable service with clear boundaries, without the operational overhead of microservices.",
-        badge: "Architecture"
+        title: "A Full Ticketing Backend, Solo",
+        description: "13 domain modules — Auth, Users, Artists, Venues, Events, Tickets, Orders, Payments, Refunds, Coupons, Access Codes, Notifications, Analytics, Checkins — designed and built end to end by one engineer, deployed on Render.",
+        badge: "Scope"
       },
       {
-        title: "Flash-Sale Protection, No Waiting Room",
-        description: "Evaluated a customer-facing virtual waiting room (queue position, admission tokens) and deliberately rejected it. Instead, selecting a ticket places a 10-minute Redis-TTL hold, backed by atomic overselling-prevention operations — a buyer either gets the ticket or immediately sees it's unavailable.",
+        title: "Multi-Provider Auth, Role-Scoped MFA",
+        description: "Google/Facebook OAuth and email OTP (Brevo) for customers; email + password + TOTP MFA for Admin and Organizer accounts; scoped Gate Staff logins. Redis-backed sessions and server-side RBAC enforce not just roles but per-event resource ownership.",
+        badge: "Security"
+      },
+      {
+        title: "Two Overselling-Prevention Strategies, By Design",
+        description: "Capacity-tier inventory (VIP/Regular/...) is protected with a Redis atomic counter; seat-map inventory (individually numbered seats) uses a Redis distributed lock per seat — two different concurrency mechanisms chosen deliberately per allocation type, not one stretched to fit both.",
         badge: "System Design"
       },
       {
-        title: "Dual Ticket Allocation Strategies",
-        description: "Each event picks capacity-based tiers (VIP / Regular / ...) or a seat map of individually numbered seats — the same Events domain supports both without forking the data model.",
-        badge: "Product"
-      },
-      {
-        title: "Paymob Payments, Ticket-Level Refunds",
-        description: "Paymob handles all payment collection; the platform never stores raw card data, only transaction references and idempotently-processed webhook state. Refunds are requested at the individual ticket level, so partial refunds within a multi-ticket order are supported.",
+        title: "Paymob Payments + Checkout Queue",
+        description: "Paymob's Intention API and Unified Checkout handle payment collection; every processed webhook event ID is stored before an order is marked paid, so retried or duplicate callbacks can't double-fulfill an order. A narrower, checkout-scoped admission-token queue protects the payment step itself under load — deliberately not a site-wide waiting room.",
         badge: "Payments"
       },
       {
-        title: "QR Check-In From Any Phone",
-        description: "Gate Staff validate tickets with a mobile browser camera scanner — no dedicated hardware. The QR payload is only a ticket ID, validated server-side on every scan, and a checked-in ticket can't be scanned valid again even from a second device.",
+        title: "Ticket-Level Refunds With Approval Routing",
+        description: "Refunds process at the individual ticket, so partial refunds within a multi-ticket order work. Requests outside the event's normal policy, or above a value threshold, route to Admin for approval before they ever reach Paymob.",
         badge: "Operations"
       },
       {
-        title: "Bilingual by Design",
-        description: "next-intl drives EN/AR routing with full RTL layout, not just translated strings. Organizer-authored content (events, artists, venues) is machine-translated once at write time via the DeepSeek API, so publishing an event never blocks on a translation call.",
-        badge: "Localization"
+        title: "Live WebSocket Analytics Dashboard",
+        description: "Order-paid and refund-succeeded events stream straight to an Admin/Organizer dashboard in real time — tickets sold, revenue, refund rate, and check-in progress — Organizer scoped to their own events, Admin seeing everything.",
+        badge: "Realtime"
+      },
+      {
+        title: "BullMQ Notification Pipeline",
+        description: "Order, refund, and event-lifecycle emails (via Brevo) run as background jobs on a Redis/BullMQ queue, so sending a confirmation email never competes with the latency-sensitive checkout request itself.",
+        badge: "Infrastructure"
       }
     ],
     challenges: [
       {
         issue: "Protecting a flash ticket sale from overselling without punishing buyers with an artificial queue.",
-        solution: "Considered a virtual waiting room with queue positions and admission tokens, then explicitly rejected it after discovery — a 10-minute Redis-TTL hold per selection plus atomic inventory operations were confirmed as sufficient protection, keeping checkout honest: a buyer either gets the ticket or sees it's gone, no fake waiting state."
+        solution: "Considered a site-wide virtual waiting room with queue positions and admission tokens, then explicitly rejected it after discovery — ticket holds plus atomic inventory operations were confirmed as sufficient protection, keeping checkout honest: a buyer either gets the ticket or sees it's gone, no fake waiting state. A much narrower, checkout-scoped admission queue was later adopted specifically to protect the payment step — a distinct decision, not a reversal."
       },
       {
-        issue: "Keeping checkout fast under release-day load while still sending confirmation emails, generating QR codes, and updating analytics.",
-        solution: "Anything not required to confirm the purchase to the buyer runs asynchronously on a Redis + BullMQ queue, split into one queue per job category (notifications, ticket generation, analytics rollups) so retry and backoff policies can differ per job type instead of one catch-all queue slowing everything down together."
+        issue: "Preventing overselling under two structurally different inventory models — capacity tiers and individually numbered seats — inside one Tickets domain.",
+        solution: "Resolved with two different concurrency mechanisms instead of forcing one to fit both: a Redis atomic counter safely decrements capacity-tier inventory under concurrent holds, while seat maps use a Redis distributed lock scoped to the individual seat."
+      },
+      {
+        issue: "Making Paymob webhook handling safe against retries and duplicate callbacks.",
+        solution: "Every processed gateway event ID is stored before an order is marked paid or a ticket is issued, so a retried or duplicated webhook can't double-fulfill an order or generate duplicate tickets."
       },
       {
         issue: "Designing a single-organization platform after an early draft explored a multi-organizer model.",
-        solution: "Ran a follow-up discovery session that corrected course: Spotlight Egypt runs its own events only, so the data model dropped tenant scoping entirely — Organizer and Admin merged into one internal role, and every entity belongs to the one organization instead of a speculative tenant hierarchy that didn't reflect the real business."
+        solution: "Ran a follow-up discovery session that corrected course: Spotlight Egypt runs its own events only, so the data model dropped tenant scoping entirely — the roles settled as Admin (platform-wide) and Organizer (scoped to their own events) instead of a speculative tenant hierarchy that didn't reflect the real business."
       }
     ],
     timeline: [
       {
         phase: "Phase 1: Foundation",
-        title: "Monorepo, Design System & Marketing Site",
-        description: "Scaffolded the Turborepo monorepo, derived a design system from the brand logo, and shipped the bilingual (EN/AR, RTL-aware) marketing site — Home, About, Contact, Events, Terms, Privacy — now live in production, alongside a NestJS backend skeleton (health check, Swagger docs, Prisma wired to PostgreSQL)."
+        title: "Monorepo, Design System & Discovery",
+        description: "Scaffolded the Turborepo monorepo, shipped the bilingual (EN/AR, RTL-aware) marketing site, stood up a NestJS backend skeleton, and ran four rounds of business/product/architecture discovery — resolving the single-organization model, Paymob as payment gateway, and concrete status-enum-driven domain design before writing domain code."
       },
       {
-        phase: "Phase 2: Domain Architecture (complete)",
-        title: "Designing the Event & Ticketing Domain",
-        description: "Ran a full product and architecture discovery pass before writing domain code — confirmed the single-organization model, the three user roles, status-enum-driven Event/Order/Ticket lifecycles, the Paymob payment flow, and rejected a virtual-waiting-room design in favor of holds + atomic operations."
+        phase: "Phase 2: Auth",
+        title: "Full Auth, Backend and UI, in a Day",
+        description: "Shipped Google/Facebook OAuth, email OTP (Brevo), Admin/Organizer password + TOTP MFA, Gate Staff accounts, Redis sessions, and server-side RBAC — plus the matching sign-in and account UI — verified end to end against real dev infrastructure."
       },
       {
-        phase: "Phase 3-4 (in progress)",
-        title: "Auth, Catalog & Transactions",
-        description: "Building Auth (OTP for customers, email + password + MFA for the internal team), the Artists/Venues/Events catalog, ticket holds with overselling-safe inventory, and the Paymob-backed order/payment/refund flow."
+        phase: "Phase 3: Catalog",
+        title: "Artists, Venues, Events & Tickets",
+        description: "Built the full catalog domain — Artists/Venues, Event lifecycle and reschedule, and Tickets with both allocation strategies — resolving and implementing both overselling-prevention mechanisms (Redis counter for tiers, Redis lock for seats)."
       },
       {
-        phase: "Phase 5-6 (planned)",
-        title: "Fulfillment, Check-In & Live Analytics",
-        description: "Wiring the Redis/BullMQ background queue for notifications and mass-refund bursts, QR-based Gate Staff check-in, and an Organizer/Admin live sales dashboard over WebSockets."
+        phase: "Phase 4: Transactions",
+        title: "Orders, Paymob, Refunds & Marketing",
+        description: "Built Orders and checkout, the Paymob adapter and idempotent webhook fulfillment, the checkout queue, ticket-level refunds with approval routing, coupons, and presale access codes — while migrating backend hosting from DigitalOcean to a Dockerized Render deployment."
+      },
+      {
+        phase: "Phase 5-6: Fulfillment & Insight",
+        title: "Notifications, Live Analytics & Check-In",
+        description: "Wired the BullMQ/Brevo notification pipeline, a WebSocket-powered live Admin/Organizer analytics dashboard, and QR-based Gate Staff check-in scanning."
+      },
+      {
+        phase: "Now",
+        title: "Wiring the Customer Storefront",
+        description: "With the backend essentially feature-complete, current work is connecting the customer-facing browse/hold/checkout experience to it, ahead of an offline-capable PWA check-in flow and platform-resilience hardening."
       }
     ],
     architectureNodes: [
-      { id: "fe", label: "Next.js Marketing Site", details: "App Router, TypeScript, Tailwind v4, next-intl for EN/AR routing — live in production today; will grow into the full ticketing storefront.", status: "client" },
-      { id: "api", label: "NestJS API (Modular Monolith)", details: "One deployable service with clear domain boundaries — Events, Tickets, Orders, Payments, Refunds, Checkins, Notifications, Analytics, Marketing.", status: "api" },
-      { id: "db", label: "PostgreSQL (Neon)", details: "Prisma ORM; schema is added alongside each domain module as it's implemented, so it never drifts ahead of real business logic.", status: "db" },
-      { id: "queue", label: "Redis + BullMQ", details: "Confirmed from day one for background jobs — notification dispatch, QR generation, analytics rollups, and mass-refund bursts — kept off the latency-sensitive checkout path.", status: "queue" },
-      { id: "payments", label: "Paymob", details: "Handles all payment collection and refunds; the platform never stores raw card data, only transaction references and idempotently-processed webhook state.", status: "external" }
+      { id: "fe", label: "Next.js Client", details: "App Router, TypeScript, Tailwind v4, next-intl for EN/AR routing. Marketing site live in production; storefront (browse/hold/checkout) is being wired up to the now-complete backend.", status: "client" },
+      { id: "api", label: "NestJS API (Modular Monolith)", details: "13 domain modules in one deployable service — Auth, Users, Artists, Venues, Events, Tickets, Orders, Payments, Refunds, Coupons, Access Codes, Notifications, Analytics, Checkins.", status: "api" },
+      { id: "db", label: "PostgreSQL (Neon)", details: "Prisma ORM across 20 models — User, Event, TicketTier, Seat, Order, Ticket, Payment, RefundRequest, Coupon, AccessCode, and more.", status: "db" },
+      { id: "redis", label: "Redis", details: "Ticket holds, the capacity-tier atomic counter and seat-map distributed locks, session storage, and the BullMQ queue backing store.", status: "queue" },
+      { id: "realtime", label: "WebSocket Gateway", details: "Streams order-paid and refund-succeeded events straight into the Admin/Organizer live analytics dashboard.", status: "queue" },
+      { id: "payments", label: "Paymob", details: "Intention API + Unified Checkout for payment collection and refunds; the platform never stores raw card data, only transaction references and idempotently-processed webhook state.", status: "external" }
     ]
   },
   "vitapsyche": {

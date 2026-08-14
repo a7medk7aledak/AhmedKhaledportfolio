@@ -131,13 +131,15 @@ export const PROJECTS: Project[] = [
     slug: "spotlight-egypt",
     image: "/spotlightegypt.png",
     description:
-      "A ticketing and event-operations platform for an Egyptian concert/event promoter, architected and built solo end-to-end — a Next.js frontend and a modular-monolith NestJS API (PostgreSQL, Redis/BullMQ) designed to survive high-demand ticket on-sales without overselling. The bilingual (EN/AR) marketing site is live in production; the ticketing engine is in active development.",
+      "A ticketing and event-operations platform for an Egyptian concert/event promoter, architected and built solo end-to-end. In under three weeks the NestJS backend went from an empty skeleton to a near-complete platform — multi-provider auth with MFA, a full events/tickets catalog with two overselling-prevention strategies, Paymob payments with a checkout queue, ticket-level refunds, coupons, a BullMQ notification pipeline, and a live WebSocket analytics dashboard — all deployed on Render. The customer storefront UI is now being wired up to it.",
     technologies: [
       "Next.js",
       "TypeScript",
       "NestJS",
       "PostgreSQL",
       "Redis",
+      "Paymob",
+      "WebSockets",
       "Tailwind CSS",
       "Docker",
       "CI/CD"
@@ -152,13 +154,18 @@ export const PROJECTS: Project[] = [
     slug: "afaq-academy",
     image: "/afaq-academy.png",
     description:
-      "A comprehensive Arabic (RTL) e-learning platform unifying Islamic studies (Quran, Tajweed, Fiqh), Arabic language, modern foreign languages, programming/tech, and academic subjects under one modern learning experience. Supports live 1-on-1 and small-group teaching sessions today, with recorded and interactive course modes in active development, alongside a student toolkit including a digital library, prayer times, Qibla direction, and a Quran reader.",
+      "A full-stack live-teaching platform for Gulf students — real-time 1-on-1 and small-group classes only, no recorded courses, sold through simple monthly session packages. Built end-to-end: a Next.js frontend with role-based dashboards (Admin, Teacher, Student, Academic Supervisor) on top of a Django REST backend, video powered by a self-hosted LiveKit SFU, with Celery/Redis handling background jobs, assignments/grading, and automated teacher payouts.",
     technologies: [
       "Next.js",
-      "React",
-      "Bootstrap 5",
-      "RTL/Arabic UI",
-      "Responsive Design"
+      "TypeScript",
+      "Django",
+      "PostgreSQL",
+      "Redis",
+      "Celery",
+      "LiveKit",
+      "WebSockets",
+      "Docker",
+      "CI/CD"
     ],
     link: "https://afaq-academy.online/",
     github: "#",
