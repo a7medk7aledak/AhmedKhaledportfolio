@@ -1,27 +1,39 @@
-%!TEX program = pdflatex
+%!TEX program = xelatex
 % =====================================================================
 %  Ahmed Khaled -- FULL-STACK ENGINEER resume (1 page, ATS-friendly)
 %  Emphasis: Next.js, React, TypeScript, NestJS, Django, REST APIs,
 %  end-to-end product development.
+%  Requires XeLaTeX (not pdfLaTeX). On Overleaf: Menu > Compiler > XeLaTeX.
 % =====================================================================
 \documentclass[10pt,letterpaper]{article}
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage[margin=0.6in, top=0.45in, bottom=0.45in]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \errmessage{This document requires XeLaTeX or LuaLaTeX -- on Overleaf: Menu > Compiler > XeLaTeX}
+\fi
+
+\usepackage{fontspec}
+\usepackage[margin=0.7in, top=0.45in, bottom=0.45in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{microtype}
 \usepackage{ragged2e}
 
-\definecolor{linkblue}{RGB}{0,0,0}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}}{%
+  \IfFontExistsTF{IBM Plex Sans}{\setmainfont{IBM Plex Sans}}{%
+    \setmainfont{TeX Gyre Heros}}}
+
+\definecolor{ink}{HTML}{18181B}
+\definecolor{muted}{HTML}{5B5F6B}
+\definecolor{accent}{HTML}{3730A3}
+\definecolor{hairline}{HTML}{D4D4D8}
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=linkblue,
-    urlcolor=linkblue,
+    linkcolor=accent,
+    urlcolor=accent,
     pdftitle={Ahmed Khaled - Full-Stack Engineer Resume},
     pdfauthor={Ahmed Khaled}
 }
@@ -30,43 +42,48 @@
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \raggedbottom
-\raggedright
+\color{ink}
 
-\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}[\vspace{1pt}\titlerule\vspace{-4pt}]
-\titlespacing{\section}{0pt}{7pt}{3pt}
+\titleformat{\section}{\color{accent}\bfseries\fontsize{9}{10}\selectfont}{}{0em}{}
+\titlespacing{\section}{0pt}{5pt}{1pt}
+\newcommand{\sectionrule}{\vspace{-1pt}{\color{hairline}\hrule height 0.6pt}\vspace{2pt}}
 
-\setlist[itemize]{leftmargin=14pt, itemsep=0pt, parsep=0pt, topsep=1pt, partopsep=0pt}
+\setlist[itemize]{leftmargin=12pt, itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt}
 
 \newcommand{\entryHeading}[4]{%
-  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
-  \textit{\footnotesize #3} \hfill \textit{\footnotesize #4}\\[1pt]
+  \textbf{#1} \hfill {\small\color{muted}#2}\\
+  {\small\color{muted}\textit{#3}} \hfill {\small\color{muted}#4}\\[0pt]
 }
 \newcommand{\lineHeading}[2]{%
-  \textbf{#1} \hfill {\footnotesize #2}\\[1pt]
+  \textbf{#1} \hfill {\small\color{muted}#2}\\[0pt]
 }
+% #1 label  #2 href (full URL)  #3 display text (bare domain/path)
+\newcommand{\linkLine}[3]{{\footnotesize\color{muted}#1: }{\footnotesize\href{#2}{#3}}\\[0pt]}
 \newcommand{\shortEntry}[4]{%
-  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
-  \textit{\footnotesize #3}\\
-  {\footnotesize #4}\\[2pt]
+  \textbf{#1} \hfill {\small\color{muted}#2}\\
+  {\small\color{muted}\textit{#3}}\\
+  {\small #4}\\[1pt]
 }
+\newcommand{\sectionNote}[1]{{\footnotesize\color{muted}\itshape#1}}
 
 \begin{document}
 
 % =========================== HEADER ====================================
 \begin{center}
-    {\Large \textbf{\scshape Ahmed Khaled}}\\[2pt]
-    {\footnotesize
-      Alexandria, Egypt \; $|$ \; +20\,100\,570\,1983 \; $|$ \;
-      \href{mailto:ahmadkhaled20011@gmail.com}{ahmadkhaled20011@gmail.com} \; $|$ \;
-      \href{https://www.linkedin.com/in/ahmed-khaled-a3852b21a/}{linkedin.com/in/ahmed-khaled-a3852b21a} \; $|$ \;
-      \href{https://github.com/a7medk7aledak}{github.com/a7medk7aledak} \; $|$ \;
+    {\fontsize{20}{22}\selectfont\textbf{Ahmed Khaled}}\\[1pt]
+    {\color{accent}\fontsize{10}{11}\selectfont Full-Stack Software Engineer}\\[2pt]
+    {\footnotesize\color{muted}
+      Alexandria, Egypt \ \textperiodcentered\ +20\,100\,570\,1983 \ \textperiodcentered\
+      \href{mailto:ahmadkhaled20011@gmail.com}{ahmadkhaled20011@gmail.com} \ \textperiodcentered\
+      \href{https://www.linkedin.com/in/ahmed-khaled-a3852b21a/}{linkedin.com/in/ahmed-khaled-a3852b21a} \ \textperiodcentered\
+      \href{https://github.com/a7medk7aledak}{github.com/a7medk7aledak} \ \textperiodcentered\
       \href{https://a7medk7aled.me}{a7medk7aled.me}
     }
 \end{center}
-\vspace{-5pt}
 
 % =========================== SUMMARY ====================================
-\section*{Professional Summary}
+\section*{Summary}
+\sectionrule
 {\small
 Full-stack software engineer specializing in Next.js and NestJS, with production experience shipping complete
 features across React/TypeScript frontends and Django/Node.js backends. Has taken products from architecture
@@ -76,10 +93,10 @@ through deployment for a live B2B SaaS platform and freelance clients across sev
 
 % =========================== SKILLS ====================================
 \section*{Technical Skills}
+\sectionrule
 {\small
 \begin{itemize}
-    \item \textbf{Frontend:} React, Next.js (14 \& 16), TypeScript, Tailwind CSS, Bootstrap 5, Framer Motion,
-    Responsive \& RTL/Arabic UI
+    \item \textbf{Frontend:} React, Next.js (14 \& 16), TypeScript, Tailwind CSS, Bootstrap 5, Responsive \& RTL/Arabic UI
     \item \textbf{Backend:} Node.js, Express.js, NestJS, Django, Django REST Framework, RESTful API design
     \item \textbf{Data:} PostgreSQL, MongoDB, MySQL, Redis
     \item \textbf{Tooling \& Deployment:} Docker, Git, GitHub Actions (CI/CD), Vercel, AI-assisted development
@@ -88,17 +105,16 @@ through deployment for a live B2B SaaS platform and freelance clients across sev
 
 % =========================== EXPERIENCE ====================================
 \section*{Professional Experience}
+\sectionrule
 
 \entryHeading{Software Engineer}{Nov 2025 -- Present}{Roshd Tech}{Alexandria, Egypt (Remote)}
+\linkLine{Live Demo}{https://roshed.tech/}{roshed.tech}
 {\small
 \begin{itemize}
     \item Own full-stack technical direction for Roshd, a multi-tenant B2B SaaS platform, across tenant
     management, billing, the admin control panel, and role-based access control.
-    \item Rebuilt the frontend as a Next.js 14 Turborepo monorepo spanning 4 client applications with shared
-    authentication and UI packages.
-    \item Led the backend migration from Flask to Django and designed schema-per-tenant PostgreSQL isolation with
-    dynamic subdomain and custom-domain routing.
-    \item Built a concurrency-safe wallet system end-to-end and integrated WebRTC for live class streaming.
+    \item Rebuilt the frontend as a Next.js 14 Turborepo monorepo (4 client apps) with shared authentication
+    and UI packages; migrated the backend from Flask to Django with schema-per-tenant PostgreSQL isolation.
 \end{itemize}
 }
 
@@ -109,44 +125,48 @@ through deployment for a live B2B SaaS platform and freelance clients across sev
 \entryHeading{Freelance Front-End Web Developer}{Oct 2023 -- Jan 2024}{Upwork}{Remote}
 {\small
 \begin{itemize}
-    \item Delivered responsive React / Next.js / Tailwind CSS applications for international clients end-to-end,
-    from design handoff to deployment; implemented a reusable component architecture that cut development time
-    by 30\% and helped lift client satisfaction by 40\%.
+    \item Delivered responsive React/Next.js/Tailwind CSS applications for international clients end-to-end;
+    reduced development time 30\% and improved client satisfaction 40\% via a reusable component architecture.
 \end{itemize}
 }
 
 % =========================== FREELANCE PROJECTS ====================================
 \section*{Freelance \& Independent Client Projects}
-{\footnotesize \textit{5.0/5.0 average client rating across 9 engagements in Tunisia, Morocco, Egypt, Saudi
-Arabia, the UAE, Jordan, and Kuwait.}}
+\sectionrule
 {\small
 \begin{itemize}
     \item \textbf{Afaq Academy} (afaq-academy.online) -- Next.js/Bootstrap 5 RTL e-learning frontend with a
     student toolkit (Quran reader, prayer times, Qibla finder).
-    \item \textbf{Taki Academy} (takiacademy.com) -- Full Next.js frontend for a Tunisian e-learning academy,
-    covering course discovery through enrollment.
-    \item \textbf{Garneau School \& GSPA} (garneauschool.ma, gspa.ma) -- Two end-to-end Next.js/Tailwind CSS
-    marketing sites for private schools in Morocco.
-    \item \textbf{Spotlight Egypt} (spotlightegypt.online) -- Next.js/TypeScript event management and
-    ticket-booking platform.
+    \item \textbf{Taki Academy} (takiacademy.com) -- Full Next.js frontend for a Tunisian e-learning academy.
+    \item \textbf{Garneau School \& GSPA} (garneauschool.ma, gspa.ma) -- Two Next.js/Tailwind CSS marketing
+    sites for private schools in Morocco.
+\end{itemize}
+}
+\sectionNote{5.0/5.0 average client rating across 9 engagements in Tunisia, Morocco, Egypt, Saudi Arabia, the
+UAE, Jordan, and Kuwait.}
+
+% =========================== PROJECTS ====================================
+\section*{Selected Projects}
+\sectionrule
+\lineHeading{Spotlight Egypt -- Ticketing \& Event Operations Platform}{Solo Architect \& Engineer}
+\linkLine{Live Demo}{https://spotlightegypt.online/}{spotlightegypt.online}
+{\small
+\begin{itemize}
+    \item Architected and built solo, end-to-end -- a Next.js frontend and a modular-monolith NestJS API
+    (PostgreSQL, Redis/BullMQ) -- for an Egyptian concert/event promoter's ticketing platform, designed to
+    survive high-demand ticket on-sales without overselling. Bilingual (EN/AR) marketing site is live in
+    production; the ticketing engine is in active development.
 \end{itemize}
 }
 
-% =========================== PROJECTS ====================================
-\section*{Projects}
-\lineHeading{VitaPsyche -- AI-Powered Mental Health Platform}{Team Lead, Graduation Project, 2025}
-{\small
-\begin{itemize}
-    \item Delivered a React/Next.js web client and a companion Flutter mobile app on a Django + MySQL backend,
-    supporting real-time doctor consultations via booking, chat, and video.
-\end{itemize}
-}
-{\footnotesize \textit{Additional projects -- Capsule Gym (AI chatbot fitness platform), Blog App (MERN blogging
-platform), Customer Management System (Node/Express CRM) -- at a7medk7aled.me}}
+\vspace{1pt}
+\sectionNote{6 production client platforms and 13 open-source projects in total -- full list at
+\href{https://a7medk7aled.me/myprojects}{a7medk7aled.me/myprojects}.}
 
 % =========================== EDUCATION ====================================
 \section*{Education}
+\sectionrule
 \entryHeading{B.Sc. in Computer Software Engineering}{Oct 2020 -- Jun 2025}{Alexandria Higher Institute of Engineering \& Technology (AIET)}{Alexandria, Egypt}
-{\small Grade: Very Good \quad $|$ \quad Egyptian Collegiate Programming Contest (ECPC) -- Participant}
+{\small Grade: Very Good \quad\textperiodcentered\quad ECPC Participant}
 
 \end{document}

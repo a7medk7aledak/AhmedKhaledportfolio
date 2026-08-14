@@ -1,10 +1,11 @@
 # Ahmed Khaled — Resume System
 
-A small "resume system" derived from this portfolio's real content (`app/lib/constants/index.ts`,
-`app/lib/constants/projectDetails.ts`, `app/about/page.tsx`) plus LinkedIn. One comprehensive **master**
-resume, and three **ATS-optimized, one-page, LaTeX** resumes tailored to different software engineering
-roles. Every fact on every resume traces back to something already documented on the portfolio site,
-this repo's git history, or the candidate's LinkedIn profile — nothing here is invented.
+A "resume system" derived from this portfolio's real content (`app/lib/constants/index.ts`,
+`app/lib/constants/projectDetails.ts`, `app/about/page.tsx`), the live site, GitHub
+(`github.com/a7medk7aledak`), and LinkedIn. One comprehensive **master** resume, and three
+**ATS-optimized, one-page, LaTeX** resumes tailored to different software engineering roles.
+Every fact traces back to something already documented on the portfolio, this repo's git history,
+GitHub, or LinkedIn — nothing is invented.
 
 ## Structure
 
@@ -21,106 +22,134 @@ resume/
 └── README.md
 ```
 
-PDFs are generated locally (see [Generating PDFs](#generating-pdfs) below) and should be committed
+PDFs are generated locally (see [Generating PDFs](#generating-pdfs)) and should be committed
 alongside their `.tex` source, matching the structure above. Intermediate LaTeX build junk (`.aux`,
 `.log`, `.out`, `.fls`, `.fdb_latexmk`, `.synctex.gz`) is already excluded via the repo's root
-`.gitignore` — only the final PDF and the `.tex` source belong in git.
+`.gitignore`.
 
 ## Purpose of each version
 
 ### `master/master_resume.tex` — internal reference, not for submission
-Every piece of resume-worthy content in one place: full bullet detail for all four jobs, the complete
-freelance/client project list, all four major personal/academic projects, certifications, and languages.
-Two pages by design. When a recruiter asks for something more detailed than a 1-pager, or when you're
-prepping for an interview and want the full story in front of you, use this one. When you land a new
-project or role, **update this file first**, then re-derive the trimmed bullets into the three targeted
-versions below.
+Every piece of resume-worthy content in one place: full bullet detail for all four jobs, the
+complete freelance/client project list with live-demo links, all featured personal projects with
+demo + GitHub links, certifications, and languages. Two pages by design. Update this file first
+whenever something changes, then re-derive the trimmed bullets into the three targeted versions.
 
 ### `software-engineer/software_engineer_resume.tex` — general Software Engineer roles
-Leads with the Roshd Tech architecture work (multi-tenant schema isolation, the Strategy Pattern product
-registry, the concurrency-safe wallet, the async provisioning pipeline) and the AI-assisted-development
-angle. Use this for roles titled "Software Engineer," "SDE," "Application Engineer," or any listing that
-emphasizes system design, engineering fundamentals, and problem-solving over a specific stack.
+Leads with the Roshd Tech architecture work (multi-tenant schema isolation, the Strategy Pattern
+product registry, the concurrency-safe wallet) and the solo-architected Spotlight Egypt ticketing
+system, plus the AI-assisted-development angle. Use for roles titled "Software Engineer," "SDE," or
+any listing emphasizing system design and engineering fundamentals over a specific stack.
 
 ### `full-stack/fullstack_resume.tex` — Full-Stack Engineer roles
-Leads with the Next.js / React / TypeScript / NestJS / Django breadth and end-to-end delivery — including
-the freelance client roster (Afaq Academy, Taki Academy, Garneau School, GSPA, Spotlight Egypt) that a
-pure backend or pure system-design resume doesn't have room for. Use this for roles explicitly asking for
-full-stack ownership across a Next.js/React frontend and a Node.js/Django backend.
+Leads with the Next.js / React / TypeScript / NestJS / Django breadth and end-to-end delivery —
+including the freelance client roster (Afaq Academy, Taki Academy, Garneau School, GSPA) that a
+pure system-design or backend resume doesn't have room for. Use for roles asking for full-stack
+ownership across a Next.js/React frontend and a Node.js/Django backend.
 
 ### `backend/backend_resume.tex` — Backend Engineer roles
-Leads with backend architecture: PostgreSQL schema-per-tenant multi-tenancy, Redis/Celery async
-processing, row-level locking and idempotency keys for concurrency-safe billing, and API/data-modeling
-work from the Mostaql and personal-project experience. Use this for roles titled "Backend Engineer,"
-"API Engineer," or "Platform Engineer."
+Leads with backend architecture: PostgreSQL schema-per-tenant multi-tenancy, Redis/Celery and
+Redis/BullMQ async processing (two independent systems, two different queue technologies), and
+row-level locking + idempotency keys for concurrency-safe billing. Use for roles titled "Backend
+Engineer," "API Engineer," or "Platform Engineer."
 
-There is deliberately **no frontend-only version** — the real experience here is broader than frontend
-work, and a frontend-only resume would undersell the Roshd Tech architecture ownership.
+There is deliberately **no frontend-only version** — the real experience here is broader than
+frontend work, and a frontend-only resume would undersell the architecture ownership.
 
-## Design constraints (all four documents)
+## Design
 
-- One page for the three targeted resumes (master is 2 pages by design)
-- No tables, no text boxes, no icons, no images/graphics — plain text + `\hfill` for date/location
-  alignment, which reads correctly in ATS text extraction
-- Single reverse-chronological column, standard section hierarchy (`Summary → Skills → Experience →
-  Projects → Education`), plain black text with clickable links (email/LinkedIn/GitHub/portfolio) via
-  `hyperref`
-- Compiles with plain `pdflatex` — no XeLaTeX/LuaLaTeX-only packages, no external fonts, no Arabic/RTL
-  glyphs (kept out for both ATS-parsing safety and because `pdflatex` + `lmodern`/T1 can't render them)
+**Typography:** Inter, falling back to IBM Plex Sans, falling back to TeX Gyre Heros if neither
+font is installed — the template detects this automatically at compile time via
+`\IfFontExistsTF`, so it never hard-fails, it just looks slightly less premium without the primary
+fonts. Restrained single-accent color (indigo, `#3730A3`) used only for the name's role line,
+section labels, and links — everything else is near-black or muted gray, so it reads correctly in
+black-and-white printing and in ATS text extraction (color has no effect on parsed text).
+
+**Layout:** single column, generous margins and inter-section whitespace, small-caps-style
+uppercase section labels with a thin hairline rule, no heavy visual weight anywhere. Project and
+job links are shown as **labeled, fully-visible URLs** (`Live Demo: https://...`, `GitHub:
+https://...`) rather than bare domain names behind hyperlinked text — this keeps every link
+machine-readable even in ATS systems that strip hyperlink metadata and only keep visible text.
+
+**Constraints maintained:** single column, no tables, no icons, no images/graphics, no text boxes,
+no progress bars or skill ratings — plain text and `\hfill` handle all alignment, which reads
+correctly in ATS text extraction.
 
 ## Generating PDFs
 
-No LaTeX distribution was available in the environment these files were authored in, so the `.tex`
-sources have been sanity-checked (balanced braces, balanced `itemize` environments, properly escaped
-`&`/`%`) but **not yet compiled**. Pick whichever of these is fastest for you:
+**These templates require XeLaTeX, not pdfLaTeX** — that's what makes the Inter/IBM Plex Sans
+fonts possible. Every `.tex` file starts with `%!TEX program = xelatex`, which most editors and
+Overleaf respect automatically; if yours doesn't, set the compiler manually.
 
-### Option A — Overleaf (no local install, ~1 minute)
-1. Go to [overleaf.com](https://www.overleaf.com) → **New Project → Upload Project**, or **New Project →
-   Blank Project** and paste the `.tex` contents in.
-2. Overleaf compiles with `pdflatex` by default — no extra configuration needed.
-3. Download the compiled PDF and save it next to its `.tex` file (e.g. `master/master_resume.pdf`) to
-   match the structure above.
+The `.tex` sources have been sanity-checked (balanced braces, matched `itemize` environments,
+properly escaped `&`/`%`, balanced `\IfFontExistsTF` nesting) but not yet run through an actual
+compiler — no LaTeX distribution was available in the environment they were authored in. Pick
+whichever of these is fastest for you:
+
+### Option A — Overleaf (no local install, ~1 minute, most reliable)
+1. [overleaf.com](https://www.overleaf.com) → **New Project → Upload Project** (or paste into a
+   blank project).
+2. Overleaf auto-detects `%!TEX program = xelatex` and compiles with XeLaTeX. If it doesn't,
+   set it manually: **Menu (top-left) → Compiler → XeLaTeX**.
+3. Overleaf has Inter and IBM Plex Sans pre-installed as system fonts, so no font upload is
+   needed — this is the only option guaranteed to render the primary typeface without extra setup.
+4. Download the compiled PDF and save it next to its `.tex` file (e.g. `master/master_resume.pdf`).
 
 ### Option B — Local TeX distribution
-Install [MiKTeX](https://miktex.org/download) (Windows) or [TeX Live](https://www.tug.org/texlive/)
-(cross-platform), then from the `resume/` directory:
+Install [MiKTeX](https://miktex.org/download) (Windows, auto-installs missing packages on the fly)
+or [TeX Live](https://www.tug.org/texlive/) — **use at least the "medium" scheme, not "basic"**;
+`fontspec` and `xelatex` aren't in the basic scheme. For the Inter/IBM Plex Sans look, install the
+font itself system-wide first ([Inter on Google Fonts](https://fonts.google.com/specimen/Inter) or
+[IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans)) — without it, the template falls
+back to TeX Gyre Heros automatically. Then, from the `resume/` directory:
 
 ```bash
-pdflatex -output-directory=master master/master_resume.tex
-pdflatex -output-directory=software-engineer software-engineer/software_engineer_resume.tex
-pdflatex -output-directory=full-stack full-stack/fullstack_resume.tex
-pdflatex -output-directory=backend backend/backend_resume.tex
+xelatex -output-directory=master master/master_resume.tex
+xelatex -output-directory=software-engineer software-engineer/software_engineer_resume.tex
+xelatex -output-directory=full-stack full-stack/fullstack_resume.tex
+xelatex -output-directory=backend backend/backend_resume.tex
 ```
 
-Run each command twice if hyperlinks or the page count look off on the first pass (standard LaTeX
-behavior — the first run generates cross-reference data, the second consumes it). Clean up the `.aux`/
-`.log`/`.out` files afterward if you don't want them alongside the PDF.
+Run each command twice if hyperlinks look off on the first pass (standard LaTeX behavior).
 
 ### Option C — Docker (no local install, if you have Docker Desktop running)
 ```bash
-docker run --rm -v "$(pwd)":/data -w /data texlive/texlive:latest-basic \
-  bash -c "pdflatex -output-directory=master master/master_resume.tex && \
-           pdflatex -output-directory=software-engineer software-engineer/software_engineer_resume.tex && \
-           pdflatex -output-directory=full-stack full-stack/fullstack_resume.tex && \
-           pdflatex -output-directory=backend backend/backend_resume.tex"
+docker run --rm -v "$(pwd)":/data -w /data texlive/texlive:latest \
+  bash -c "xelatex -output-directory=master master/master_resume.tex && \
+           xelatex -output-directory=software-engineer software-engineer/software_engineer_resume.tex && \
+           xelatex -output-directory=full-stack full-stack/fullstack_resume.tex && \
+           xelatex -output-directory=backend backend/backend_resume.tex"
 ```
+Note: this needs the **full** `texlive/texlive:latest` image (not `-basic`) since `xelatex` +
+`fontspec` + font-matching infrastructure aren't in the basic scheme — expect a multi-GB pull.
 
-After compiling, **check the three targeted resumes are exactly one page** (`pdfinfo file.pdf | grep
-Pages`, or just open them). If Roshd Tech's bullet list or the freelance-projects section pushes a
-resume onto a second page after you add new content, trim the lowest-impact bullet first — the templates
-are already tuned tight to one page as written.
+After compiling, **check the three targeted resumes are exactly one page** (`pdfinfo file.pdf |
+grep Pages`, or just open them). If new content pushes one onto a second page, trim the
+lowest-impact bullet first — the templates are already tuned tight to one page as written.
 
 ## How to update
 
 1. **New role, project, or metric →** add it to `master/master_resume.tex` first. Keep the wording
-   honest: prefer *Designed / Built / Architected / Implemented / Optimized / Delivered* over
-   *Worked on / Helped with / Responsible for*, and don't add a title (Senior/Lead/Architect) that
-   wasn't actually held.
-2. **Propagate to the targeted resumes** — pull only the bullets relevant to that resume's focus area,
-   keep each one under one page, and keep the shared blocks (header, education) identical across all
-   four files so they stay consistent.
-3. **Recompile** using any option above and confirm the 1-page constraint before sending anywhere.
-4. **Known open item:** the portfolio site (`app/about/page.tsx`) lists the degree as "Electronics and
-   Communications Engineering," while LinkedIn lists "Computer Software Engineering" at Alexandria Higher
-   Institute of Engineering & Technology (AIET). These resumes use the LinkedIn version. Reconcile the
-   portfolio site to match whichever is actually on the transcript.
+   honest: prefer *Designed / Built / Architected / Implemented / Migrated / Optimized / Reduced /
+   Improved / Delivered* over *Worked on / Helped with / Responsible for / Participated in*, and
+   don't add a title (Senior/Lead/Architect) that wasn't actually held.
+2. **New live project or repo →** use the labeled-link convention: `Live Demo: <full URL>` for
+   anything deployed, `GitHub: <full URL>` for anything with a public repo, both if it has both,
+   neither line if it's client work under a private repo (state that in the bullet instead).
+3. **Propagate to the targeted resumes** — pull only what's relevant to that resume's focus area,
+   keep each one under one page, and keep the shared blocks (header, education) identical across
+   all four files.
+4. **Recompile with XeLaTeX** (not pdfLaTeX) and confirm the 1-page constraint before sending
+   anywhere.
+5. **Known open items:**
+   - The portfolio site (`app/about/page.tsx`) lists the degree as "Electronics and Communications
+     Engineering," while LinkedIn lists "Computer Software Engineering" at Alexandria Higher
+     Institute of Engineering & Technology (AIET). These resumes use the LinkedIn version —
+     reconcile the portfolio site to match whichever is on the transcript.
+   - The portfolio's Spotlight Egypt project entry (`app/lib/constants/index.ts` /
+     `projectDetails.ts`) still describes it as a plain Next.js/TypeScript/Tailwind app — the
+     resumes now describe the real architecture (NestJS modular monolith, PostgreSQL, Redis/BullMQ
+     anti-oversell queueing). Worth updating the site to match.
+   - GitHub profile bio/company fields (`student in communications engineering`, `ITworx`) are
+     stale/unconfirmed and were **not** used anywhere in these resumes — worth cleaning up so a
+     recruiter cross-referencing LinkedIn/GitHub/resume sees a consistent story.

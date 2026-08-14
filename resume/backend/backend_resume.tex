@@ -1,27 +1,39 @@
-%!TEX program = pdflatex
+%!TEX program = xelatex
 % =====================================================================
 %  Ahmed Khaled -- BACKEND ENGINEER resume (1 page, ATS-friendly)
 %  Emphasis: backend architecture, APIs, databases, PostgreSQL, Redis,
 %  Django, NestJS, performance, distributed-systems concepts.
+%  Requires XeLaTeX (not pdfLaTeX). On Overleaf: Menu > Compiler > XeLaTeX.
 % =====================================================================
 \documentclass[10pt,letterpaper]{article}
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage[margin=0.6in, top=0.45in, bottom=0.45in]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \errmessage{This document requires XeLaTeX or LuaLaTeX -- on Overleaf: Menu > Compiler > XeLaTeX}
+\fi
+
+\usepackage{fontspec}
+\usepackage[margin=0.7in, top=0.45in, bottom=0.45in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{microtype}
 \usepackage{ragged2e}
 
-\definecolor{linkblue}{RGB}{0,0,0}
+\IfFontExistsTF{Inter}{\setmainfont{Inter}}{%
+  \IfFontExistsTF{IBM Plex Sans}{\setmainfont{IBM Plex Sans}}{%
+    \setmainfont{TeX Gyre Heros}}}
+
+\definecolor{ink}{HTML}{18181B}
+\definecolor{muted}{HTML}{5B5F6B}
+\definecolor{accent}{HTML}{3730A3}
+\definecolor{hairline}{HTML}{D4D4D8}
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=linkblue,
-    urlcolor=linkblue,
+    linkcolor=accent,
+    urlcolor=accent,
     pdftitle={Ahmed Khaled - Backend Engineer Resume},
     pdfauthor={Ahmed Khaled}
 }
@@ -30,43 +42,49 @@
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \raggedbottom
-\raggedright
+\color{ink}
 
-\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}[\vspace{1pt}\titlerule\vspace{-4pt}]
-\titlespacing{\section}{0pt}{7pt}{3pt}
+\titleformat{\section}{\color{accent}\bfseries\fontsize{9}{10}\selectfont}{}{0em}{}
+\titlespacing{\section}{0pt}{5pt}{1pt}
+\newcommand{\sectionrule}{\vspace{-1pt}{\color{hairline}\hrule height 0.6pt}\vspace{2pt}}
 
-\setlist[itemize]{leftmargin=14pt, itemsep=0pt, parsep=0pt, topsep=1pt, partopsep=0pt}
+\setlist[itemize]{leftmargin=12pt, itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt}
 
 \newcommand{\entryHeading}[4]{%
-  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
-  \textit{\footnotesize #3} \hfill \textit{\footnotesize #4}\\[1pt]
+  \textbf{#1} \hfill {\small\color{muted}#2}\\
+  {\small\color{muted}\textit{#3}} \hfill {\small\color{muted}#4}\\[0pt]
 }
 \newcommand{\lineHeading}[2]{%
-  \textbf{#1} \hfill {\footnotesize #2}\\[1pt]
+  \textbf{#1} \hfill {\small\color{muted}#2}\\[0pt]
 }
+% #1 label  #2 href (full URL)  #3 display text (bare domain/path)
+\newcommand{\linkLine}[3]{{\footnotesize\color{muted}#1: }{\footnotesize\href{#2}{#3}}\\[0pt]}
+\newcommand{\linkLineTwo}[6]{{\footnotesize\color{muted}#1: }{\footnotesize\href{#2}{#3}} \ \textperiodcentered\ {\footnotesize\color{muted}#4: }{\footnotesize\href{#5}{#6}}\\[0pt]}
 \newcommand{\shortEntry}[4]{%
-  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
-  \textit{\footnotesize #3}\\
-  {\footnotesize #4}\\[2pt]
+  \textbf{#1} \hfill {\small\color{muted}#2}\\
+  {\small\color{muted}\textit{#3}}\\
+  {\small #4}\\[1pt]
 }
+\newcommand{\sectionNote}[1]{{\footnotesize\color{muted}\itshape#1}}
 
 \begin{document}
 
 % =========================== HEADER ====================================
 \begin{center}
-    {\Large \textbf{\scshape Ahmed Khaled}}\\[2pt]
-    {\footnotesize
-      Alexandria, Egypt \; $|$ \; +20\,100\,570\,1983 \; $|$ \;
-      \href{mailto:ahmadkhaled20011@gmail.com}{ahmadkhaled20011@gmail.com} \; $|$ \;
-      \href{https://www.linkedin.com/in/ahmed-khaled-a3852b21a/}{linkedin.com/in/ahmed-khaled-a3852b21a} \; $|$ \;
-      \href{https://github.com/a7medk7aledak}{github.com/a7medk7aledak} \; $|$ \;
+    {\fontsize{20}{22}\selectfont\textbf{Ahmed Khaled}}\\[1pt]
+    {\color{accent}\fontsize{10}{11}\selectfont Backend Software Engineer}\\[2pt]
+    {\footnotesize\color{muted}
+      Alexandria, Egypt \ \textperiodcentered\ +20\,100\,570\,1983 \ \textperiodcentered\
+      \href{mailto:ahmadkhaled20011@gmail.com}{ahmadkhaled20011@gmail.com} \ \textperiodcentered\
+      \href{https://www.linkedin.com/in/ahmed-khaled-a3852b21a/}{linkedin.com/in/ahmed-khaled-a3852b21a} \ \textperiodcentered\
+      \href{https://github.com/a7medk7aledak}{github.com/a7medk7aledak} \ \textperiodcentered\
       \href{https://a7medk7aled.me}{a7medk7aled.me}
     }
 \end{center}
-\vspace{-5pt}
 
 % =========================== SUMMARY ====================================
-\section*{Professional Summary}
+\section*{Summary}
+\sectionrule
 {\small
 Backend-leaning full-stack software engineer with production experience designing multi-tenant data
 architectures, concurrency-safe financial systems, and asynchronous processing pipelines. Currently the
@@ -76,36 +94,34 @@ organizations through strict schema isolation. Recent Computer Software Engineer
 
 % =========================== SKILLS ====================================
 \section*{Technical Skills}
+\sectionrule
 {\small
 \begin{itemize}
-    \item \textbf{Languages:} Python, JavaScript / TypeScript, SQL
-    \item \textbf{Backend Frameworks:} Django, Django REST Framework, NestJS, Node.js / Express, Flask
+    \item \textbf{Languages:} Python, JavaScript/TypeScript, SQL
+    \item \textbf{Backend Frameworks:} Django, Django REST Framework, NestJS, Node.js/Express, Flask
     \item \textbf{Data \& Caching:} PostgreSQL (schema-per-tenant multi-tenancy), Redis, MongoDB, MySQL
-    \item \textbf{Distributed \& Async Systems:} Celery task queues, WebRTC \& real-time streaming, Socket.io,
-    concurrency control (row-level locking, idempotency keys), RBAC design
-    \item \textbf{Infra \& DevOps:} Docker, Docker Compose, Nginx reverse proxying \& SSL provisioning, GitHub
-    Actions (CI/CD), Git
+    \item \textbf{Distributed \& Async Systems:} Celery \& BullMQ task queues, WebRTC, Socket.io, concurrency
+    control (row-level locking, idempotency keys), RBAC design
+    \item \textbf{Infra \& DevOps:} Docker, Nginx reverse proxying \& SSL provisioning, GitHub Actions (CI/CD), Git
 \end{itemize}
 }
 
 % =========================== EXPERIENCE ====================================
 \section*{Professional Experience}
+\sectionrule
 
 \entryHeading{Software Engineer}{Nov 2025 -- Present}{Roshd Tech}{Alexandria, Egypt (Remote)}
+\linkLine{Live Demo}{https://roshed.tech/}{roshed.tech}
 {\small
 \begin{itemize}
-    \item Joined as a founding engineer and architect the backend for Roshd, a multi-tenant B2B SaaS platform
-    serving educational academies and independent teachers.
-    \item Designed schema-per-tenant PostgreSQL isolation with dynamic search-path routing middleware, supporting
-    wildcard subdomains and custom-domain SSL provisioning via an Nginx/Cloudflare reverse proxy.
-    \item Designed a Strategy Pattern product registry that lets one Django backend serve two structurally
-    different products without duplicating code or database schemas.
-    \item Built a concurrency-safe, double-entry ledger wallet using row-level locking (\texttt{SELECT FOR UPDATE})
-    and idempotency keys to eliminate race conditions and duplicate charges under concurrent billing load.
-    \item Built an asynchronous Celery/Redis pipeline that provisions a new tenant schema, runs migrations, and
-    configures default RBAC rules in under 30 seconds; wrote a custom migration wrapper to roll out schema
-    changes across hundreds of tenant schemas without downtime.
-    \item Led the migration of the backend from Flask to Django to support the platform's long-term scalability.
+    \item Founding engineer; architect the backend for Roshd, a multi-tenant B2B SaaS platform serving
+    educational academies and independent teachers.
+    \item Designed schema-per-tenant PostgreSQL isolation with dynamic search-path routing middleware,
+    supporting wildcard subdomains and custom-domain SSL provisioning via an Nginx/Cloudflare reverse proxy.
+    \item Built a concurrency-safe, double-entry ledger wallet using row-level locking and idempotency keys
+    to eliminate race conditions and duplicate charges under concurrent billing load.
+    \item Built an asynchronous Celery/Redis pipeline that reduced new-tenant provisioning to under 30 seconds;
+    migrated the backend from Flask to Django for long-term scalability.
 \end{itemize}
 }
 
@@ -113,32 +129,32 @@ organizations through strict schema isolation. Recent Computer Software Engineer
 
 \shortEntry{Frontend Developer}{Oct 2024 -- Mar 2025}{Qeema Tech}{Built responsive React interfaces across two platform projects while completing final-year studies.}
 
-\shortEntry{Freelance Front-End Web Developer}{Oct 2023 -- Jan 2024}{Upwork}{Built and deployed responsive React/Next.js applications for international clients; implemented a reusable component architecture that cut development time by 30\% across projects.}
+\shortEntry{Freelance Front-End Web Developer}{Oct 2023 -- Jan 2024}{Upwork}{Built and deployed responsive React/Next.js applications for international clients; reduced development time 30\% via a reusable component architecture.}
 
 % =========================== PROJECTS ====================================
-\section*{Projects}
+\section*{Selected Projects}
+\sectionrule
 
-\lineHeading{VitaPsyche -- AI-Powered Mental Health Platform}{Backend Engineer \& Team Lead, Graduation Project, 2025}
+\lineHeading{Spotlight Egypt -- Ticketing \& Event Operations Platform}{Solo Architect \& Engineer}
+\linkLine{Live Demo}{https://spotlightegypt.online/}{spotlightegypt.online}
 {\small
 \begin{itemize}
-    \item Designed the Django + MySQL backend architecture, grounding the system in a C4 Model and UML diagrams
-    before development began, and integrated AI/NLP models (Rasa, Hugging Face, TensorFlow) powering the
-    platform's emotional-assessment engine.
+    \item Architected and built solo, end-to-end, a modular-monolith NestJS API (PostgreSQL, Redis/BullMQ)
+    behind a Next.js frontend for an Egyptian concert/event promoter's ticketing platform.
+    \item Designed the Redis/BullMQ queueing layer and PostgreSQL data model to survive high-demand ticket
+    on-sales without overselling; bilingual (EN/AR) marketing site is live in production.
 \end{itemize}
 }
 
-\lineHeading{Blog App \& Customer Management System}{Node.js, Express, MongoDB}
-{\small
-\begin{itemize}
-    \item Built two production MERN-stack backends; optimized MongoDB indexing on post categories and author
-    references to keep lookups fast under traffic spikes, and implemented dynamic query filters with pagination
-    for admin usability.
-\end{itemize}
-}
+\vspace{2pt}
+\sectionNote{Also built: Blog App (MERN) and a Customer Management System (Node/Express/MongoDB CRM) -- 6
+production client platforms and 13 open-source projects in total. Full portfolio at
+\href{https://a7medk7aled.me/myprojects}{a7medk7aled.me/myprojects}.}
 
 % =========================== EDUCATION ====================================
 \section*{Education}
+\sectionrule
 \entryHeading{B.Sc. in Computer Software Engineering}{Oct 2020 -- Jun 2025}{Alexandria Higher Institute of Engineering \& Technology (AIET)}{Alexandria, Egypt}
-{\small Grade: Very Good \quad $|$ \quad Egyptian Collegiate Programming Contest (ECPC) -- Participant}
+{\small Grade: Very Good \quad\textperiodcentered\quad ECPC Participant}
 
 \end{document}

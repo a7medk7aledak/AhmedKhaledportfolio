@@ -1,80 +1,103 @@
-%!TEX program = pdflatex
+%!TEX program = xelatex
 % =====================================================================
 %  Ahmed Khaled -- MASTER RESUME (internal reference document)
-%  Not intended for direct submission to employers/ATS -- this is the
-%  comprehensive source document every targeted 1-page resume in this
-%  repository is trimmed down from. See ../README.md.
+%  Not intended for direct submission -- this is the comprehensive
+%  source document every targeted 1-page resume in this repository is
+%  trimmed down from. See ../README.md.
+%
+%  Requires XeLaTeX (not pdfLaTeX) -- needed for the Inter / IBM Plex
+%  Sans fonts via fontspec. On Overleaf: Menu > Compiler > XeLaTeX.
 % =====================================================================
 \documentclass[10.5pt,letterpaper]{article}
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage[margin=0.65in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage{iftex}
+\ifPDFTeX
+  \errmessage{This document requires XeLaTeX or LuaLaTeX -- on Overleaf: Menu > Compiler > XeLaTeX}
+\fi
+
+\usepackage{fontspec}
+\usepackage[margin=0.8in, top=0.65in, bottom=0.65in]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{microtype}
 \usepackage{ragged2e}
 
-% ---------- colors (single restrained accent, safe in B/W print) ------
-\definecolor{rulegray}{RGB}{90,90,90}
-\definecolor{linkblue}{RGB}{0,0,0}
+% ---------- fonts: Inter -> IBM Plex Sans -> TeX Gyre Heros (always present) ----------
+\IfFontExistsTF{Inter}{\setmainfont{Inter}}{%
+  \IfFontExistsTF{IBM Plex Sans}{\setmainfont{IBM Plex Sans}}{%
+    \setmainfont{TeX Gyre Heros}}}
 
-% ---------- hyperlinks (plain black text, underlying link only) -------
+% ---------- palette (restrained -- reads correctly in B/W print & ATS) ----------
+\definecolor{ink}{HTML}{18181B}
+\definecolor{muted}{HTML}{5B5F6B}
+\definecolor{accent}{HTML}{3730A3}
+\definecolor{hairline}{HTML}{D4D4D8}
+
 \hypersetup{
     colorlinks=true,
-    linkcolor=linkblue,
-    urlcolor=linkblue,
+    linkcolor=accent,
+    urlcolor=accent,
     pdftitle={Ahmed Khaled - Master Resume},
     pdfauthor={Ahmed Khaled}
 }
 \urlstyle{same}
 
-% ---------- page setup -------------------------------------------------
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
 \raggedbottom
-\raggedright
+\color{ink}
 
-% ---------- section formatting -----------------------------------------
-\titleformat{\section}{\normalsize\bfseries\scshape}{}{0em}{}[\vspace{1pt}\titlerule\vspace{-4pt}]
-\titlespacing{\section}{0pt}{9pt}{4pt}
+% ---------- section headings: small, uppercase, letter-spaced, accent-colored ----------
+\titleformat{\section}{\color{accent}\bfseries\fontsize{9.5}{11}\selectfont}{}{0em}{}
+\titlespacing{\section}{0pt}{13pt}{2pt}
+\newcommand{\sectionrule}{\vspace{-1pt}{\color{hairline}\hrule height 0.6pt}\vspace{6pt}}
 
-% ---------- list formatting ---------------------------------------------
-\setlist[itemize]{leftmargin=14pt, itemsep=0pt, parsep=0pt, topsep=1pt, partopsep=0pt}
+% ---------- lists ----------
+\setlist[itemize]{leftmargin=13pt, itemsep=2pt, parsep=0pt, topsep=3pt, partopsep=0pt}
 
-% ---------- custom commands ---------------------------------------------
-% Two-line entry heading with NO tables -- plain text + \hfill.
-% #1 Role/Title   #2 Dates   #3 Org/Subtitle   #4 Location
+% ---------- custom commands (no tables -- plain text + \hfill) ----------
+% #1 Role/Title  #2 Dates  #3 Org/Subtitle  #4 Location
 \newcommand{\entryHeading}[4]{%
-  \textbf{#1} \hfill \textbf{\footnotesize #2}\\
-  \textit{\footnotesize #3} \hfill \textit{\footnotesize #4}\\[2pt]
+  \textbf{#1} \hfill {\small\color{muted}#2}\\
+  {\small\color{muted}\textit{#3}} \hfill {\small\color{muted}#4}\\[1pt]
 }
-% Single-line project/entry heading. #1 Title  #2 Right-aligned meta
+% #1 Title  #2 Right-aligned meta
 \newcommand{\lineHeading}[2]{%
-  \textbf{#1} \hfill {\footnotesize #2}\\[2pt]
+  \textbf{#1} \hfill {\small\color{muted}#2}\\[1pt]
 }
-
-\newcommand{\sectionNote}[1]{{\footnotesize\itshape #1}\\[3pt]}
+% Labeled link line -- e.g. "Live Demo: roshed.tech" (visible domain, links to full URL)
+% #1 label  #2 href (full URL)  #3 display text (bare domain/path)
+\newcommand{\linkLine}[3]{{\small\color{muted}#1: }{\small\href{#2}{#3}}\\[2pt]}
+\newcommand{\linkLineTwo}[6]{{\small\color{muted}#1: }{\small\href{#2}{#3}} \quad\textperiodcentered\quad {\small\color{muted}#4: }{\small\href{#5}{#6}}\\[2pt]}
+% Compact entry: heading + single description line, no bullet list
+\newcommand{\shortEntry}[4]{%
+  \textbf{#1} \hfill {\small\color{muted}#2}\\
+  {\small\color{muted}\textit{#3}}\\
+  {\small #4}\\[3pt]
+}
+\newcommand{\sectionNote}[1]{{\small\color{muted}\itshape#1}\\[3pt]}
 
 \begin{document}
 
 % =========================== HEADER ====================================
 \begin{center}
-    {\Large \textbf{\scshape Ahmed Khaled}}\\[3pt]
-    {\small
-      Alexandria, Egypt \; $|$ \; +20\,100\,570\,1983 \; $|$ \;
-      \href{mailto:ahmadkhaled20011@gmail.com}{ahmadkhaled20011@gmail.com} \; $|$ \;
-      \href{https://www.linkedin.com/in/ahmed-khaled-a3852b21a/}{linkedin.com/in/ahmed-khaled-a3852b21a} \; $|$ \;
-      \href{https://github.com/a7medk7aledak}{github.com/a7medk7aledak} \; $|$ \;
+    {\fontsize{25}{27}\selectfont\textbf{Ahmed Khaled}}\\[4pt]
+    {\color{accent}\fontsize{11}{13}\selectfont Full-Stack Software Engineer}\\[6pt]
+    {\small\color{muted}
+      Alexandria, Egypt \ \textperiodcentered\ +20\,100\,570\,1983 \ \textperiodcentered\
+      \href{mailto:ahmadkhaled20011@gmail.com}{ahmadkhaled20011@gmail.com} \ \textperiodcentered\
+      \href{https://www.linkedin.com/in/ahmed-khaled-a3852b21a/}{linkedin.com/in/ahmed-khaled-a3852b21a} \ \textperiodcentered\
+      \href{https://github.com/a7medk7aledak}{github.com/a7medk7aledak} \ \textperiodcentered\
       \href{https://a7medk7aled.me}{a7medk7aled.me}
     }
 \end{center}
-\vspace{-6pt}
+\vspace{2pt}
 
 % =========================== SUMMARY ====================================
-\section*{Professional Summary}
+\section*{Summary}
+\sectionrule
 Full-stack software engineer with 2.5+ years of production experience across freelance, startup, and B2B SaaS
 environments, currently a founding engineer and de facto technical architect at Roshd Tech, a multi-tenant
 education SaaS platform. Primary stack: Next.js, NestJS, React, TypeScript, Django, PostgreSQL, and MongoDB.
@@ -86,13 +109,14 @@ for freelance clients across seven countries with a 5.0/5.0 client satisfaction 
 
 % =========================== SKILLS ====================================
 \section*{Technical Skills}
+\sectionrule
 \begin{itemize}
     \item \textbf{Languages:} JavaScript, TypeScript, Python, SQL
     \item \textbf{Frontend:} React, Next.js (14 \& 16), Tailwind CSS, Bootstrap 5, Framer Motion, Responsive \& RTL/Arabic UI
     \item \textbf{Backend:} Node.js, Express.js, NestJS, Django, Django REST Framework, Flask, RESTful API design
     \item \textbf{Data \& Caching:} PostgreSQL (schema-per-tenant multi-tenancy), MySQL, MongoDB, Redis
     \item \textbf{Architecture \& Systems:} Multi-tenant SaaS design, Strategy Pattern / product registries, RBAC design,
-    concurrency control (row-level locking, idempotency keys), asynchronous task pipelines (Celery + Redis),
+    concurrency control (row-level locking, idempotency keys), asynchronous task pipelines (Celery, Redis/BullMQ),
     WebRTC \& real-time streaming, Socket.io, monorepo architecture (Turborepo)
     \item \textbf{DevOps \& Infrastructure:} Docker, Docker Compose, GitHub Actions (CI/CD), Nginx reverse proxying,
     SSL/domain provisioning, Git, Vercel, Render
@@ -103,11 +127,13 @@ for freelance clients across seven countries with a 5.0/5.0 client satisfaction 
 
 % =========================== EXPERIENCE ====================================
 \section*{Professional Experience}
+\sectionrule
 
 \entryHeading{Software Engineer}{Nov 2025 -- Present}{Roshd Tech}{Alexandria, Egypt (Remote)}
+\linkLine{Live Demo}{https://roshed.tech/}{roshed.tech}
 \begin{itemize}
     \item Joined as a founding engineer on Roshd, a multi-tenant B2B SaaS platform for educational academies and
-    independent teachers, and own the platform's technical architecture and engineering direction.
+    independent teachers; own the platform's technical architecture and engineering direction.
     \item Architected a multi-tenant system on PostgreSQL using schema-per-tenant isolation with dynamic search-path
     routing, enforcing strict data separation while supporting wildcard subdomains and custom white-labeled domains
     with automated Let's Encrypt SSL provisioning.
@@ -117,87 +143,87 @@ for freelance clients across seven countries with a 5.0/5.0 client satisfaction 
     \item Built a concurrency-safe, double-entry ledger wallet system, guarding balance mutations with row-level
     locking (\texttt{SELECT FOR UPDATE}) and client-generated idempotency keys to eliminate race conditions and
     duplicate charges under concurrent billing load.
-    \item Implemented an asynchronous Celery/Redis provisioning pipeline that creates a new tenant schema, runs
-    migrations, and configures default RBAC rules in under 30 seconds.
-    \item Led the migration of the platform's backend from Flask to Django to support long-term scalability, and
-    rebuilt the frontend as a Next.js 14 Turborepo monorepo spanning 4 client applications with shared authentication
-    and UI packages.
+    \item Implemented an asynchronous Celery/Redis provisioning pipeline that reduced new-tenant setup -- schema
+    creation, migrations, default RBAC rules -- to under 30 seconds.
+    \item Migrated the platform's backend from Flask to Django to support long-term scalability, and rebuilt the
+    frontend as a Next.js 14 Turborepo monorepo spanning 4 client applications with shared authentication and UI
+    packages.
     \item Integrated WebRTC for live class streaming and Server-Sent Events for real-time, low-overhead client
     notifications.
-    \item Designed a custom RBAC system and admin control panel governing tenant provisioning, subscription plans,
-    and platform-wide configuration.
 \end{itemize}
 
-\entryHeading{Frontend Developer}{Oct 2024 -- Mar 2025}{Qeema Tech}{Egypt}
-\begin{itemize}
-    \item Built responsive, production-focused user interfaces in React across two separate platform projects while
-    completing final-year studies.
-\end{itemize}
+\shortEntry{Frontend Developer}{Oct 2024 -- Mar 2025}{Qeema Tech}{Built responsive, production-focused user interfaces in React across two separate platform projects while completing final-year studies.}
 
-\entryHeading{Full Stack Engineer}{Jan 2024 -- Sep 2024}{Mostaql.com (Arabic Freelance Marketplace)}{Remote}
-\begin{itemize}
-    \item Delivered full-stack web applications for clients sourced through Mostaql, the Arab world's leading
-    freelance marketplace, owning both frontend and backend development from planning through deployment.
-\end{itemize}
+\shortEntry{Full Stack Engineer}{Jan 2024 -- Sep 2024}{Mostaql.com (Arabic Freelance Marketplace)}{Delivered full-stack web applications for clients sourced through Mostaql, the Arab world's leading freelance marketplace, owning both frontend and backend development from planning through deployment.}
 
 \entryHeading{Freelance Front-End Web Developer}{Oct 2023 -- Jan 2024}{Upwork}{Remote}
 \begin{itemize}
-    \item Developed and deployed responsive React / Next.js / Tailwind CSS applications for international clients,
+    \item Delivered responsive React / Next.js / Tailwind CSS applications for international clients end-to-end,
     translating design concepts into fully functional interfaces with optimized UX flows.
-    \item Implemented a reusable component architecture that cut development time by 30\% across multiple client
-    projects, and maintained a 5-star feedback record that improved repeat-client satisfaction by 40\%.
+    \item Reduced development time 30\% by implementing a reusable component architecture across multiple client
+    projects, and improved repeat-client satisfaction 40\% through a consistent 5-star delivery record.
 \end{itemize}
 
 % =========================== FREELANCE PROJECTS ====================================
 \section*{Freelance \& Independent Client Projects}
+\sectionrule
 \sectionNote{Delivered outside of full-time employment, direct-to-client, largely in parallel with the roles above.}
-\begin{itemize}
-    \item \textbf{Afaq Academy} (afaq-academy.online) -- Built the Next.js/Bootstrap 5 frontend for an Arabic
-    RTL e-learning platform unifying Islamic studies, language learning, and tech education, including a student
-    toolkit (Quran reader, prayer times, Qibla finder).
-    \item \textbf{Taki Academy} (takiacademy.com) -- Built the complete Next.js frontend for a Tunisian e-learning
-    academy covering course discovery and enrollment.
-    \item \textbf{Garneau School \& GSPA} (garneauschool.ma, gspa.ma) -- Delivered two Next.js/Tailwind CSS marketing
-    and admissions websites end-to-end for private schools in Morocco.
-    \item \textbf{Spotlight Egypt} (spotlightegypt.online) -- Built a Next.js/TypeScript event management and
-    ticket-booking platform for organizers to publish events and sell tickets online.
-    \item Delivered all client engagements with a \textbf{5.0/5.0 average rating across 9 documented testimonials}
-    from clients in Tunisia, Morocco, Egypt, Saudi Arabia, the UAE, Jordan, and Kuwait.
-\end{itemize}
+
+\lineHeading{Afaq Academy -- Arabic RTL E-Learning Platform}{}
+\linkLine{Live Demo}{https://afaq-academy.online/}{afaq-academy.online}
+Built the Next.js/Bootstrap 5 frontend unifying Islamic studies, language learning, and tech education, including
+a student toolkit (Quran reader, prayer times, Qibla finder).\\[4pt]
+
+\lineHeading{Taki Academy -- E-Learning Platform}{}
+\linkLine{Live Demo}{https://takiacademy.com/}{takiacademy.com}
+Built the complete Next.js frontend for a Tunisian e-learning academy covering course discovery and enrollment.\\[4pt]
+
+\lineHeading{Garneau School \& GSPA -- Private School Websites}{}
+\linkLine{Live Demo}{https://www.garneauschool.ma/}{garneauschool.ma}
+Delivered two Next.js/Tailwind CSS marketing and admissions websites end-to-end for private schools in Morocco.
+
+\vspace{4pt}
+\sectionNote{Delivered all client engagements with a 5.0/5.0 average rating across 9 documented testimonials from
+clients in Tunisia, Morocco, Egypt, Saudi Arabia, the UAE, Jordan, and Kuwait.}
 
 % =========================== PROJECTS ====================================
-\section*{Major Projects}
+\section*{Selected Projects}
+\sectionrule
 
-\lineHeading{VitaPsyche -- AI-Powered Mental Health Platform}{Team Lead \& Backend Engineer, Graduation Project, 2025}
+\lineHeading{Spotlight Egypt -- Ticketing \& Event Operations Platform}{Solo Architect \& Engineer}
+\linkLine{Live Demo}{https://spotlightegypt.online/}{spotlightegypt.online}
 \begin{itemize}
-    \item Led a cross-functional team (AI, backend, frontend, mobile) using Agile/Jira, grounding the system design
-    in a C4 Model and UML diagrams before development began.
-    \item Built the Django + MySQL backend and integrated AI/NLP emotional-assessment models (Rasa, Hugging Face,
-    TensorFlow) alongside an empathetic virtual support character.
-    \item Delivered a React/Next.js web client and a companion Flutter mobile app supporting real-time doctor
-    consultations via booking, chat, and video.
+    \item Architected and built solo, end-to-end, a ticketing and event-operations platform for an Egyptian
+    concert/event promoter.
+    \item Designed a Next.js frontend backed by a modular-monolith NestJS API on PostgreSQL, with Redis/BullMQ
+    queues engineered to survive high-demand ticket on-sales without overselling.
+    \item Shipped the bilingual (English/Arabic) marketing site to production; the ticketing engine is in active
+    development.
 \end{itemize}
 
-\lineHeading{Capsule Gym}{Next.js, Node.js/Express, MongoDB, OpenAI API}
-\begin{itemize}
-    \item Built a full-stack fitness platform with an AI chatbot generating personalized workout and nutrition
-    plans from user biometrics, plus an interactive BMI-tracking dashboard.
-\end{itemize}
+\lineHeading{Capsule Gym -- AI-Powered Fitness Platform}{}
+\linkLineTwo{Live Demo}{https://capsulegym-v1.vercel.app/}{capsulegym-v1.vercel.app}{GitHub}{https://github.com/a7medk7aledak/capsulegym-V1}{github.com/a7medk7aledak/capsulegym-V1}
+Built a full-stack fitness platform (Next.js, Node.js/Express, MongoDB) with an AI chatbot (OpenAI API) generating
+personalized workout/nutrition plans from user biometrics, plus a BMI-tracking dashboard.\\[4pt]
 
-\lineHeading{Blog App}{React (Vite), Express, MongoDB}
-\begin{itemize}
-    \item Built a full-stack MERN blogging platform with categorized content and a commenting system; optimized
-    MongoDB indexing on post categories and author references to keep lookups fast under traffic spikes.
-\end{itemize}
+\lineHeading{Blog App -- Full-Stack MERN Blogging Platform}{}
+\linkLineTwo{Live Demo}{https://full-stack-blog-app-nine-amber.vercel.app/}{full-stack-blog-app-nine-amber.vercel.app}{GitHub}{https://github.com/a7medk7aledak/Full-Stack-BlogApp}{github.com/a7medk7aledak/Full-Stack-BlogApp}
+Built a full-stack blogging platform (React/Vite, Express, MongoDB) with categorized content and a commenting
+system; optimized MongoDB indexing on post categories and author references to keep lookups fast under traffic
+spikes.\\[4pt]
 
-\lineHeading{Customer Management System}{Node.js, Express, MongoDB}
-\begin{itemize}
-    \item Built a CRM-style platform for tracking leads, client history, and sales pipelines, with dynamic query
-    filters and pagination for admin usability.
-\end{itemize}
+\lineHeading{Customer Management System -- CRM Platform}{}
+\linkLineTwo{Live Demo}{https://cilent-list-nodejs-project.onrender.com/}{cilent-list-nodejs-project.onrender.com}{GitHub}{https://github.com/a7medk7aledak/cilent-list-nodejs-project}{github.com/a7medk7aledak/cilent-list-nodejs-project}
+Built a CRM-style platform (Node.js, Express, MongoDB) for tracking leads, client history, and sales pipelines,
+with dynamic query filters and pagination for admin usability.
+
+\vspace{4pt}
+\sectionNote{6 production client platforms delivered, plus 13 open-source personal/academic projects in total --
+browse the full list and case studies at \href{https://a7medk7aled.me/myprojects}{a7medk7aled.me/myprojects}.}
 
 % =========================== EDUCATION ====================================
 \section*{Education}
+\sectionrule
 \entryHeading{B.Sc. in Computer Software Engineering}{Oct 2020 -- Jun 2025}{Alexandria Higher Institute of Engineering \& Technology (AIET)}{Alexandria, Egypt}
 \begin{itemize}
     \item Grade: Very Good
@@ -206,6 +232,7 @@ for freelance clients across seven countries with a 5.0/5.0 client satisfaction 
 
 % =========================== CERTIFICATIONS ====================================
 \section*{Certifications}
+\sectionrule
 \begin{itemize}
     \item Machine Learning Specialization coursework (DeepLearning.AI / Stanford, via Coursera): \textit{Supervised
     Machine Learning: Regression and Classification}; \textit{Advanced Learning Algorithms}
@@ -213,6 +240,7 @@ for freelance clients across seven countries with a 5.0/5.0 client satisfaction 
 
 % =========================== LANGUAGES ====================================
 \section*{Languages}
-Arabic (Native) \quad $|$ \quad English (Professional Working Proficiency)
+\sectionrule
+Arabic (Native) \quad\textperiodcentered\quad English (Professional Working Proficiency)
 
 \end{document}
