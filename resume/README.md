@@ -156,10 +156,6 @@ lowest-impact bullet first — the templates are already tuned tight to one page
      Engineering," while LinkedIn lists "Computer Software Engineering" at Alexandria Higher
      Institute of Engineering & Technology (AIET). These resumes use the LinkedIn version —
      reconcile the portfolio site to match whichever is on the transcript.
-   - The portfolio's Spotlight Egypt project entry (`app/lib/constants/index.ts` /
-     `projectDetails.ts`) still describes it as a plain Next.js/TypeScript/Tailwind app — the
-     resumes now describe the real architecture (NestJS modular monolith, PostgreSQL, Redis/BullMQ
-     anti-oversell queueing). Worth updating the site to match.
    - GitHub profile bio/company fields (`student in communications engineering`, `ITworx`) are
      stale/unconfirmed and were **not** used anywhere in these resumes — worth cleaning up so a
      recruiter cross-referencing LinkedIn/GitHub/resume sees a consistent story.

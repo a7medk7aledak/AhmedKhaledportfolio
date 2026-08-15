@@ -117,7 +117,7 @@ for freelance clients across seven countries with a 5.0/5.0 client satisfaction 
     \item \textbf{Data \& Caching:} PostgreSQL (schema-per-tenant multi-tenancy), MySQL, MongoDB, Redis
     \item \textbf{Architecture \& Systems:} Multi-tenant SaaS design, Strategy Pattern / product registries, RBAC design,
     concurrency control (row-level locking, idempotency keys), asynchronous task pipelines (Celery, Redis/BullMQ),
-    WebRTC \& real-time streaming, Socket.io, monorepo architecture (Turborepo)
+    WebRTC \& real-time streaming (self-hosted LiveKit SFU), WebSockets, Socket.io, monorepo architecture (Turborepo)
     \item \textbf{DevOps \& Infrastructure:} Docker, Docker Compose, GitHub Actions (CI/CD), Nginx reverse proxying,
     SSL/domain provisioning, Git, Vercel, Render
     \item \textbf{AI/ML \& Tooling:} AI-assisted development workflows, prompt engineering for developers, Hugging Face,
@@ -169,10 +169,12 @@ for freelance clients across seven countries with a 5.0/5.0 client satisfaction 
 \sectionrule
 \sectionNote{Delivered outside of full-time employment, direct-to-client, largely in parallel with the roles above.}
 
-\lineHeading{Afaq Academy -- Arabic RTL E-Learning Platform}{}
+\lineHeading{Afaq Academy -- Full-Stack Live-Teaching Platform}{}
 \linkLine{Live Demo}{https://afaq-academy.online/}{afaq-academy.online}
-Built the Next.js/Bootstrap 5 frontend unifying Islamic studies, language learning, and tech education, including
-a student toolkit (Quran reader, prayer times, Qibla finder).\\[4pt]
+Built full-stack, end-to-end: a Next.js/TypeScript frontend with role-based dashboards (Admin, Teacher, Student,
+Academic Supervisor) on a Django REST Framework backend (PostgreSQL, Redis, Celery), video powered by a
+self-hosted LiveKit SFU, with an automated teacher-payout finance module. Live-only classes for Gulf students --
+no recorded content.\\[4pt]
 
 \lineHeading{Taki Academy -- E-Learning Platform}{}
 \linkLine{Live Demo}{https://takiacademy.com/}{takiacademy.com}
@@ -194,11 +196,13 @@ clients in Tunisia, Morocco, Egypt, Saudi Arabia, the UAE, Jordan, and Kuwait.}
 \linkLine{Live Demo}{https://spotlightegypt.online/}{spotlightegypt.online}
 \begin{itemize}
     \item Architected and built solo, end-to-end, a ticketing and event-operations platform for an Egyptian
-    concert/event promoter.
-    \item Designed a Next.js frontend backed by a modular-monolith NestJS API on PostgreSQL, with Redis/BullMQ
-    queues engineered to survive high-demand ticket on-sales without overselling.
-    \item Shipped the bilingual (English/Arabic) marketing site to production; the ticketing engine is in active
-    development.
+    concert/event promoter -- a Next.js frontend backed by a modular-monolith NestJS API (PostgreSQL, Redis).
+    \item Took the backend from an empty skeleton to a near-complete platform in about three weeks: multi-provider
+    auth with MFA and per-event RBAC, a full events/tickets catalog with two overselling-prevention strategies
+    (Redis atomic counters and distributed locks), Paymob payments with idempotent webhooks and a checkout queue,
+    ticket-level refunds, coupons, a BullMQ notification pipeline, and a live WebSocket analytics dashboard.
+    \item Deployed on Render via Docker; the customer-facing storefront UI is now being wired up to the completed
+    backend.
 \end{itemize}
 
 \lineHeading{Capsule Gym -- AI-Powered Fitness Platform}{}
