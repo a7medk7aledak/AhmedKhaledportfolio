@@ -19,6 +19,8 @@ resume/
 │   └── fullstack_resume.tex
 ├── backend/
 │   └── backend_resume.tex
+├── applications/
+│   └── <company-role>.tex         # one-off resumes tailored to a specific job posting
 └── README.md
 ```
 
@@ -55,6 +57,14 @@ Engineer," "API Engineer," or "Platform Engineer."
 
 There is deliberately **no frontend-only version** — the real experience here is broader than
 frontend work, and a frontend-only resume would undersell the architecture ownership.
+
+### `applications/<company-role>.tex` — one-off, per-posting tailored resumes
+Not a fourth general-purpose template — a copy made for one specific job application, re-tuned to
+that posting's exact keyword list (skills reordered/relabeled, project selection swapped to
+whichever real projects best match the required stack, role line echoing the posting's title for
+ATS matching). Starts from whichever of the three general templates above fits closest, never
+invents new facts. Keep the general templates untouched when tailoring — edit a copy in this
+folder instead, named after the company/role (e.g. `hirefeed-fullstack-react-node.tex`).
 
 ## Design
 
